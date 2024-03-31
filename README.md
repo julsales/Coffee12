@@ -1,7 +1,7 @@
 # Coffee12
 Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
-#Grupo 
+# Grupo 
 1.Clara Foster Maciel → cfm@cesar.school
 
 2.Camila N. Farias → cnf@cesar.school
