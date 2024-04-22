@@ -49,3 +49,22 @@ História 2:
 História 3:
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
     - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
+
+História 4:
+- Eu como usuário, gostaria de ter recomendações de cafeterias com base nas minhas preferencias
+    - Descrição: o sistema ira informar novas cafeterias com base nas preferencias que eu escolher para minha conta
+    - perguntas: 
+    1: qual o tipo de café você mais gosta
+    2: com qual finalidade você procura cafeterias?
+    3: qual região você prefere?
+História 5:
+- Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
+    - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
+
+História 6:
+- eu como usuário gostaria de poder requisitar itens perdidos/esquecidos durante minha permanência no estabelecimento.
+    - Descrição: o usuário poderá entrar em contato com um responsável da cafeteria para questionar sobre um item seu que fora perdido no estabelecimento.
+ 
+História 7:
+- Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
+    - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar o cardápio, horarios de funcionamento e fotos.
