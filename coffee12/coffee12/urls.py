@@ -8,4 +8,5 @@ urlpatterns = [
     path('signup/', views.SignupPage, name='signup'),  # Rota para a página de cadastro
     path('', views.LoginPage, name='login'),
     path('logout/', views.LogoutPage, name='logout'),  # Rota para a página de login
+    
 ]

@@ -131,30 +131,34 @@ button{
 .social i{
   margin-right: 4px;
 }
+.create-account {
+    margin-top: 20px; /* Ajuste o valor conforme necessário */
+}
 
     </style>
 </head>
 <body>
+        
+
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
     <form method="post">
-        <h3>Login Here</h3>
+        <h3>Entrar</h3>
+        
         {% csrf_token %} 
         <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" id="username" name="username">
+        <input type="text" placeholder="Nome de usuário" id="username" name="username">
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="pass">
+        <input type="password" placeholder="Senha" id="password" name="pass">
 
         <button type="submit">Log In</button>
-        <!-- <input type="button" value=""> -->
-        <!-- <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div> -->
-        <a href="{% url 'signup' %}" >Create a account</a>
+        <div class="create-account"
+            <p>Não possui uma conta?</p>
+            <a href="{% url 'signup' %}" >Criar aqui</a>
+        </div>
     </form>
 </body>
 </html>
