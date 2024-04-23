@@ -28,6 +28,8 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 13. Adriano Barnard → abmp@cesar.school
 
+[Link do Notion](https://distinct-rhubarb-0a9.notion.site/Notion-do-G12-3bfe1143afc6404eacf3dee57135c0dd?pvs=4)
+
 ## Histórias do Usuário:
 
 História 1: 
