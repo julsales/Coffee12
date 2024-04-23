@@ -31,7 +31,9 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 ##Links Importantes 
 
 [Notion](https://distinct-rhubarb-0a9.notion.site/Notion-do-G12-3bfe1143afc6404eacf3dee57135c0dd?pvs=4)
+
 [Google Sites](https://sites.google.com/cesar.school/queremoscafe-g12?usp=sharing)
+
 [Google Drive](https://drive.google.com/drive/folders/1uxPJ6H_WYI4_X0wMdg2IrY-lmEsm_0Vb?usp=sharing)
 
 
