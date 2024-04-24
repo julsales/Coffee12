@@ -17,7 +17,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #080710;
+    background-color: #fffbe7;
 }
 .background{
     width: 430px;
@@ -35,8 +35,8 @@ body{
 }
 .shape:first-child{
     background: linear-gradient(
-        #1845ad,
-        #23a2f6
+        #ec7107,
+        #e7a302
     );
     left: -80px;
     top: -80px;
@@ -44,16 +44,16 @@ body{
 .shape:last-child{
     background: linear-gradient(
         to right,
-        #ff512f,
-        #f09819
+        #472100,
+        #774910
     );
-    right: -30px;
+    right: -80px;
     bottom: -80px;
 }
 form{
     height: 520px;
     width: 400px;
-    background-color: rgba(255,255,255,0.13);
+    background-color: #561801c5;
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
@@ -144,15 +144,15 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="post">
+    <form method="POST">
         <h3>Entrar</h3>
         
         {% csrf_token %} 
-        <label for="username">Username</label>
-        <input type="text" placeholder="Nome de usuário" id="username" name="username">
+        <label for="username">Nome de Usuário</label>
+        <input type="text" placeholder="Insira seu Nome de Usuário" id="username" name="username">
 
-        <label for="password">Password</label>
-        <input type="password" placeholder="Senha" id="password" name="pass">
+        <label for="password">Senha</label>
+        <input type="password" placeholder="Insira sua Senha" id="password" name="pass">
 
         <button type="submit">Log In</button>
         <div class="create-account"
