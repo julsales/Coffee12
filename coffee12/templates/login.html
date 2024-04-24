@@ -135,6 +135,7 @@ button{
     margin-top: 20px; /* Ajuste o valor conforme necessário */
 }
 
+
     </style>
 </head>
 <body>
@@ -144,8 +145,9 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
+    
     <form method="POST">
-        <h3>Entrar</h3>
+        <h3>Entre Já</h3>
         
         {% csrf_token %} 
         <label for="username">Nome de Usuário</label>
@@ -154,7 +156,7 @@ button{
         <label for="password">Senha</label>
         <input type="password" placeholder="Insira sua Senha" id="password" name="pass">
 
-        <button type="submit">Log In</button>
+        <button type="submit">Entrar</button>
         <div class="create-account"
             <p>Não possui uma conta?</p>
             <a href="{% url 'signup' %}" >Criar aqui</a>

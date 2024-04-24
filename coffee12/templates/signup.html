@@ -62,7 +62,7 @@ form{
     backdrop-filter: blur(5px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 30px 35px;
 }
 form *{
     font-family: 'Poppins',sans-serif;
@@ -70,6 +70,7 @@ form *{
     letter-spacing: 0.5px;
     outline: none;
     border: none;
+    
 }
 form h3{
     font-size: 32px;
@@ -89,7 +90,7 @@ form h4{
 
 label{
     display: block;
-    margin-top: 30px;
+    margin-top: 16px;
     font-size: 16px;
     font-weight: 500;
 }
@@ -164,12 +165,17 @@ button{
         <label for="email">Email</label>
         <input type="email" placeholder="Insira seu email" name="email" id="email">
 
+        <label for="phone_number">Número de Contato</label>
+        <input type="phone_number" placeholder="Insira seu número de contato" id="phone_number" name="phone_number">
+       
+
         <label for="password1">Senha</label>
         <input type="password" placeholder="Insira sua senha" id="password1" name="password1">
 
 
         <label for="password2">Confirmar Senha</label>
         <input type="password" placeholder="Confirme" id="password2" name="password2">
+
         <button type="submit">Criar Conta</button>
         
         
