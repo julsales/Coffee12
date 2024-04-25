@@ -162,13 +162,17 @@ Historia 6:
   -Como dono de uma cafeteria
      Eu quero editar o perfil da minha cafeteria
      Para atualizar informações e o cardápio
+   -Cenário: Editar informações do perfil
+     Dado que estou logado como o dono da "Café do Bairro"
+     E estou na página de edição do perfil
 
 # BugTracker
 ![image](https://github.com/julsales/Coffee12/assets/134211506/287ea9dc-aeb2-471c-bfdb-c169a8d9a5c2)
 
+# Programação em Pares
+    grande parte do sistema foi realizado a partir da programação em pares de Lucas Ferraz Santana e ícaro Sampaio, a partir do computador de Lucas Ferraz
 
-  -Cenário: Editar informações do perfil
-     Dado que estou logado como o dono da "Café do Bairro"
-     E estou na página de edição do perfil
+
+  
 
 
