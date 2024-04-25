@@ -77,3 +77,9 @@ História 5:
 História 6:
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar horários de funcionamento, endereço do estabelecimento.
+
+## Diagrama de Atividades do Sistema:
+
+
+![diagrama-de-atividades](https://github.com/julsales/Coffee12/assets/143560144/fbee1388-6fe5-4414-8629-d1aa3cb31d91)
+
