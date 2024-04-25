@@ -102,7 +102,7 @@ História 6:
     Então eu recebo uma lista de cafeterias recomendadas em Pinheiros que são tranquilas e focadas em café
 
 
-#Historia 2: 
+##Historia 2: 
 -Funcionalidade: Seguir Perfis e Acompanhar Novidades
   -Como um usuário
       Eu quero seguir perfis e acompanhar novidades
@@ -115,7 +115,7 @@ História 6:
       Então eu vejo ofertas e eventos do "Café do Bairro" listados nas novidades
 
 
-#Historia 3: 
+##Historia 3: 
 -Funcionalidade: Dar Feedback sobre Cafeterias
   -Como um usuário
       Eu quero dar feedback sobre as cafeterias que visitei
@@ -130,7 +130,7 @@ História 6:
       Então meu comentário e nota são salvos no perfil da "Café do Bairro" 
 
 
-#Historia 4: 
+##Historia 4: 
 -Funcionalidade: Destacar Promoções no Perfil da Cafeteria
   -Como dono de uma cafeteria
       Eu quero evidenciar pratos principais e promoções
@@ -144,7 +144,7 @@ História 6:
       Então a promoção "Milkshake de Café por R$ 15,00" é exibida no perfil da minha cafeteria
 
 
-#Historia 5: 
+##Historia 5: 
 -Funcionalidade: Cadastro de Perfil da Cafeteria
   -Como dono de uma cafeteria
       Eu quero cadastrar o perfil da minha cafeteria
@@ -157,7 +157,7 @@ História 6:
       Então o perfil do "Café Novo" é criado e visível para os usuários
 
 
-#Historia 6: 
+##Historia 6: 
 -Funcionalidade: Editar Perfil da Cafeteria
   -Como dono de uma cafeteria
      Eu quero editar o perfil da minha cafeteria
