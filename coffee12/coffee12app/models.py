@@ -32,3 +32,23 @@ class Estabelecimento(models.Model):
     endereco = models.CharField(max_length=200)
     telefone = models.CharField(max_length=15)
     proprietario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    descricao_horario = models.CharField(max_length=200, default='')
+    
+class DiaSemana(models.Model):
+    estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    dia_semana = models.CharField(max_length=20)
+    horario_abertura = models.TimeField()
+    horario_fechamento = models.TimeField()
+    
+class HorarioFuncionamento(models.Model):
+    estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    dias_semana = models.ManyToManyField(DiaSemana)
+
+class Prato(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
+    preco = models.DecimalField(max_digits=6, decimal_places=2)
+    preco_promocional = models.DecimalField(max_digits=6, decimal_places=2)
+    estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    prato_principal = models.BooleanField(default=False);
+    

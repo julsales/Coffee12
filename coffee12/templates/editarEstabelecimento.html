@@ -129,6 +129,31 @@
   .create-account {
       margin-top: 20px; /* Ajuste o valor conforme necessário */
   }
+  .back-button {
+    font-family: Poppins, sans-serif;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #561801ce;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(193, 16, 16, 0.27);
+}
+
+.back-button a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
   
   
       </style>
@@ -154,5 +179,8 @@
 
         <button type="submit">Salvar</button>
     </form>
+    <div class="back-button">
+        <a href="{% url 'homepagecafe' %}">Voltar</a>
+    </div>
 </body>
 </html>

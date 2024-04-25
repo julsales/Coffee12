@@ -45,7 +45,7 @@
       bottom: -80px;
   }
   form{
-      height: 560px;
+      height: 720px;
       width: 400px;
       background-color: #561801c5;
       position: absolute;
@@ -166,17 +166,22 @@
     
 
     <form method="POST">
-        <h3>Criar Estabelecimento</h3>
+        <h3>Criar Prato</h3>
         {% csrf_token %}
         <label for="nome">Nome</label>
         <input type="text" placeholder="Insira o Nome" id="nome" name="nome" required>
 
-        <label for="endereco">Endereço</label>
-        <input type="text" placeholder="Insira o Endereco" id="endereco" name="endereco" required>
+        <label for="descricao">Descrição</label>
+        <input type="text" placeholder="Insira a Descrição" id="descricao" name="descricao" required>
 
-        <label for="telefone">Telefone</label>
-        <input type="text" placeholder="Insira o Telefone de Contato" id="telefone" name="telefone" required>
+        <label for="preco">Preço</label>
+        <input type="text" placeholder="Insira o Preço" id="preco" name="preco" required>
 
+        <label for="preco_promocional">Preço Promocional</label>
+        <input type="text" placeholder="Insira o Preço Promocional" id="preco_promocional" name="preco_promocional">
+        
+        <label for="prato_principal">Prato Principal</label>
+        <input type="checkbox" id="prato_principal" name="prato_principal">
         <button type="submit">Cadastrar</button>
     </form>
     <div class="back-button">

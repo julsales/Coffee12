@@ -45,7 +45,7 @@
       bottom: -80px;
   }
   form{
-      height: 560px;
+      height: 260;
       width: 400px;
       background-color: #561801c5;
       position: absolute;
@@ -166,18 +166,12 @@
     
 
     <form method="POST">
-        <h3>Criar Estabelecimento</h3>
+        <h3>Excluir Prato</h3>
         {% csrf_token %}
         <label for="nome">Nome</label>
-        <input type="text" placeholder="Insira o Nome" id="nome" name="nome" required>
-
-        <label for="endereco">Endereço</label>
-        <input type="text" placeholder="Insira o Endereco" id="endereco" name="endereco" required>
-
-        <label for="telefone">Telefone</label>
-        <input type="text" placeholder="Insira o Telefone de Contato" id="telefone" name="telefone" required>
-
-        <button type="submit">Cadastrar</button>
+        <input type="text" placeholder="Digite o nome do Prato" id="nome" name="nome" required>
+        <button type="submit">Excluir</button>
+        
     </form>
     <div class="back-button">
         <a href="{% url 'homepagecafe' %}">Voltar</a>

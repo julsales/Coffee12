@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser, Estabelecimento
+from .models import CustomUser, Estabelecimento, Prato
 
 
 @login_required(login_url='login')
@@ -12,9 +12,11 @@ def Homepage(request):
 @login_required(login_url='login')
 def HomepageCafe(request):
     context = {
-        'possui_estabelecimento': request.user.possui_estabelecimento
+        'possui_estabelecimento': request.user.possui_estabelecimento,
+        'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
+        'pratos': Prato.objects.filter(estabelecimento=request.user.cafeteria) if request.user.possui_estabelecimento else None
     }
-    return render(request, 'homepagecafe.html', context)  # Renderiza o template "homepage.html"
+    return render(request, 'homepagecafe.html', context)
 
 def SignupPage(request):
     if request.method == 'POST':
@@ -85,6 +87,19 @@ def CadastrarEstabelecimento(request):
         return redirect('homepagecafe')
     return render(request, 'cadastrarEstabelecimento.html')
 
+def CadastrarPrato(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        descricao = request.POST.get('descricao')
+        preco = request.POST.get('preco')
+        preco_promocional = request.POST.get('preco_promocional')
+        prato_principal = 'prato_principal' in request.POST
+        estabelecimento = request.user.cafeteria
+        prato = Prato.objects.create(nome=nome, descricao=descricao, preco=preco, preco_promocional=preco_promocional,prato_principal=prato_principal, estabelecimento=estabelecimento)
+        prato.save()
+        return redirect('homepagecafe')
+    return render(request, 'cadastrarPrato.html')
+
 def EditarEstabelecimento(request):
     if request.method =='POST':
         nome = request.POST.get('nome')
@@ -108,3 +123,15 @@ def ExcluirEstabelecimento(request):
     estabelecimento.delete()
     
     return redirect('homepagecafe')
+
+def ExcluirPrato(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        estabelecimento = request.user.cafeteria
+        prato = Prato.objects.get(nome=nome, estabelecimento=estabelecimento)
+        prato.delete()
+        return redirect('homepagecafe')
+    return render(request, 'excluirPrato.html')
+
+def Inicio(request):
+    return render(request, 'inicio.html')       
