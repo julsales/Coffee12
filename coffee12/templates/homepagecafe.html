@@ -133,21 +133,37 @@
   .create-account {
       margin-top: 20px; /* Ajuste o valor conforme necessário */
   }
+  a {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
-  
-      </style>
+.button {
+    background-color: #ce9261;
+    color: #ffffff;
+}
+    </style>
     <title>Home Page</title>
   </head>
   <body>
+    <form>
     <h1>Home Page Café</h1>
-    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+    <a href="{% url 'logout' %}" class="btn button">Logout</a>
 
     {% if not possui_estabelecimento %}
-        <a href="{% url 'cadastrarEstabelecimento' %}" class="btn btn-primary">Cadastrar Estabelecimento</a>
+        <a href="{% url 'cadastrarEstabelecimento' %}" class="btn button">Cadastrar Estabelecimento</a>
     {% else %}
-        <a href="{% url 'editarEstabelecimento' %}" class="btn btn-primary">Editar Estabelecimento</a>
-        <a href="{% url 'excluirEstabelecimento' %}" class="btn btn-primary">Excluir Estabelecimento</a>
+        <a href="{% url 'editarEstabelecimento' %}" class="btn button">Editar Estabelecimento</a>
+        <a href="{% url 'excluirEstabelecimento' %}" class="btn button">Excluir Estabelecimento</a>
     {% endif %}
+    </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
