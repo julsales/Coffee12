@@ -72,11 +72,11 @@ História 4:
 
 História 5:
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
-    - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  horarios de funcionamento, endereço do estabelecimento, nome do estabelecimento.
+    - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
       
 História 6:
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
-    - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar horários de funcionamento, endereço do estabelecimento.
+    - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
 ## Diagrama de Atividades do Sistema:
 
