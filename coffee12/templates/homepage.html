@@ -101,7 +101,7 @@
 
 .sidebar-right h2 {
     margin-top: 20px;
-    color: #561801;
+    color: #ffffff;
 }
 .pratos-info {
     display: flex;
@@ -129,10 +129,37 @@
           
       </div>
       <a href="{% url 'logout' %}" class="btn logout_button">Logout</a>
-  </div>
-    
-    
-    
+    </div>
+    <div class="sidebar-right">
+      <h1>Promoções do Dia! </h1>
+      <ul>
+        {% for estabelecimento in estabelecimentos %}
+        <li>
+          <h1>{{ estabelecimento.nome }}</h1>
+         
+          <div class="pratos-info pratos-promocao">
+            {% for prato in pratos %}
+              {% if prato.preco != prato.preco_promocional %}
+              {% if prato.estabelecimento == estabelecimento %}
+                <div>
+                  <h3>{{ prato.nome }}</h3>
+                  <p>{{ prato.descricao }}</p>
+                  <p>R$ <del>{{ prato.preco }}</del> {{ prato.preco_promocional }}</p>
+                </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
 
+      
+        
+      
+  </div>
+    <div class="cafeterias">
+      <!-- Seu código de cafeteria aqui -->
+    </div>
   </body>
 </html>

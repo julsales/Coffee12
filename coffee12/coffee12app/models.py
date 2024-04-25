@@ -9,16 +9,34 @@ class CustomUser(AbstractUser):
     
     COFFEEADMIN = 'CM'
     CLIENT = 'CL'
+    ZONANORTE = 'ZN'
+    ZONASUL = 'ZS'
+    ZONAOESTE = 'ZO'
+    CENTRO = 'CE'
+    NAOIDENTIFICAR = 'NI'
 
     ROLES = [
         (COFFEEADMIN, 'Administrador de Café'),
         (CLIENT, 'Cliente')
     ]
 
+    LOCALIDADES = [
+        (ZONANORTE, 'Zona Norte'),
+        (ZONASUL, 'Zona Sul'),
+        (ZONAOESTE, 'Zona Oeste'),
+        (CENTRO, 'Centro'),
+        (NAOIDENTIFICAR, 'Não Identificar')
+    ]
     role = models.CharField(
         max_length=2,
         choices=ROLES,
         default=CLIENT,
+    )
+    
+    localidade = models.CharField(
+        max_length=2,
+        choices=LOCALIDADES,
+        default=NAOIDENTIFICAR,
     )
     cafeteria = models.ForeignKey('Estabelecimento', on_delete=models.PROTECT, null=True, blank=True)
 

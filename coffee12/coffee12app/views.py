@@ -7,10 +7,19 @@ from .models import CustomUser, Estabelecimento, Prato
 
 @login_required(login_url='login')
 def Homepage(request):
-    return render(request, 'homepage.html')  # Renderiza o template "homepage.html"
+    estabelecimentos = Estabelecimento.objects.all()
+    pratos = Prato.objects.all()
+    context = {
+        'possui_estabelecimento': request.user.possui_estabelecimento,
+        'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
+        'estabelecimentos': estabelecimentos,
+        'pratos': pratos
+    }
+    return render(request, 'homepage.html', context)
 
 @login_required(login_url='login')
 def HomepageCafe(request):
+    
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
         'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
@@ -100,6 +109,8 @@ def CadastrarPrato(request):
         return redirect('homepagecafe')
     return render(request, 'cadastrarPrato.html')
 
+
+
 def EditarEstabelecimento(request):
     if request.method =='POST':
         nome = request.POST.get('nome')
@@ -116,13 +127,14 @@ def EditarEstabelecimento(request):
 
 def ExcluirEstabelecimento(request):
     proprietario = request.user
-    estabelecimento = Estabelecimento.objects.get(proprietario=proprietario)
+    estabelecimentos = Estabelecimento.objects.filter(proprietario=proprietario)
     request.user.cafeteria = None
     request.user.possui_estabelecimento = False
     request.user.save()
-    estabelecimento.delete()
+    estabelecimentos.delete()
     
     return redirect('homepagecafe')
+
 
 def ExcluirPrato(request):
     if request.method == 'POST':

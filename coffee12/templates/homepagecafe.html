@@ -140,6 +140,7 @@
         <ul>
             {% for prato in pratos %}
             <li>
+                
                 {{ prato.nome }}
                 {% if prato.preco_promocional == prato.preco %}
                     <span style="float: right;">R$ {{ prato.preco }}</span>
