@@ -163,6 +163,10 @@ Historia 6:
      Eu quero editar o perfil da minha cafeteria
      Para atualizar informações e o cardápio
 
+# BugTracker
+![image](https://github.com/julsales/Coffee12/assets/134211506/287ea9dc-aeb2-471c-bfdb-c169a8d9a5c2)
+
+
   -Cenário: Editar informações do perfil
      Dado que estou logado como o dono da "Café do Bairro"
      E estou na página de edição do perfil
