@@ -2,15 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
 
-class CustomUserManager(BaseUserManager):
-    def create_user(self, username, email=None, password=None, **extra_fields):
-        if not username:
-            raise ValueError('The given username must be set')
-        email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **extra_fields)
-        user.set_password(password)
-        user.save(using=self._db)
-        return user
+
 
 class CustomUser(AbstractUser):
     phone_number = models.CharField(max_length=15, blank=True)
@@ -28,5 +20,15 @@ class CustomUser(AbstractUser):
         choices=ROLES,
         default=CLIENT,
     )
+    cafeteria = models.ForeignKey('Estabelecimento', on_delete=models.PROTECT, null=True, blank=True)
 
-    objects = CustomUserManager()
+    possui_estabelecimento = models.BooleanField(default=False)
+
+
+    
+
+class Estabelecimento(models.Model):
+    nome = models.CharField(max_length=100)
+    endereco = models.CharField(max_length=200)
+    telefone = models.CharField(max_length=15)
+    proprietario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)

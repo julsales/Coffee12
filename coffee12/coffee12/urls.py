@@ -9,6 +9,9 @@ urlpatterns = [
     path('signup/', views.SignupPage, name='signup'),  # Rota para a página de cadastro
     path('', views.LoginPage, name='login'),
     path('logout/', views.LogoutPage, name='logout'),
-    path('signupCafe/',views.SignupCafePage,name='signupCafe')  # Rota para a página de login
+    path('signupCafe/',views.SignupCafePage,name='signupCafe'),  # Rota para a página de login
+    path('cadastrarEstabelecimento/',views.CadastrarEstabelecimento,name='cadastrarEstabelecimento'),
+    path('editarEstabelecimento/',views.EditarEstabelecimento,name='editarEstabelecimento'),
+    path('excluirEstabelecimento/',views.ExcluirEstabelecimento,name='excluirEstabelecimento'),
     
 ]

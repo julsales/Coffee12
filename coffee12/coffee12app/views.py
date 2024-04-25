@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import CustomUser
+from .models import CustomUser, Estabelecimento
 
 
 @login_required(login_url='login')
@@ -11,7 +11,10 @@ def Homepage(request):
 
 @login_required(login_url='login')
 def HomepageCafe(request):
-    return render(request, 'homepagecafe.html')  # Renderiza o template "homepage.html"
+    context = {
+        'possui_estabelecimento': request.user.possui_estabelecimento
+    }
+    return render(request, 'homepagecafe.html', context)  # Renderiza o template "homepage.html"
 
 def SignupPage(request):
     if request.method == 'POST':
@@ -65,3 +68,43 @@ def SignupCafePage(request):
         
 
     return render(request, 'signupCafe.html')
+
+def CadastrarEstabelecimento(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        endereco = request.POST.get('endereco')
+        telefone = request.POST.get('telefone')
+        proprietario = request.user
+        estabelecimento = Estabelecimento.objects.create(nome=nome, endereco=endereco, telefone=telefone, proprietario=proprietario)
+        estabelecimento.save()
+        request.user.possui_estabelecimento = True
+        request.user.cafeteria = estabelecimento
+        
+        request.user.save()
+
+        return redirect('homepagecafe')
+    return render(request, 'cadastrarEstabelecimento.html')
+
+def EditarEstabelecimento(request):
+    if request.method =='POST':
+        nome = request.POST.get('nome')
+        endereco = request.POST.get('endereco')
+        telefone = request.POST.get('telefone')
+        proprietario = request.user
+        estabelecimento = Estabelecimento.objects.get(proprietario=proprietario)
+        estabelecimento.nome = nome
+        estabelecimento.endereco = endereco
+        estabelecimento.telefone = telefone
+        estabelecimento.save()
+        return redirect('homepagecafe')
+    return render(request, 'editarEstabelecimento.html')
+
+def ExcluirEstabelecimento(request):
+    proprietario = request.user
+    estabelecimento = Estabelecimento.objects.get(proprietario=proprietario)
+    request.user.cafeteria = None
+    request.user.possui_estabelecimento = False
+    request.user.save()
+    estabelecimento.delete()
+    
+    return redirect('homepagecafe')
