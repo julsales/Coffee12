@@ -20,13 +20,11 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 9.Lucas Ferraz Santana Filgueiras → lfsf@cesar.school
 
-10.Marcelo Cavalcanti → mcm@cesar.school
+10.Miguel José França → mjfa@cesar.school
 
-11.Miguel José França → mjfa@cesar.school
+11.Ícaro Barros → isb2@cesar.school
 
-12.Ícaro Barros → isb2@cesar.school
-
-13. Adriano Barnard → abmp@cesar.school
+12. Adriano Barnard → abmp@cesar.school
 
 ## Links Importantes SR1
 
