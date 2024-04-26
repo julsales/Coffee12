@@ -208,7 +208,7 @@ No fim das contas, o Pair Programming se provou um método eficiente de trabalho
 Histórias implementadas:
 https://www.youtube.com/watch?v=7aSX_eD-i7M
 
-Low-fi:
+Lo-fi:
 https://www.youtube.com/watch?v=ejQEUXkaveA
 
 
