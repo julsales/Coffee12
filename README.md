@@ -38,6 +38,12 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Protótipo De Baixa Fidelidade](https://lucid.app/lucidspark/826e0ab7-e4ec-4569-869a-10c4e6e42f82/edit?invitationId=inv_f55a1a31-7dd9-4893-a238-159cd9c78211&page=0_0#)
 
+[Screencast Mockup](https://youtu.be/ejQEUXkaveA)
+
+[Screencast implementação](https://youtu.be/7aSX_eD-i7M)
+
+
+
 
 ## Histórias do Usuário:
 
@@ -90,7 +96,7 @@ Historia 1:
 -Como um usuário
     Eu quero escolher características de cafés que me agradam
     Para receber recomendações de cafeterias baseadas no meu perfil
-
+<b>
   -Cenário: Receber recomendações com base nas preferências
     Dado que estou na página de preferências
     Quando eu seleciono "momento de trabalho" como finalidade
@@ -99,27 +105,28 @@ Historia 1:
     E escolho "Pinheiros" como região preferida
     E submeto minhas preferências
     Então eu recebo uma lista de cafeterias recomendadas em Pinheiros que são tranquilas e focadas em café
-
-
+<b>
+<b>
 Historia 2: 
 -Funcionalidade: Seguir Perfis e Acompanhar Novidades
   -Como um usuário
       Eu quero seguir perfis e acompanhar novidades
       Para estar atualizado com eventos e promoções das minhas cafeterias favoritas
-
+<b>
   -Cenário: Seguir uma cafeteria e receber atualizações
       Dado que estou na página de perfil da cafeteria "Café do Bairro" 
       Quando eu clico em "Seguir"
       E volto para a aba de novidades
       Então eu vejo ofertas e eventos do "Café do Bairro" listados nas novidades
-
+<b>
+<b>
 
 Historia 3: 
 -Funcionalidade: Dar Feedback sobre Cafeterias
   -Como um usuário
       Eu quero dar feedback sobre as cafeterias que visitei
       Para informar outros usuários sobre minha experiência
-
+<b>
   -Cenário: Avaliar uma cafeteria
       Dado que visitei a cafeteria "Café do Bairro"
       E estou na página de feedback
@@ -127,44 +134,48 @@ Historia 3:
       E escrevo um comentário "Ótimo ambiente e café excelente"
       E submeto meu feedback
       Então meu comentário e nota são salvos no perfil da "Café do Bairro" 
-
+<b>
+<b>
 
 Historia 4: 
 -Funcionalidade: Destacar Promoções no Perfil da Cafeteria
   -Como dono de uma cafeteria
       Eu quero evidenciar pratos principais e promoções
       Para atrair mais clientes
-
+<b>
 -Cenário: Adicionar uma promoção ao perfil
       Dado que estou logado como o dono da "Café do Bairro"
       E estou na página de edição do perfil
       Quando eu adiciono a promoção "Milkshake de Café por R$ 15,00"
       E submeto as alterações
       Então a promoção "Milkshake de Café por R$ 15,00" é exibida no perfil da minha cafeteria
-
+<b>
+<b>
 
 Historia 5: 
 -Funcionalidade: Cadastro de Perfil da Cafeteria
   -Como dono de uma cafeteria
       Eu quero cadastrar o perfil da minha cafeteria
       Para que clientes possam encontrar informações sobre meu estabelecimento
-
+<b>
   -Cenário: Cadastrar nova cafeteria
       Dado que estou logado como dono de uma cafeteria
       Quando eu preencho o formulário de cadastro com o nome "Café Novo", endereço "123 Rua das Flores, Pinheiros, SP" e horário "8h às 18h"
       E submeto o cadastro
       Então o perfil do "Café Novo" é criado e visível para os usuários
-
-
+<b>
+<b>
 Historia 6: 
 -Funcionalidade: Editar Perfil da Cafeteria
   -Como dono de uma cafeteria
      Eu quero editar o perfil da minha cafeteria
      Para atualizar informações e o cardápio
+     <b>
    -Cenário: Editar informações do perfil
      Dado que estou logado como o dono da "Café do Bairro"
      E estou na página de edição do perfil
-
+<b>
+<b>
 ## Diagrama de Atividades do Sistema:
 
 
