@@ -82,11 +82,6 @@ História 6:
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
-## Diagrama de Atividades do Sistema:
-
-
-![diagrama-de-atividades](https://github.com/julsales/Coffee12/assets/143560144/fbee1388-6fe5-4414-8629-d1aa3cb31d91)
-
 
 ## cenario de aceitação BDD (gherkin):
 
@@ -169,6 +164,13 @@ Historia 6:
    -Cenário: Editar informações do perfil
      Dado que estou logado como o dono da "Café do Bairro"
      E estou na página de edição do perfil
+
+## Diagrama de Atividades do Sistema:
+
+
+![diagrama-de-atividades](https://github.com/julsales/Coffee12/assets/143560144/fbee1388-6fe5-4414-8629-d1aa3cb31d91)
+
+
 
 # BugTracker
 ![image](https://github.com/julsales/Coffee12/assets/134211506/287ea9dc-aeb2-471c-bfdb-c169a8d9a5c2)
