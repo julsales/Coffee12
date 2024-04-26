@@ -187,7 +187,19 @@ Historia 6:
 ![image](https://github.com/julsales/Coffee12/assets/134211506/287ea9dc-aeb2-471c-bfdb-c169a8d9a5c2)
 
 # Programação em Pares
-grande parte do sistema foi realizado a partir da programação em pares de Lucas Ferraz Santana e ícaro Sampaio, a partir do computador de Lucas Ferraz
+Durante o desenvolvimento do Coffee12, decidimos adotar o Pair Programming, uma prática ágil onde dois desenvolvedores trabalham juntos no mesmo código no mesmo computador, seja de forma síncrona, ou assíncrona, com o objetivo de melhorar a qualidade do código, tentar acelerar o desenvolvimento e tentar aprender com o outro.
+
+De começo ficamos com o pé um pouco atrás preocupados com produtividade, mas depois de algum tempo juntos percebemos que a colaboração direta resultava em um código mais limpo, com menos erros e até ideias melhores às vezes.
+
+Seguimos o modelo de "piloto" e "navegador", alternando papéis regularmente para ter a garantia de que ambos estavam participando ativamente.
+
+A maior vantagem encontrada foi a redução na quantidade de bugs, como eram duas pessoas analisando o código, às vezes um via um erro que o outro não via, assim, ajudando na manutenção do código.
+
+Nosso maior desafio foi manter a concentração era um pouco desafiador às vezes, afinal fazer código pode ser bem cansativo.
+
+No fim das contas, o Pair Programming se provou um método eficiente de trabalho, melhorando a qualidade do código e até fortalecendo laços na equipe. Uma boa experiência de aprendizado.
+
+
 
   
 
