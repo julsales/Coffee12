@@ -40,7 +40,7 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Screencast Mockup](https://youtu.be/ejQEUXkaveA)
 
-[Screencast implementação](https://youtu.be/7aSX_eD-i7M)
+[Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
 
 
 
