@@ -26,6 +26,7 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 12. Adriano Barnard → abmp@cesar.school
 
+
 ## Links Importantes SR1
 
 [Notion](https://distinct-rhubarb-0a9.notion.site/Notion-do-G12-3bfe1143afc6404eacf3dee57135c0dd?pvs=4)
@@ -43,7 +44,9 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 [Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
 
 
+## Deployment na Azure
 
+cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
 
