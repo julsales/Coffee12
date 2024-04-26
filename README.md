@@ -71,13 +71,13 @@ História 4:
     - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
 
 
-IMPLEMENTADA
+## IMPLEMENTADA
 História 5:
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
     - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
 
 
-IMPLEMENTADA      
+## IMPLEMENTADA      
 História 6:
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
