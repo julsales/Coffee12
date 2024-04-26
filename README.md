@@ -39,6 +39,8 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Protótipo De Baixa Fidelidade](https://lucid.app/lucidspark/826e0ab7-e4ec-4569-869a-10c4e6e42f82/edit?invitationId=inv_f55a1a31-7dd9-4893-a238-159cd9c78211&page=0_0#)
 
+## ScreenCast's:
+
 [Screencast Mockup](https://youtu.be/ejQEUXkaveA)
 
 [Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
@@ -205,7 +207,6 @@ No fim das contas, o Pair Programming se provou um método eficiente de trabalho
 # Telas Protótipo lo-fi
 
 ![Telas juntas](https://github.com/julsales/Coffee12/assets/133444972/0b58f532-cfb2-4aa4-b0ed-8207404af77f)
-https://www.youtube.com/watch?v=ejQEUXkaveA
 
 
   
