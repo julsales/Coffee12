@@ -199,6 +199,10 @@ Nosso maior desafio foi manter a concentração era um pouco desafiador às veze
 
 No fim das contas, o Pair Programming se provou um método eficiente de trabalho, melhorando a qualidade do código e até fortalecendo laços na equipe. Uma boa experiência de aprendizado.
 
+# Telas Protótipo low-fi
+
+![Telas juntas](https://github.com/julsales/Coffee12/assets/133444972/0b58f532-cfb2-4aa4-b0ed-8207404af77f)
+
 
 
   
