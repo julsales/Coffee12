@@ -93,6 +93,9 @@ História 6:
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
+História 7:
+- Eu como usuário gostaria de
+
 
 ## cenario de aceitação BDD (gherkin):
 
