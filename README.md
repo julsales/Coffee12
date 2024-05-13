@@ -24,8 +24,6 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 11.Ícaro Barros → isb2@cesar.school
 
-12. Adriano Barnard → abmp@cesar.school
-
 
 ## Links Importantes SR1
 
