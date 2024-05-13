@@ -215,7 +215,7 @@ No fim das contas, o Pair Programming se provou um método eficiente de trabalho
   
 
 ## Todas as etapas que fizemos até agora para o SR1
-![Captura de tela 2024-05-13 114204](https://github.com/julsales/Coffee12/assets/152215002/13b005c4-6d1d-4551-8217-90005ee44449)
+![Captura de tela 2024-05-13 114022](https://github.com/julsales/Coffee12/assets/152215002/80d2057e-8c5c-497b-b725-d46982483985)
 ![Captura de tela 2024-05-13 114153](https://github.com/julsales/Coffee12/assets/152215002/7eba2202-37d5-4255-b85a-ae35ee4f9383)
 ![Captura de tela 2024-05-13 114037](https://github.com/julsales/Coffee12/assets/152215002/ebd1b728-d87f-4169-b98e-7f5144d6c0c9)
-![Captura de tela 2024-05-13 114022](https://github.com/julsales/Coffee12/assets/152215002/80d2057e-8c5c-497b-b725-d46982483985)
+![Captura de tela 2024-05-13 114204](https://github.com/julsales/Coffee12/assets/152215002/13b005c4-6d1d-4551-8217-90005ee44449)
