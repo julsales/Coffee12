@@ -50,7 +50,7 @@ https://cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
 
-História 1: 
+História 1: Personalização de Recomendações de Cafeterias
 - Eu como usuário, gostaria de escolher quais características de café me agradam mais e ter recomendações de cafeterias, baseado no meu perfil.
     - Descrição: Será feito perguntas como:
         - Quantas pessoas vão participar?
@@ -67,32 +67,44 @@ História 1:
             2: com qual finalidade você procura cafeterias?
             3: qual região você prefere?
 
-História 2:
+História 2: Seguir Perfis e Acompanhar Novidades
 - Eu como usuário, gostaria de seguir perfis e poder acompanhar as novidades dele e das minhas cafeterias favoritas.
     - Descrição: O usuário poderia ter acesso a uma aba onde tem ofertas, promoções ou eventos sendo promovidos em cafeterias seguidas.
 
-História 3:
+História 3: Dar Feedbacks sobre Cafeterias Visitadas
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
     - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
 
-História 4:
+História 4: Evidenciar Pratos Principais e Promoções (Implementada)
 - Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
     - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
 
 
-## IMPLEMENTADA
-História 5:
+
+História 5: Cadastrar Perfil da Cafeteria (Implementada)
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
     - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
 
-
-## IMPLEMENTADA      
-História 6:
+  
+História 6: Editar Perfil da Cafeteria e Adicionar Cardápio (Implementada)
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
-História 7:
-- Eu como usuário gostaria de
+História 7: Reserva de Mesas Online
+- Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
+    - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
+ 
+História 8: Perfis de Baristas
+- Eu como usuário, gostaria de conhecer os baristas das cafeterias que frequento, incluindo suas especialidades e histórias.
+    - Descrição: Os perfis das cafeterias incluirão informações sobre os baristas, destacando suas especialidades, experiências e histórias, criando uma conexão mais pessoal com os clientes.
+ 
+História 9: Programas de Fidelidade
+- Eu como usuário, gostaria de participar de programas de fidelidade e acumular pontos para ganhar recompensas em minhas cafeterias favoritas.
+    - Descrição: A plataforma permitirá que as cafeterias implementem programas de fidelidade onde os usuários podem acumular pontos por cada visita ou compra, que podem ser trocados por descontos ou brindes.
+ 
+História 10: Histórico de Visitas
+- Eu como usuário, gostaria de ver um histórico das cafeterias que visitei através da plataforma.
+    - Descrição: O sistema manterá um registro das visitas anteriores dos usuários às cafeterias, permitindo que revisitem facilmente.
 
 
 ## cenario de aceitação BDD (gherkin):
