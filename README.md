@@ -94,8 +94,8 @@ História 7: Reserva de Mesas Online
 - Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
     - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
  
-História 8: Adição de cafeterias aos favoritos
-- Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao acessar a página principal.
+História 8: Adicionae Cafeterias aos Favoritos
+- Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
     - Descrição: Os perfis das cafeterias poderão ser adicionadas aos favoritos e estarão disponíveis em uma aba dedicada às cafeterias favoritas na página principal.
  
 História 9: Programas de Fidelidade
