@@ -7,9 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="Logo.ico" type="image/x-icon">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <style media="screen">
         *,
   *:before,
@@ -21,6 +22,20 @@
   body {
     background-color: #fffbe7;
     font-family: 'Poppins', sans-serif;
+}
+
+.container{
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  }
+
+.cafe{
+  background-color: #561801;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #000;
 }
 
 .sidebar {
@@ -71,6 +86,24 @@
     text-align: center;
     text-decoration: none;
 }
+
+.fav_button {
+    background-color: #ffee00;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.unfav_button {
+    background-color: #ff2600;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
 .sidebar-right {
     display: flex;
     flex-direction: column;
@@ -102,21 +135,32 @@
 }
 
 .sidebar-right h2 {
-    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.sidebar-right h3 {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.sidebar-right p {
+    font-size: 12px;
     color: #ffffff;
 }
 .pratos-info {
     display: flex;
     justify-content: space-between;
-    margin-top: 0;  /* Remove a margem no topo */
+    margin-top: 0;
 }
 
 .pratos-promocao h2, .pratos-principais h2 {
-    color: white;  /* Altera a cor do texto para branco */
+    color: white;  
 }
 
 .pratos-promocao h2, .pratos-principais h2 {
-    color: white;  /* Altera a cor do texto para branco */
+    color: white;  
 }
 
     </style>  
@@ -128,40 +172,46 @@
     <div class="sidebar">
       <h3>Home Page Cliente</h3>
       <div class="links">
-          
+        <a href="{% url 'excluirPrato' %}" class="btn button">Ver Favoritos</a>
       </div>
       <a href="{% url 'logout' %}" class="btn logout_button">Logout</a>
     </div>
+  </div>
     <div class="sidebar-right">
       <h1>Promoções do Dia! </h1>
-      <ul>
+      <div class="container">
         {% for estabelecimento in estabelecimentos %}
-        <li>
-          <h1>{{ estabelecimento.nome }}</h1>
-         
-          <div class="pratos-info pratos-promocao">
-            {% for prato in pratos %}
-              {% if prato.preco != prato.preco_promocional %}
-              {% if prato.estabelecimento == estabelecimento %}
-                <div>
-                  <h3>{{ prato.nome }}</h3>
-                  <p>{{ prato.descricao }}</p>
-                  <p>R$ <del>{{ prato.preco }}</del> {{ prato.preco_promocional }}</p>
-                </div>
+          <div class="cafe">
+            <h2>{{ estabelecimento.nome }}</h1>
+            <div class="pratos-info pratos-promocao">
+              {% for prato in pratos %}
+                {% if prato.preco != prato.preco_promocional and prato.estabelecimento == estabelecimento %}
+                  <div>
+                    <h3>{{ prato.nome }}</h3>
+                    <p>{{ prato.descricao }}</p>
+                    <p>R$ <del>{{ prato.preco }}</del> {{ prato.preco_promocional }}</p>
+                    {% if estabelecimento in request.user.cafeteria_favorita.all %}
+              <!-- Se o estabelecimento é favorito, mostra o botão "unfav" -->
+              <form method="POST" action="{% url 'desfavoritarCafeteria' %}">
+                {% csrf_token %}
+                <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+                <button type="submit" class="btn unfav_button">unfav</button>
+              </form>
+            {% else %}
+              <!-- Se o estabelecimento não é favorito, mostra o botão "fav" -->
+              <form method="POST" action="{% url 'favoritarCafeteria' %}">
+                {% csrf_token %}
+                <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+                <button type="submit" class="btn fav_button">fav</button>
+              </form>
+            {% endif %}             
+                  </div>
                 {% endif %}
-              {% endif %}
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
-        </li>
         {% endfor %}
-      </ul>
-
-      
-        
-      
-  </div>
-    <div class="cafeterias">
-      <!-- Seu código de cafeteria aqui -->
+      </div>
     </div>
   </body>
 </html>

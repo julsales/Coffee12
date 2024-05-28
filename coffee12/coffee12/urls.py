@@ -15,6 +15,9 @@ urlpatterns = [
     path('editarEstabelecimento/',views.EditarEstabelecimento,name='editarEstabelecimento'),
     path('excluirEstabelecimento/',views.ExcluirEstabelecimento,name='excluirEstabelecimento'),
     path('excluirPrato/',views.ExcluirPrato,name='excluirPrato'),
+	path('favoritarCafeteria/',views.FavoritarCafeteria,name='favoritarCafeteria'),
+	path('desfavoritarCafeteria/',views.DesfavoritarCafeteria,name='desfavoritarCafeteria'),
+	path('verCafeteriasFavoritas/',views.VerCafeteriasFavoritas,name='verCafeteriasFavoritas'),
     path('',views.Inicio,name='inicio'),
     
 ]

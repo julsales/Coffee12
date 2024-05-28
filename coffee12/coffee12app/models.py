@@ -42,6 +42,8 @@ class CustomUser(AbstractUser):
 
     possui_estabelecimento = models.BooleanField(default=False)
 
+    cafeteria_favorita = models.ManyToManyField('Estabelecimento', blank=True, related_name='cafeterias_favoritas')
+
 
     
 
@@ -68,5 +70,5 @@ class Prato(models.Model):
     preco = models.DecimalField(max_digits=6, decimal_places=2)
     preco_promocional = models.DecimalField(max_digits=6, decimal_places=2)
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
-    prato_principal = models.BooleanField(default=False);
+    prato_principal = models.BooleanField(default=False)
     

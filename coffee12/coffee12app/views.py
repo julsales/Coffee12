@@ -146,4 +146,27 @@ def ExcluirPrato(request):
     return render(request, 'excluirPrato.html')
 
 def Inicio(request):
-    return render(request, 'inicio.html')       
+    return render(request, 'inicio.html')
+
+def FavoritarCafeteria(request):       
+    if request.method == 'POST':
+        id_cafeteria = request.POST.get('id_cafeteria')
+        cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
+        request.user.cafeteria_favorita.add(cafeteria)
+        request.user.save()
+    return redirect('homepage')
+
+def DesfavoritarCafeteria(request):
+    if request.method == 'POST':
+        id_cafeteria = request.POST.get('id_cafeteria')
+        cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
+        request.user.cafeteria_favorita.remove(cafeteria)
+        request.user.save()
+    return redirect('homepage')
+
+def VerCafeteriasFavoritas(request):
+    context = {
+        'cafeterias_favoritas': request.user.cafeteria_favorita.all()
+    }
+    return render(request, 'verCafeteriasFavoritas.html', context)
+    
