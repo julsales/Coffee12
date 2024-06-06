@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perfil da Cafeteria</title>
+        <style>
+            *:before,
+            *:after{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #fffbe7;
+                font-family: 'Poppins', sans-serif;
+            }
+    
+            .cafeteria-profile{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #561801;
+                border-radius: 5px;
+                padding: 20px;
+                border: 1px solid #000;
+                color: #ffffff;
+                margin: 50px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+            .cafeteria-profile h1 {
+                font-size: 28px;
+                font-weight: 500;
+                line-height: 42px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+    
+            .cafeteria-profile p {
+                font-size: 16px;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+    
+            .cafeteria-profile .btn {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 15px;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+                margin-top: 10px;
+            }
+    
+            .cafeteria-profile .fav_button {
+                background-color: #ffee00;
+                color: #ffffff;
+                padding: 15px;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+            }
+    
+            .cafeteria-profile .unfav_button {
+                background-color: #ff2600;
+                color: #ffffff;
+                padding: 15px;
+                border-radius: 5px;
+                text-align: center;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cafeteria-profile">
+            
+            <h1>{{ estabelecimento.nome }}</h1>
+            <p>{{ estabelecimento.descricao }}</p>
+            <p>Endereço: {{ estabelecimento.endereco }}</p>
+            <p>Telefone: {{ estabelecimento.telefone }}</p>
+            <p>Horário: {{ estabelecimento.descricao_horario }}</p>
+            
+            <!-- Início da seção do cardápio -->
+            <h2>Cardápio</h2>
+            {% for prato in cardapio %}
+                <div class="prato">
+                    <h3>{{ prato.nome }}</h3>
+                    <p>{{ prato.descricao }}</p>
+                    <p>Preço: {{ prato.preco }}</p>
+                    {% if prato.preco_promocional %}
+                        <p>Preço promocional: {{ prato.preco_promocional }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <!-- Fim da seção do cardápio -->
+    
+            {% if estabelecimento in request.user.cafeteria_favorita.all %}
+    <!-- Se o estabelecimento é favorito, mostra o botão "unfav" -->
+    <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn unfav_button">unfav</button>
+    </form>
+{% else %}
+    <!-- Se o estabelecimento não é favorito, mostra o botão "fav" -->
+    {% if estabelecimento.id %}
+        <form method="POST" action="{% url 'favoritarCafeteria' id=estabelecimento.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+            <button type="submit" class="btn fav_button">fav</button>
+        </form>
+    {% else %}
+        <p>Erro: estabelecimento.id é nulo ou indefinido.</p>
+    {% endif %}
+{% endif %}
+        </div>
+    </body>
+</html>

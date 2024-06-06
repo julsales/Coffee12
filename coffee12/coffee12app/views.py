@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser, Estabelecimento, Prato
+from django.shortcuts import get_object_or_404
+
 
 
 @login_required(login_url='login')
@@ -148,25 +150,51 @@ def ExcluirPrato(request):
 def Inicio(request):
     return render(request, 'inicio.html')
 
-def FavoritarCafeteria(request):       
+@login_required(login_url='login')
+def FavoritarCafeteria(request, id):
+    id_cafeteria = request.POST.get('id_cafeteria')
+    cafeteria = get_object_or_404(Estabelecimento, id=id_cafeteria)   
     if request.method == 'POST':
-        id_cafeteria = request.POST.get('id_cafeteria')
         cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
         request.user.cafeteria_favorita.add(cafeteria)
         request.user.save()
-    return redirect('homepage')
+    # Obter a URL da página anterior
+    previous_page = request.META.get('HTTP_REFERER')
 
-def DesfavoritarCafeteria(request):
+    # Redirecionar para a página anterior
+    return HttpResponseRedirect(previous_page)
+
+from django.http import HttpResponseRedirect
+from django.http import Http404
+
+def DesfavoritarCafeteria(request, id):
     if request.method == 'POST':
-        id_cafeteria = request.POST.get('id_cafeteria')
-        cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
+        cafeteria = get_object_or_404(Estabelecimento, id=id)
         request.user.cafeteria_favorita.remove(cafeteria)
         request.user.save()
-    return redirect('homepage')
+
+        # Get the URL of the previous page
+        previous_page = request.META.get('HTTP_REFERER', '/')
+
+        # Redirect to the previous page
+        return HttpResponseRedirect(previous_page)
+
+    raise Http404("Invalid request method")
 
 def VerCafeteriasFavoritas(request):
     context = {
         'cafeterias_favoritas': request.user.cafeteria_favorita.all()
     }
     return render(request, 'verCafeteriasFavoritas.html', context)
+
+def Favoritos(request):
+    context = {
+        'cafeterias_favoritas': request.user.cafeteria_favorita.all()
+    }
+    return render(request, 'favoritos.html', context)
+
+def PerfilCafeteria(request, id_cafeteria):
+    estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
+    cardapio = Prato.objects.filter(estabelecimento=estabelecimento)
+    return render(request, 'perfilCafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio})
     

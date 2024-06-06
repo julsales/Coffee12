@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+    <style media="screen">
+        *,
+  *:before,
+  *:after{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  body{
+      background-color: #fffbe7;
+  }
+  .fav_button {
+    background-color: #ffee00;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.unfav_button {
+    background-color: #ff2600;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+  .background{
+      width: 430px;
+      height: 520px;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      left: 50%;
+      top: 50%;
+  }
+  .background .shape{
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      border-radius: 50%;
+  }
+  .shape:first-child{
+      background: linear-gradient(
+          #ec7107,
+          #e7a302
+      );
+      left: -80px;
+      top: -80px;
+  }
+  .shape:last-child{
+      background: linear-gradient(
+          to right,
+          #472100,
+          #774910
+      );
+      right: -80px;
+      bottom: -80px;
+  }
+  
+  label{
+      display: block;
+      margin-top: 16px;
+      font-size: 16px;
+      font-weight: 500;
+  }
+  input{
+      display: block;
+      height: 50px;
+      width: 100%;
+      background-color: rgba(255,255,255,0.07);
+      border-radius: 3px;
+      padding: 0 10px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 300;
+  }
+  ::placeholder{
+      color: #e5e5e5;
+  }
+  button{
+      margin-top: 50px;
+      width: 100%;
+      background-color: #ffffff;
+      color: #080710;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .social{
+    margin-top: 30px;
+    display: flex;
+  }
+  .social div{
+    background: red;
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255,255,255,0.27);
+    color: #eaf0fb;
+    text-align: center;
+  }
+  .social div:hover{
+    background-color: rgba(255,255,255,0.47);
+  }
+  .social .fb{
+    margin-left: 25px;
+  }
+  .social i{
+    margin-right: 4px;
+  }
+  .create-account {
+      margin-top: 20px; /* Ajuste o valor conforme necessário */
+  }
+  .back-button {
+    font-family: Poppins, sans-serif;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #561801ce;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(193, 16, 16, 0.27);
+}
+
+.back-button a{
+    color: #ffffff;
+    text-decoration: none;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fffbe7;
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #74280dc5;
+	border-radius: 5px;
+}
+  
+  
+      </style>
+    
+      <title>Home Page</title>
+    </style>
+    <title>Tela de Criação de Estabelecimento</title>
+</head>
+<body>
+    <h1>Minhas Cafeterias Favoritas</h1>
+    <div class="grid-container">
+        {% for estabelecimento in request.user.cafeteria_favorita.all %}
+    <div class="grid-item">
+        <h2>{{ estabelecimento.nome }}</h2>
+        <!-- Aqui você pode adicionar mais detalhes sobre cada cafeteria -->
+        <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+            <button type="submit" class="btn unfav_button">unfav</button>
+        </form>
+        <!-- Button to cafeteria profile -->
+        <a href="{% url 'perfilCafeteria' estabelecimento.id %}" class="btn fav_button">Ver Perfil</a>
+    </div>
+{% empty %}
+    <p>Você ainda não tem cafeterias favoritas.</p>
+{% endfor %}
+    </div>
+    <div class="back-button">
+        <a href="{% url 'homepage' %}">Voltar</a>
+    </div>
+</body>
+</html>
