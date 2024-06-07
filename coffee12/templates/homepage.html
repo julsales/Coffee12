@@ -87,6 +87,16 @@
     text-decoration: none;
 }
 
+.prof_button {
+    max-height: 100 px;
+    background-color: #a68e06;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
 .fav_button {
     background-color: #ffee00;
     color: #ffffff;
@@ -184,6 +194,7 @@
           <div class="cafe">
             <h2>{{ estabelecimento.nome }}</h1>
             <div class="pratos-info pratos-promocao">
+              
               {% for prato in pratos %}
                 {% if prato.preco != prato.preco_promocional and prato.estabelecimento == estabelecimento %}
                   <div>
@@ -208,8 +219,11 @@
                   </div>
                 {% endif %}
               {% endfor %}
+              
             </div>
+            <a href="{% url 'perfilCafeteria' estabelecimento.id %}" class="btn prof_button">Ver Perfil</a>
           </div>
+          
         {% endfor %}
       </div>
     </div>

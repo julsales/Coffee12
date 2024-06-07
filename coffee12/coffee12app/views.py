@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import CustomUser, Estabelecimento, Prato
 from django.shortcuts import get_object_or_404
+from .models import Feedback
+from .forms import FeedbackForm
 
 
 
@@ -21,11 +23,12 @@ def Homepage(request):
 
 @login_required(login_url='login')
 def HomepageCafe(request):
-    
+    id_cafeteria = request.user.cafeteria.id if request.user.possui_estabelecimento else None
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
         'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
-        'pratos': Prato.objects.filter(estabelecimento=request.user.cafeteria) if request.user.possui_estabelecimento else None
+        'pratos': Prato.objects.filter(estabelecimento=request.user.cafeteria) if request.user.possui_estabelecimento else None,
+        'id_cafeteria': id_cafeteria,
     }
     return render(request, 'homepagecafe.html', context)
 
@@ -196,5 +199,24 @@ def Favoritos(request):
 def PerfilCafeteria(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     cardapio = Prato.objects.filter(estabelecimento=estabelecimento)
-    return render(request, 'perfilCafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio})
+    rating_average = estabelecimento.rating_average
+    return render(request, 'perfilCafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio, 'rating_average': rating_average})
+
+def feedback(request, id):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.user = request.user
+            feedback.cafeteria = get_object_or_404(Estabelecimento, id=id)
+            feedback.save()
+            return redirect('perfilCafeteria', id_cafeteria=id)
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback.html', {'form': form})
+
+def VerFeedbacks(request, id_cafeteria):
+    estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
+    feedbacks = Feedback.objects.filter(cafeteria=estabelecimento).order_by('-created_at')[:10]
+    return render(request, 'verFeedbacks.html', {'estabelecimento': estabelecimento, 'feedbacks': feedbacks})
     

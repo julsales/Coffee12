@@ -1,6 +1,10 @@
+from audioop import avg
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import BaseUserManager
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models import Avg
+from django.utils import timezone
 
 
 
@@ -53,6 +57,9 @@ class Estabelecimento(models.Model):
     telefone = models.CharField(max_length=15)
     proprietario = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     descricao_horario = models.CharField(max_length=200, default='')
+    @property
+    def rating_average(self):
+        return self.feedback_set.aggregate(Avg('rating'))['rating__avg']
     
 class DiaSemana(models.Model):
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
@@ -71,4 +78,10 @@ class Prato(models.Model):
     preco_promocional = models.DecimalField(max_digits=6, decimal_places=2)
     estabelecimento = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
     prato_principal = models.BooleanField(default=False)
-    
+
+class Feedback(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    cafeteria = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    comment = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)

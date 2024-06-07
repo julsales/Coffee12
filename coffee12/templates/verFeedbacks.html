@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedbacks de {{ estabelecimento.nome }}</title>
+</head>
+<body>
+	<a href="{% url 'homepagecafe'%}">Voltar</a>
+    <h1>Feedbacks de {{ estabelecimento.nome }}</h1>
+    {% for feedback in feedbacks %}
+    	<p>User: {{ feedback.user.username }}</p>
+    	<p>Rating: {{ feedback.rating }}</p>
+    	<p>Comment: {{ feedback.comment }}</p>
+    	<p>Date: {{ feedback.created_at }}</p>
+    	<hr>
+    {% empty %}
+        <p>Não há feedbacks ainda.</p>
+    {% endfor %}
+</body>
+</html>

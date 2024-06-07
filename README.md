@@ -98,13 +98,15 @@ História 8: Adicionae Cafeterias aos Favoritos
 - Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
     - Descrição: Os perfis das cafeterias poderão ser adicionadas aos favoritos e estarão disponíveis em uma aba dedicada às cafeterias favoritas na página principal.
  
-História 9: Programas de Fidelidade
-- Eu como usuário, gostaria de participar de programas de fidelidade e acumular pontos para ganhar recompensas em minhas cafeterias favoritas.
-    - Descrição: A plataforma permitirá que as cafeterias implementem programas de fidelidade onde os usuários podem acumular pontos por cada visita ou compra, que podem ser trocados por descontos ou brindes.
+História 9: Visualizar feedbacks
+-Eu como dono de cafeteria, gostaria de poder visualizar os feedbacks direcionados ao meu estabelecimento.
+    - Descrição: o responsável pelo estabelecimento pode acessar e visualizar os feedbacks recebidos, possibilitando a análise de comentários, críticas e sugestões dos clientes para melhorar a qualidade do serviço e produtos    oferecidos. Exemplo: "Feedback de Junho: 'Excelente atendimento e ambiente acolhedor, porém a tapioca estava um pouco seca' - João Silva; 'Adorei o novo milkshake de café, voltarei mais vezes!' - Maria Oliveira".
  
 História 10: Histórico de Visitas
 - Eu como usuário, gostaria de ver um histórico das cafeterias que visitei através da plataforma.
     - Descrição: O sistema manterá um registro das visitas anteriores dos usuários às cafeterias, permitindo que revisitem facilmente.
+ 
+
 
 
 ## cenario de aceitação BDD (gherkin):

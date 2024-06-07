@@ -20,6 +20,8 @@ urlpatterns = [
 	path('verCafeteriasFavoritas/',views.VerCafeteriasFavoritas,name='verCafeteriasFavoritas'),
 	path('favoritos/',views.Favoritos,name='favoritos'),
 	path('perfilCafeteria/<int:id_cafeteria>/', views.PerfilCafeteria, name='perfilCafeteria'),
+	path('feedback/<int:id>/', views.feedback, name='feedback'),
+	path('cafeteria/<int:id_cafeteria>/feedbacks/', views.VerFeedbacks, name='verFeedbacks'),
     path('',views.Inicio,name='inicio'),
     
 ]

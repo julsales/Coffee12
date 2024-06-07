@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Feedback</title>
+</head>
+<body>
+    <h1>Formulário de Feedback</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="{{ form.rating.id_for_label }}">Classificação:</label>
+            {{ form.rating }}
+            <script>
+                document.getElementById("{{ form.rating.id_for_label }}").min = 1;
+                document.getElementById("{{ form.rating.id_for_label }}").max = 5;
+            </script>
+        </p>
+        <p>
+            <label for="{{ form.comment.id_for_label }}">Comentário:</label>
+            {{ form.comment }}
+        </p>
+        <button type="submit">Enviar Feedback</button>
+    </form>
+</body>
+</html>

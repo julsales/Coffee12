@@ -80,6 +80,11 @@
             <p>Endereço: {{ estabelecimento.endereco }}</p>
             <p>Telefone: {{ estabelecimento.telefone }}</p>
             <p>Horário: {{ estabelecimento.descricao_horario }}</p>
+			{% if rating_average %}
+    			<p>Nota média: {{ rating_average }}</p>
+			{% else %}
+   				<p>Não há avaliações ainda.</p>
+			{% endif %}
             
             <!-- Início da seção do cardápio -->
             <h2>Cardápio</h2>
@@ -112,7 +117,12 @@
     {% else %}
         <p>Erro: estabelecimento.id é nulo ou indefinido.</p>
     {% endif %}
+	
 {% endif %}
         </div>
+		<a href="{% url 'feedback' estabelecimento.id %}" class="btn">Give Feedback</a>
+		<div class="back-button">
+			<a href="{% url 'homepage' %}">Voltar</a>
+		</div>
     </body>
 </html>
