@@ -71,7 +71,7 @@ História 2: Seguir Perfis e Acompanhar Novidades
 - Eu como usuário, gostaria de seguir perfis e poder acompanhar as novidades dele e das minhas cafeterias favoritas.
     - Descrição: O usuário poderia ter acesso a uma aba onde tem ofertas, promoções ou eventos sendo promovidos em cafeterias seguidas.
 
-História 3: Dar Feedbacks sobre Cafeterias Visitadas
+História 3: Dar Feedbacks sobre Cafeterias Visitadas (Implementada)
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
     - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
 
@@ -94,11 +94,11 @@ História 7: Reserva de Mesas Online
 - Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
     - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
  
-História 8: Adicionae Cafeterias aos Favoritos
+História 8: Adicionae Cafeterias aos Favoritos (Implementada)
 - Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
     - Descrição: Os perfis das cafeterias poderão ser adicionadas aos favoritos e estarão disponíveis em uma aba dedicada às cafeterias favoritas na página principal.
  
-História 9: Visualizar feedbacks
+História 9: Visualizar feedbacks (Implementada)
 - Eu como dono de cafeteria, gostaria de poder visualizar os feedbacks direcionados ao meu estabelecimento.
     - Descrição: o responsável pelo estabelecimento pode acessar e visualizar os feedbacks recebidos, possibilitando a análise de comentários, críticas e sugestões dos clientes para melhorar a qualidade do serviço e produtos    oferecidos. Exemplo: "Feedback de Junho: 'Excelente atendimento e ambiente acolhedor, porém a tapioca estava um pouco seca' - João Silva; 'Adorei o novo milkshake de café, voltarei mais vezes!' - Maria Oliveira".
  
