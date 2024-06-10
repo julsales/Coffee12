@@ -22,6 +22,9 @@ urlpatterns = [
 	path('perfilCafeteria/<int:id_cafeteria>/', views.PerfilCafeteria, name='perfilCafeteria'),
 	path('feedback/<int:id>/', views.feedback, name='feedback'),
 	path('cafeteria/<int:id_cafeteria>/feedbacks/', views.VerFeedbacks, name='verFeedbacks'),
+	path('add_to_historico/<int:cafeteria_id>/', views.add_to_historico, name='add_to_historico'),
+	path('historico/', views.historico, name='historico'),
+	path('remove_visit/<int:visit_id>/', views.remove_visit, name='remove_visit'),
     path('',views.Inicio,name='inicio'),
     
 ]

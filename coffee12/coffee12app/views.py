@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from .models import CustomUser, Estabelecimento, Prato
 from django.shortcuts import get_object_or_404
 from .models import Feedback
+from .models import Historico
 from .forms import FeedbackForm
 
 
@@ -219,4 +220,18 @@ def VerFeedbacks(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     feedbacks = Feedback.objects.filter(cafeteria=estabelecimento).order_by('-created_at')[:10]
     return render(request, 'verFeedbacks.html', {'estabelecimento': estabelecimento, 'feedbacks': feedbacks})
+
+def add_to_historico(request, cafeteria_id):
+    Historico.objects.create(user=request.user, cafeteria_id=cafeteria_id)
+    return redirect('perfilCafeteria', id_cafeteria=cafeteria_id)
+
+def historico(request):
+    historico = Historico.objects.filter(user=request.user)
+    return render(request, 'historico.html', {'historico': historico})
+
+def remove_visit(request, visit_id):
+    if request.method == 'POST':
+        visit = Historico.objects.get(id=visit_id)
+        visit.delete()
+    return redirect('historico')
     

@@ -85,3 +85,8 @@ class Feedback(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     comment = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
+
+class Historico(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    cafeteria = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    visit_date = models.DateTimeField(default=timezone.now)

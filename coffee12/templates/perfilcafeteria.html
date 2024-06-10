@@ -124,5 +124,9 @@
 		<div class="back-button">
 			<a href="{% url 'homepage' %}">Voltar</a>
 		</div>
+        <form method="POST" action="{% url 'add_to_historico' estabelecimento.id %}">
+            {% csrf_token %}
+            <button type="submit">AdicionarAoHistorico</button>
+        </form>
     </body>
 </html>
