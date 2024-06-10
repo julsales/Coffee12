@@ -1,0 +1,6 @@
+describe('Evidenciar promoções', () => {
+    
+    it('', () => {
+        
+        })
+})
