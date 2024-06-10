@@ -102,7 +102,7 @@ História 9: Visualizar feedbacks (Implementada)
 - Eu como dono de cafeteria, gostaria de poder visualizar os feedbacks direcionados ao meu estabelecimento.
     - Descrição: o responsável pelo estabelecimento pode acessar e visualizar os feedbacks recebidos, possibilitando a análise de comentários, críticas e sugestões dos clientes para melhorar a qualidade do serviço e produtos    oferecidos. Exemplo: "Feedback de Junho: 'Excelente atendimento e ambiente acolhedor, porém a tapioca estava um pouco seca' - João Silva; 'Adorei o novo milkshake de café, voltarei mais vezes!' - Maria Oliveira".
  
-História 10: Histórico de Visitas
+História 10: Histórico de Visitas (Implementada)
 - Eu como usuário, gostaria de ver um histórico das cafeterias que visitei através da plataforma.
     - Descrição: O sistema manterá um registro das visitas anteriores dos usuários às cafeterias, permitindo que revisitem facilmente.
  
