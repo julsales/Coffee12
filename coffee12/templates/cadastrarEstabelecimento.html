@@ -1,35 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     {% load static %}
     <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
-    <link rel="shortcut icon" href="Logo.png" type="image/x-icon">
-    
-    
-      <title>Home Page</title>
-    </style>
     <title>Tela de Criação de Estabelecimento</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffbe7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .back-button {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            color: #774910;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            background-color: #f2f2f2; /* tom de cinza mais claro */
+        }
+
+        .half-width {
+            width: 30%; /* ajustando a largura para 30% */
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-row .half-width:first-child { /* ajustando margem para o primeiro campo */
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #000;
+            border: none;
+            border-radius: 5px;
+            color: #ffa500;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="back-button">
+            <a href="{% url 'homepagecafe' %}">Voltar</a>
+        </div>
+        <h3>Vamos cadastrar sua cafeteria!</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="email">E-mail</label>
+                <input type="email" placeholder="E-mail" id="email" name="email" required>
+            </div>
+            
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" placeholder="Senha" id="senha" name="senha" required>
+            </div>
+            
+            <div>
+                <label for="nome_estabelecimento">Nome do estabelecimento</label>
+                <input type="text" placeholder="Nome do estabelecimento" id="nome_estabelecimento" name="nome_estabelecimento" required>
+            </div>
+            
+            <div>
+                <label for="endereco">Endereço</label>
+                <input type="text" placeholder="Rua" id="endereco" name="endereco" required>
+            </div>
 
-    <form method="POST">
-        <h3>Criar Estabelecimento</h3>
-        {% csrf_token %}
-        <label for="nome">Nome</label>
-        <input type="text" placeholder="Insira o Nome" id="nome" name="nome" required>
+            <div class="input-row">
+                <div class="half-width">
+                    <label for="numero">Número</label>
+                    <input type="text" placeholder="XXX" id="numero" name="numero" required>
+                </div>
 
-        <label for="endereco">Endereço</label>
-        <input type="text" placeholder="Insira o Endereco" id="endereco" name="endereco" required>
+                <div style="width: 70%;"> <!-- ajustando largura para 70% -->
+                    <label for="bairro">Bairro</label>
+                    <input type="text" placeholder="Nome do bairro" id="bairro" name="bairro" required>
+                </div>
+            </div>
 
-        <label for="telefone">Telefone</label>
-        <input type="text" placeholder="Insira o Telefone de Contato" id="telefone" name="telefone" required>
-
-        <button type="submit">Cadastrar</button>
-    </form>
-    <div class="back-button">
-        <a href="{% url 'homepagecafe' %}">Voltar</a>
+            <div>
+                <label for="contato">Contato com DDD</label>
+                <input type="text" placeholder="(xx) XXXXX-XXXX" id="contato" name="contato" required>
+            </div>
+            
+            <button type="submit">Próximo</button>
+        </form>
     </div>
 </body>
 </html>
