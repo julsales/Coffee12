@@ -64,11 +64,11 @@
             border-radius: 5px;
             font-size: 14px;
             margin-bottom: 10px;
-            background-color: #f2f2f2; /* tom de cinza mais claro */
+            background-color: #f2f2f2;
         }
 
         .half-width {
-            width: 30%; /* ajustando a largura para 30% */
+            width: 30%;
         }
 
         .input-row {
@@ -76,20 +76,31 @@
             gap: 20px;
         }
 
-        .input-row .half-width:first-child { /* ajustando margem para o primeiro campo */
+        .input-row .half-width:first-child {
             margin-right: 10px;
         }
 
         button {
-            width: 100%;
+            width: 20%;
             padding: 10px;
             background: #000;
-            border: none;
+            border: 2px solid #000;
             border-radius: 5px;
             color: #ffa500;
             font-size: 16px;
             cursor: pointer;
             text-align: center;
+            transition: border-color 0.3s;
+        }
+        
+        button:hover {
+            border-color: #ffa500;
+        }
+        
+        .submit-button-container {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -127,7 +138,7 @@
                     <input type="text" placeholder="XXX" id="numero" name="numero" required>
                 </div>
 
-                <div style="width: 70%;"> <!-- ajustando largura para 70% -->
+                <div style="width: 70%;">
                     <label for="bairro">Bairro</label>
                     <input type="text" placeholder="Nome do bairro" id="bairro" name="bairro" required>
                 </div>
@@ -138,7 +149,9 @@
                 <input type="text" placeholder="(xx) XXXXX-XXXX" id="contato" name="contato" required>
             </div>
             
-            <button type="submit">Próximo</button>
+            <div class="submit-button-container">
+                <button type="submit">Próximo</button>
+            </div>
         </form>
     </div>
 </body>
