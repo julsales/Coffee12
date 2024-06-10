@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Reservas Pendentes</title>
+    <style>
+            body {
+            background-color: #fffbe7;
+            font-family: 'Poppins', sans-serif;
+            color: #561801;
+        }
+        .reserva-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+        .reserva-item {
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+        .reserva-item h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .reserva-item p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .back-button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #561801;
+            border: 1px solid #561801;
+            padding: 10px;
+            border-radius: 5px;
+        }
+		.cancel-button {
+            background-color: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .update-button {
+            background-color: #008000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reserva-container">
+        <h1>Lista de Reservas Pendentes</h1>
+        {% for reserva in reservas %}
+            <div class="reserva-item">
+                <h2>{{ reserva.cliente.username }}</h2>
+                <p>Data da reserva: {{ reserva.data_hora }}</p>
+                <p>Número de pessoas: {{ reserva.numero_pessoas }}</p>
+                <p>Status: {{ reserva.get_status_display }}</p>
+                {% if reserva.status == 'PE' %}
+                    <a class="cancel-button" href="{% url 'reserva_recusar' reserva.id %}">Recusar Reserva</a>
+                    <a class="update-button" href="{% url 'reserva_aceitar' reserva.id %}">Aceitar Reserva</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="back-button">
+        <a href="{% url 'homepage' %}">Voltar</a>
+    </div>
+</body>
+</html>

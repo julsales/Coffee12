@@ -99,7 +99,9 @@
                 </div>
             {% endfor %}
             <!-- Fim da seção do cardápio -->
-    
+            <form method="GET" action="{% url 'reserva_create' estabelecimento.id %}">
+                <button type="submit" class="btn">Criar Reserva</button>
+            </form>
             {% if estabelecimento in request.user.cafeteria_favorita.all %}
     <!-- Se o estabelecimento é favorito, mostra o botão "unfav" -->
     <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">

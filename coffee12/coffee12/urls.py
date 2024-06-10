@@ -25,6 +25,13 @@ urlpatterns = [
 	path('add_to_historico/<int:cafeteria_id>/', views.add_to_historico, name='add_to_historico'),
 	path('historico/', views.historico, name='historico'),
 	path('remove_visit/<int:visit_id>/', views.remove_visit, name='remove_visit'),
+	path('reserva/<int:cafe_id>/', views.ReservaCreateView, name='reserva_create'),
+    path('reservas/', views.ReservaListView, name='reserva_list'),
+    path('reserva/update/<int:reserva_id>/', views.ReservaUpdateView, name='reserva_update'),
+	path('reserva/cancel/<int:reserva_id>/', views.ReservaCancelView, name='reserva_cancel'),
+	path('reserva/<int:reserva_id>/recusar/', views.RecusarReservaView, name='reserva_recusar'),
+    path('reserva/<int:reserva_id>/aceitar/', views.AceitarReservaView, name='reserva_aceitar'),
+    path('reservas/listar/', views.listar_reservas, name='reserva_listar'),
     path('',views.Inicio,name='inicio'),
     
 ]

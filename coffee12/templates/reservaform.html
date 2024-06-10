@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Reserva</title>
+    <style>
+        body {
+            background-color: #fffbe7;
+            font-family: 'Poppins', sans-serif;
+            color: #561801;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+            width: 80%;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 80%;
+        }
+
+        .form-group label {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .form-group input {
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #561801;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn {
+            background-color: #561801;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #561801;
+            border: 1px solid #561801;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="my-3">Formulário de Reserva</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.data_hora.id_for_label }}">Data e Hora:</label>
+                <input type="datetime-local" class="form-control" id="{{ form.data_hora.id_for_label }}" name="{{ form.data_hora.html_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.numero_pessoas.id_for_label }}">Número de Pessoas:</label>
+                <input type="number" class="form-control" id="{{ form.numero_pessoas.id_for_label }}" name="{{ form.numero_pessoas.html_name }}" required>
+            </div>
+            <button type="submit" class="btn">Reservar</button>
+        </form>
+        <a href="{% url 'homepage'%}" class="btn prof_button">Cancelar</a>
+    </div>
+</body>
+</html>

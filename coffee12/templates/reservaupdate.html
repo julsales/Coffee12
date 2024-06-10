@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atualizar Reserva</title>
+    <!-- Adicione aqui qualquer CSS ou JavaScript que você queira usar -->
+</head>
+<body>
+    <h1>Atualizar Reserva</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Atualizar</button>
+    </form>
+</body>
+</html>

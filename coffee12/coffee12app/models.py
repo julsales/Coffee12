@@ -90,3 +90,22 @@ class Historico(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     cafeteria = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
     visit_date = models.DateTimeField(default=timezone.now)
+
+class Reserva(models.Model):
+    PENDENTE = 'PE'
+    ACEITO = 'AC'
+    RECUSADO = 'RE'
+    CANCELADO = 'CA'  # Adicione esta linha
+
+    STATUS = [
+        (PENDENTE, 'Pendente'),
+        (ACEITO, 'Aceito'),
+        (RECUSADO, 'Recusado'),
+        (CANCELADO, 'Cancelado'),  # Adicione esta linha
+    ]
+
+    cafe = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    data_hora = models.DateTimeField()
+    numero_pessoas = models.IntegerField()
+    status = models.CharField(max_length=2, choices=STATUS, default=PENDENTE)

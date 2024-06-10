@@ -70,6 +70,7 @@
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
+    margin-top: 10px;
 }
 .sidebar-right {
     display: flex;
@@ -134,6 +135,7 @@
                 <a href="{% url 'cadastrarPrato' %}" class="btn button">Cadastrar Prato</a>
                 <a href="{% url 'excluirPrato' %}" class="btn button">Excluir Prato</a>
                 <a href="{% url 'verFeedbacks' id_cafeteria %}" class="btn button">Ver FeedBacks</a>
+                <a href="{% url 'reserva_listar'%}" class="btn button">Ver Reservas</a>
             {% endif %}
         </div>
         <a href="{% url 'logout' %}" class="btn logout_button">Logout</a>

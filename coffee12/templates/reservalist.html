@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Reservas</title>
+    <style>
+        body {
+            background-color: #fffbe7;
+            font-family: 'Poppins', sans-serif;
+            color: #561801;
+        }
+        .reserva-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+        .reserva-item {
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+        }
+        .reserva-item h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .reserva-item p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .back-button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #561801;
+            border: 1px solid #561801;
+            padding: 10px;
+            border-radius: 5px;
+        }
+		.cancel-button {
+            background-color: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .update-button {
+            background-color: #008000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+		.reserva-item {
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+            display: flex; /* Add this */
+            justify-content: space-between; /* Add this */
+            align-items: start; /* Add this */
+        }
+        .reserva-content {
+            flex-grow: 1; /* Add this */
+        }
+        .reserva-actions {
+            display: flex; /* Add this */
+            gap: 10px; /* Add this */
+        }
+		.status-aceito {
+            color: green;
+        }
+        .status-recusado,
+        .status-cancelado {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="reserva-container">
+        <h1>Lista de Reservas</h1>
+        {% for reserva in reservas %}
+		
+            <div class="reserva-item">
+                <div class="reserva-content"> <!-- Add this -->
+                    <h2>{{ reserva.cafe.nome }}</h2>
+                    <p>Data da reserva: {{ reserva.data_hora }}</p>
+                    <p>Número de pessoas: {{ reserva.numero_pessoas }}</p>
+                    <p>Status: 
+                        <span class="
+                            {% if reserva.status == 'CA' %}
+                                status-cancelado
+                            {% elif reserva.status == 'PE' %}
+                                status-pendente
+                            {% elif reserva.status == 'AC' %}
+                                status-aceito
+                            {% elif reserva.status == 'RE' %}
+                                status-recusado
+                            {% endif %}
+                        ">
+                            {% if reserva.status == 'CA' %}
+                                Cancelado
+                            {% elif reserva.status == 'PE' %}
+                                Pendente
+                            {% elif reserva.status == 'AC' %}
+                                Aceito
+                            {% elif reserva.status == 'RE' %}
+                                Recusado
+                            {% endif %}
+                        </span>
+                    </p>
+                </div>
+                <div class="reserva-actions"> <!-- Add this -->
+                    {% if reserva.status != 'CA' and reserva.status != 'RE' %}
+                        <a class="cancel-button" href="{% url 'reserva_cancel' reserva.id %}">Cancelar Reserva</a>
+                    {% endif %}
+                    {% if reserva.status == 'PE' %}
+                        <a class="update-button" href="{% url 'reserva_update' reserva.id %}">Atualizar Reserva</a>
+                    {% endif %}
+                </div> <!-- Add this -->
+            </div>
+        {% endfor %}
+    </div>
+    <div class="back-button">
+        <a href="{% url 'homepage' %}">Voltar</a>
+    </div>
+</body>
+</html>

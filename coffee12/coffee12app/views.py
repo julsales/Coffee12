@@ -6,7 +6,9 @@ from .models import CustomUser, Estabelecimento, Prato
 from django.shortcuts import get_object_or_404
 from .models import Feedback
 from .models import Historico
+from .models import Reserva
 from .forms import FeedbackForm
+from .forms import ReservaForm
 
 
 
@@ -234,4 +236,65 @@ def remove_visit(request, visit_id):
         visit = Historico.objects.get(id=visit_id)
         visit.delete()
     return redirect('historico')
+
+@login_required(login_url='login')
+def ReservaCreateView(request, cafe_id):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            reserva = form.save(commit=False)
+            reserva.cafe = Estabelecimento.objects.get(id=cafe_id)
+            reserva.cliente = request.user
+            reserva.save()
+            return redirect('reserva_list')
+    else:
+        form = ReservaForm()
+    return render(request, 'reservaform.html', {'form': form})
+
+@login_required(login_url='login')
+def ReservaListView(request):
+    reservas = Reserva.objects.filter(cliente=request.user).exclude(status='CA')
+    return render(request, 'reservalist.html', {'reservas': reservas})
+
+@login_required(login_url='login')
+def ReservaUpdateView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if request.method == 'POST':
+        form = ReservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            form.save()
+            return redirect('reserva_list')
+    else:
+        form = ReservaForm(instance=reserva)
+    return render(request, 'reservaupdate.html', {'form': form})
     
+@login_required(login_url='login')
+
+def ReservaCancelView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and (reserva.status == Reserva.PENDENTE or reserva.status == Reserva.ACEITO):
+        reserva.status = Reserva.CANCELADO
+        reserva.save()
+    return redirect('reserva_list')
+
+@login_required(login_url='login')
+def RecusarReservaView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and reserva.status == Reserva.PENDENTE:
+        reserva.status = Reserva.RECUSADO 
+        reserva.save()
+    return redirect('reserva_listar')
+
+@login_required(login_url='login')
+def AceitarReservaView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and reserva.status == Reserva.PENDENTE:
+        reserva.status = Reserva.ACEITO  
+        reserva.save()
+    return redirect('reserva_listar')
+
+@login_required(login_url='login')
+def listar_reservas(request):
+    estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
+    reservas = Reserva.objects.filter(status=Reserva.PENDENTE, cafe=estabelecimento)
+    return render(request, 'listarreservascafe.html', {'reservas': reservas})
