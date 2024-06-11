@@ -200,7 +200,7 @@
                     {% if reserva.status != 'CA' and reserva.status != 'RE' %}
                         <a class="cancel-button" href="{% url 'reserva_cancel' reserva.id %}">Cancelar Reserva</a>
                     {% endif %}
-                    {% if reserva.status == 'PE' %}
+                    {% if reserva.status == 'PE' or reserva.status == 'AC'%}
                         <a class="update-button" href="{% url 'reserva_update' reserva.id %}">Atualizar Reserva</a>
                     {% endif %}
                 </div>

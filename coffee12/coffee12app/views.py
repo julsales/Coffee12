@@ -262,9 +262,12 @@ def ReservaListView(request):
 @login_required(login_url='login')
 def ReservaUpdateView(request, reserva_id):
     reserva = Reserva.objects.get(id=reserva_id)
+    
     if request.method == 'POST':
         form = ReservaForm(request.POST, instance=reserva)
         if form.is_valid():
+            reserva.status = Reserva.PENDENTE
+            reserva.save()
             form.save()
             return redirect('reserva_list')
     else:
