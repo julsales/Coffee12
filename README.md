@@ -50,11 +50,11 @@ https://cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
 
-História 1: Requisitar itens esquecidos na cafeteria
+História 1: Requisitar itens esquecidos na cafeteria ( Implementada )
 - Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
     - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
-História 2: Remoção de itens do cardápio
+História 2: Remoção de itens do cardápio ( Implementada )
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
     - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
 
