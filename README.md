@@ -55,11 +55,11 @@ História 1: Requisitar itens esquecidos na cafeteria ( Implementada )
     - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
 Cenário: Usuário envia uma solicitação de item perdido
-    Dado que o usuário está na página de solicitação de itens perdidos
-    Quando o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"
-    E o usuário clica no botão de enviar
-    Então o sistema deve salvar a solicitação
-    E o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"
+    Dado que o usuário está na página de solicitação de itens perdidos<br>
+    Quando o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"<br>
+    E o usuário clica no botão de enviar<br>
+    Então o sistema deve salvar a solicitação<br>
+    E o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"<br>
 
   Cenário: Estabelecimento responde a uma solicitação de item perdido
     Dado que o estabelecimento recebeu uma solicitação de item perdido
