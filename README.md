@@ -76,7 +76,7 @@ Cenário 1: Usuário envia uma solicitação de item perdido<br>
 História 2: Remoção de itens do cardápio ( Implementada )
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
     - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
-    - 
+      
 Cenário 1: Dono de cafeteria remove um item do cardápio
 **Dado** que o dono da cafeteria está logado na plataforma administrativa<br>
 **E** o dono acessa a página de gerenciamento do cardápio<br>
