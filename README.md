@@ -77,7 +77,7 @@ História 2: Remoção de itens do cardápio ( Implementada )
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
     - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
       
-Cenário 1: Dono de cafeteria remove um item do cardápio
+Cenário 1: Dono de cafeteria remove um item do cardápio<br>
 **Dado** que o dono da cafeteria está logado na plataforma administrativa<br>
 **E** o dono acessa a página de gerenciamento do cardápio<br>
 **Quando** o dono digita o nome do item "Café Espresso" para remoção<br>
@@ -88,6 +88,15 @@ Cenário 1: Dono de cafeteria remove um item do cardápio
 História 3: Dar Feedbacks sobre Cafeterias Visitadas (Implementada)
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
     - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
+
+Cenário 1: Usuário dá feedback sobre cafeteria visitada<br>
+**Dado** que o usuário está logado na plataforma<br>
+**E** o usuário está visualizando o perfil da cafeteria que visitou<br>
+**Quando** o usuário clica no botão "Dar Feedback" no perfil da cafeteria<br>
+**E** o usuário seleciona uma nota de avaliação de 0 a 5<br>
+**E** o usuário escreve um comentário sobre sua experiência<br>
+**E** o usuário confirma o envio do feedback<br>
+**Então** o sistema deve registrar o feedback com a nota e o comentário fornecidos pelo usuário<br>
 
 História 4: Evidenciar Pratos Principais e Promoções (Implementada)
 - Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
