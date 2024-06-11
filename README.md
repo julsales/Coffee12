@@ -122,6 +122,16 @@ História 5: Cadastrar Perfil da Cafeteria (Implementada)
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
     - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
 
+Cenário: Cadastrar perfil da cafeteria na plataforma<br>
+**Dado** que o dono da cafeteria está logado na plataforma como usuário<br>
+**E** não possui uma cafeteria cadastrada no sistema<br>
+**Quando** o dono da cafeteria acessa a página de cadastro do perfil da cafeteria<br>
+**E** o dono da cafeteria preenche o campo "Nome do Estabelecimento" com "Café da Esquina"<br>
+**E** o dono da cafeteria preenche o campo "Endereço" com "Rua das Flores, 123"<br>
+**E** o dono da cafeteria preenche o campo "Telefone" com "(XX) XXXX-XXXX"<br>
+**E** o dono da cafeteria clica no botão de cadastrar perfil<br>
+**Então** o sistema deve registrar o perfil da cafeteria com o nome "Café da Esquina", endereço "Rua das Flores, 123" e telefone "(XX) XXXX-XXXX"
+
   
 História 6: Editar Perfil da Cafeteria e Adicionar Cardápio (Implementada)
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
