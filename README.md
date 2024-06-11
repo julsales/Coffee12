@@ -215,7 +215,8 @@ Cenário 1: Usuário visualiza histórico de visitas<br>
 
 
 # BugTracker
-![image](https://github.com/julsales/Coffee12/assets/134211506/287ea9dc-aeb2-471c-bfdb-c169a8d9a5c2)
+![image](https://github.com/julsales/Coffee12/assets/134211506/abe919d3-0ded-468b-a0a6-e37f24922257)
+
 
 # Programação em Pares
 Durante o desenvolvimento do Coffee12, decidimos adotar o Pair Programming, uma prática ágil onde dois desenvolvedores trabalham juntos no mesmo código no mesmo computador, seja de forma síncrona, ou assíncrona, com o objetivo de melhorar a qualidade do código, tentar acelerar o desenvolvimento e tentar aprender com o outro.
