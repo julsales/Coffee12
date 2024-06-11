@@ -54,24 +54,24 @@ História 1: Requisitar itens esquecidos na cafeteria ( Implementada )
 - Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
     - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
-Cenário: Usuário envia uma solicitação de item perdido
-    Dado que o usuário está na página de solicitação de itens perdidos<br>
-    Quando o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"<br>
-    E o usuário clica no botão de enviar<br>
-    Então o sistema deve salvar a solicitação<br>
-    E o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"<br>
+Cenário 1: Usuário envia uma solicitação de item perdido<br>
+    **Dado** que o usuário está na página de solicitação de itens perdidos<br>
+    **Quando** o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"<br>
+    **E** o usuário clica no botão de enviar<br>
+    **Então** o sistema deve salvar a solicitação<br>
+    **E** o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"<br>
 
-  Cenário: Estabelecimento responde a uma solicitação de item perdido
-    Dado que o estabelecimento recebeu uma solicitação de item perdido
-    Quando o estabelecimento encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
-    E o estabelecimento atualiza o status da solicitação para "Encontrado"
-    Então o usuário deve ser notificado de que seu item foi encontrado
+  Cenário 2: Estabelecimento responde a uma solicitação de item perdido<br>
+    **Dado** que o estabelecimento recebeu uma solicitação de item perdido<br>
+    **Quando** o estabelecimento encontra o item descrito como "Guarda-chuva preto com cabo de madeira"<br>
+    **E** o estabelecimento atualiza o status da solicitação para "Encontrado"<br>
+    **Então** o usuário deve ser notificado de que seu item foi encontrado<br>
 
-  Cenário: Estabelecimento responde negativamente a uma solicitação de item perdido
-    Dado que o estabelecimento recebeu uma solicitação de item perdido
-    Quando o estabelecimento não encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
-    E o estabelecimento atualiza o status da solicitação para "Não Encontrado"
-    Então o usuário deve ser notificado de que seu item não foi encontrado
+  Cenário 3: Estabelecimento responde negativamente a uma solicitação de item perdido<br>
+    **Dado** que o estabelecimento recebeu uma solicitação de item perdido<br>
+    **Quando** o estabelecimento não encontra o item descrito como "Guarda-chuva preto com cabo de madeira"<br>
+    **E** o estabelecimento atualiza o status da solicitação para "Não Encontrado"<br>
+    **Então** o usuário deve ser notificado de que seu item não foi encontrado<br>
 
 História 2: Remoção de itens do cardápio ( Implementada )
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
