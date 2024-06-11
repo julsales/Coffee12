@@ -152,6 +152,29 @@ Cenário: Editar perfil da cafeteria na plataforma<br>
 História 7: Reserva de Mesas Online (Implementada)
 - Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
     - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
+
+Cenário 1: Usuário envia solicitação de reserva de mesa<br>
+**Dado** que o usuário está na página de reserva de mesa da cafeteria desejada<br>
+**Quando** o usuário seleciona a data, horário e quantidade de pessoas desejados para a reserva<br>
+**E** o usuário clica no botão "Enviar Reserva"<br>
+**Então** o sistema registra a solicitação de reserva do usuário<br>
+
+Cenário 2: Dono do estabelecimento visualiza e confirma reserva de mesa<br>
+**Dado** que o dono da cafeteria está na página de gerenciamento de reservas<br>
+**Quando** o dono visualiza a lista de solicitações de reserva de mesas pendentes<br>
+**E** encontra uma solicitação para a data e horário desejados<br>
+**Então** o dono verifica a disponibilidade de mesas para a quantidade de pessoas informada na solicitação<br>
+**E** se houver mesas disponíveis para a quantidade de pessoas especificada na reserva<br>
+**Então** o dono confirma a reserva e exibe uma mensagem de confirmação ao usuário<br>
+
+
+Cenário 3: Dono do estabelecimento não encontra mesas disponíveis<br>
+**Dado** que o dono da cafeteria está na página de gerenciamento de reservas<br>
+**Quando** o dono visualiza a lista de solicitações de reserva de mesas pendentes<br>
+**E** encontra uma solicitação para a data e horário desejados<br>
+**E** verifica que não há mesas disponíveis para a quantidade de pessoas informada na solicitação<br>
+**Então** o dono informa ao usuário que não há mesas disponíveis para a data e horário especificados<br>
+
  
 História 8: Adicionae Cafeterias aos Favoritos (Implementada)
 - Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
