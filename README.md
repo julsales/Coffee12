@@ -50,26 +50,13 @@ https://cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
 
-História 1: Personalização de Recomendações de Cafeterias
-- Eu como usuário, gostaria de escolher quais características de café me agradam mais e ter recomendações de cafeterias, baseado no meu perfil.
-    - Descrição: Será feito perguntas como:
-        - Quantas pessoas vão participar?
-        - Qual é o objetivo?
-         Ex: Usuário poderá escolher entre: encontro de amigos, momento de trabalho, momento de descanso, encontrar algo novo…
-        - Onde a(s) pessoa(s) moram aproximadamente (bairros)
-        - Que tipo de cardápio você prefere
-        Ex: (Vou pelo café, vou pela comida, não importa…)
-        - Tem algo que você não gosta?
-        Ex: Ambientes barulhentos, ambientes coloridos demais.
-          - Descrição: o sistema ira informar novas cafeterias com base nas preferencias que eu escolher para minha conta
-            - Perguntas: 
-            1: qual o tipo de café você mais gosta
-            2: com qual finalidade você procura cafeterias?
-            3: qual região você prefere?
+História 1: Requisitar itens esquecidos na cafeteria
+- Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
+    - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
-História 2: Seguir Perfis e Acompanhar Novidades
-- Eu como usuário, gostaria de seguir perfis e poder acompanhar as novidades dele e das minhas cafeterias favoritas.
-    - Descrição: O usuário poderia ter acesso a uma aba onde tem ofertas, promoções ou eventos sendo promovidos em cafeterias seguidas.
+História 2: Remoção de itens do cardápio
+- Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
+    - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
 
 História 3: Dar Feedbacks sobre Cafeterias Visitadas (Implementada)
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
