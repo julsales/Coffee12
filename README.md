@@ -137,6 +137,18 @@ História 6: Editar Perfil da Cafeteria e Adicionar Cardápio (Implementada)
 - Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
+
+ChatGPT
+Cenário: Editar perfil da cafeteria na plataforma<br>
+**Dado** que o dono da cafeteria está logado na plataforma como usuário<br>
+**E** o dono da cafeteria possui um perfil cadastrado com o nome "Café da Esquina", endereço "Rua das Flores, 123" e telefone "(XX) XXXX-XXXX"<br>
+**Quando**o dono da cafeteria acessa a página de edição do perfil da cafeteria<br>
+**E** o dono da cafeteria edita o campo "Nome do Estabelecimento" para "Café do Bairro"<br>
+**E** o dono da cafeteria edita o campo "Endereço" para "Avenida Principal, 456"<br>
+**E** o dono da cafeteria edita o campo "Telefone" para "(YY) YYYY-YYYY"<br>
+**E** o dono da cafeteria clica no botão de salvar alterações<br>
+**Então** o sistema deve atualizar o perfil da cafeteria com o nome "Café do Bairro", endereço "Avenida Principal, 456" e telefone "(YY) YYYY-YYYY"
+
 História 7: Reserva de Mesas Online (Implementada)
 - Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
     - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
