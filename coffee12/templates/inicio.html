@@ -14,15 +14,13 @@
         }
         /* Estilos para a barra superior */
         .top-bar {
-            background-color: #561801c5;
-            padding: 10px;
+            background-color: #fcf8f1;
+            padding: 8px;
             display: flex;
-            justify-content: flex-end;
-            border-radius: 10px;
-            margin: 5px;
+            justify-content: flex-end;        
         }
 
-        /* Estilos para os links de login e cadastro */
+        /* Estilos para o link de login */
         .top-bar a {
             margin-left: 10px;
             padding: 5px 10px;
@@ -33,20 +31,63 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        .top-bar .button{
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
         /* Estilos para o conteúdo da página */
         .content {
-            padding: 20px;
+            background-image: url("{% static 'fundo.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 93.1vh;
+        }
+        .content h1  {
+            color: #ffffff;
+            margin-left: -40%;
+            margin-top: -20%;
+            font-size: 48px;
+        }
+        .content p{
+            color: #ffffff;
+            margin-left: -40%;
+            margin-top: -5%;
+            font-size: 20px;
+        }
+        /* Estilos para o botão de cadastro */
+        .content .signup-button {
+            display: inline-block;
+            margin-left: -40%;
+            margin-top: 5%;
+            padding: 10px 20px;
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="top-bar">
-        <a href="login/">Login</a>
-        <a href="signup/">Cadastro</a>
+        <a href="login/" class="button">Entrar</a>
     </div>
     
     <div class="content">
-        <!-- Conteúdo da página aqui -->
+        <div>
+            <h1>Bem-vindo ao<br>Café da Gente</h1>
+            <p>Nosso objetivo é encontrar as melhores cafeterias feitas pra você.</p>
+            <a href="signup/" class="signup-button">Cadastre-se</a>
+        </div>
     </div>
 </body>
 </html>

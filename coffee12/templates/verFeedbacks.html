@@ -1,19 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <title>Feedbacks de {{ estabelecimento.nome }}</title>
+    
+    <style>
+        body {
+            background-color: #160704;
+            font-family: 'Poppins', sans-serif;
+            color: #561801;
+        }
+        .back-button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+		h1 {
+            color: #fcf8f1;
+        }
+        .back-button a {
+            text-decoration: none;
+            color: #561801;
+            border: 1px solid #561801;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .feedback-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+        .feedback-item {
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 80%;
+			background-color: #fcf8f1;
+        }
+        .feedback-item p {
+			color: #000000;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .feedback-item hr {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+		.top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;        
+        }
+
+        .top-bar a {
+            margin-left: 10px;
+            
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-	<a href="{% url 'homepagecafe'%}">Voltar</a>
-    <h1>Feedbacks de {{ estabelecimento.nome }}</h1>
-    {% for feedback in feedbacks %}
-    	<p>User: {{ feedback.user.username }}</p>
-    	<p>Rating: {{ feedback.rating }}</p>
-    	<p>Comment: {{ feedback.comment }}</p>
-    	<p>Date: {{ feedback.created_at }}</p>
-    	<hr>
-    {% empty %}
-        <p>Não há feedbacks ainda.</p>
-    {% endfor %}
+	<div class="top-bar">
+        <div class="icon">
+            <img src="{% static 'logo.ico' %}" alt="Logo" style="width: 35px; height: 35px;">
+        </div>
+        {% if not possui_estabelecimento %}
+            
+            <a href="{% url 'cadastrarEstabelecimento' %}">
+                <img src="{% static 'shop.png' %}" alt="prato" style="width: 20px; height: 20px;">
+                Cadastrar Estabelecimento</a>
+                
+        {% else %}
+            <a href="{% url 'cadastrarPrato' %}">
+                <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
+                Cadastrar Prato
+            </a>
+            <a href="{% url 'excluirPrato' %}">
+                <img src="{% static 'deletedish.png' %}" alt="deletarprato" style="width: 20px; height: 20px;">
+                Excluir Prato
+            </a>
+            <a href="{% url 'editarEstabelecimento' %}">
+                <img src="{% static 'edit.png' %}" alt="editar" style="width: 20px; height: 20px;">
+                Editar Estabelecimento
+            </a>
+            <a href="{% url 'excluirEstabelecimento' %}">
+                <img src="{% static 'delete.png' %}" alt="editar" style="width: 20px; height: 20px;">
+                Excluir Estabelecimento
+            </a>
+            <a href="{% url 'reserva_listar' %}">
+                <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+                Ver Reservas
+            </a>
+            <a href="{% url 'homepagecafe' %}">
+                <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+                Início
+            </a>
+        {% endif %}
+        <a href="{% url 'logout' %}">
+            <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+            Logout
+        </a>
+    </div>
+    <a href="{% url 'homepagecafe' %}" class="back-button">Voltar</a>
+    <div class="feedback-container">
+        <h1>Feedbacks de {{ estabelecimento.nome }}</h1>
+        {% for feedback in feedbacks %}
+            <div class="feedback-item">
+                <p>Usuário: {{ feedback.user.username }}</p>
+                <p>Avaliação: {{ feedback.rating }}</p>
+                <p>Comentário: {{ feedback.comment }}</p>
+                <p>Data: {{ feedback.created_at }}</p>
+                
+            </div>
+        {% empty %}
+            <p>Não há feedbacks ainda.</p>
+        {% endfor %}
+    </div>
 </body>
 </html>

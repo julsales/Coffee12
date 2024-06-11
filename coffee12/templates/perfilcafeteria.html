@@ -1,134 +1,231 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Perfil da Cafeteria</title>
-        <style>
-            *:before,
-            *:after{
-                padding: 0;
-                margin: 0;
-                box-sizing: border-box;
-            }
-            body {
-                background-color: #fffbe7;
-                font-family: 'Poppins', sans-serif;
-            }
-    
-            .cafeteria-profile{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-color: #561801;
-                border-radius: 5px;
-                padding: 20px;
-                border: 1px solid #000;
-                color: #ffffff;
-                margin: 50px;
-                width: 80%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-    
-            .cafeteria-profile h1 {
-                font-size: 28px;
-                font-weight: 500;
-                line-height: 42px;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-    
-            .cafeteria-profile p {
-                font-size: 16px;
-                color: #ffffff;
-                margin-bottom: 10px;
-            }
-    
-            .cafeteria-profile .btn {
-                background-color: #ffffff;
-                color: #000000;
-                padding: 15px;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                margin-top: 10px;
-            }
-    
-            .cafeteria-profile .fav_button {
-                background-color: #ffee00;
-                color: #ffffff;
-                padding: 15px;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-            }
-    
-            .cafeteria-profile .unfav_button {
-                background-color: #ff2600;
-                color: #ffffff;
-                padding: 15px;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="cafeteria-profile">
+<head>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style media="screen">
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            color: #343a40;
+        }
+
+        .container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cafeteria-profile h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .cafeteria-profile p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .cardapio {
+            margin-top: 20px;
+        }
+
+        .cardapio h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .prato {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .prato h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .prato p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #DF9041;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c5771e;
+        }
+
+        .fav_button {
+            background-color: #ffee00;
+            color: #ffffff;
+        }
+
+        .unfav_button {
+            background-color: #ff2600;
+            color: #ffffff;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .back-button a:hover {
+            background-color: #23272b;
+        }
+
+        .top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;        
+        }
+
+        .top-bar a {
+            margin-left: 10px;
             
-            <h1>{{ estabelecimento.nome }}</h1>
-            <p>{{ estabelecimento.descricao }}</p>
-            <p>Endereço: {{ estabelecimento.endereco }}</p>
-            <p>Telefone: {{ estabelecimento.telefone }}</p>
-            <p>Horário: {{ estabelecimento.descricao_horario }}</p>
-			{% if rating_average %}
-    			<p>Nota média: {{ rating_average }}</p>
-			{% else %}
-   				<p>Não há avaliações ainda.</p>
-			{% endif %}
-            
-            <!-- Início da seção do cardápio -->
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
+
+    </style>  
+
+    <title>Home Page</title>
+
+</head>
+<body>
+    <div class="top-bar">
+        <div class="icon">
+            <img src="{% static 'logo.ico' %}" alt="logo" style="width: 35px; height:35px;">
+        </div>
+        <a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
+        </a>
+        <a href="{% url 'historico' %}">
+            <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
+            Ver Histórico
+        </a>
+        <a href="{% url 'reserva_list' %}">
+            <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+            Ver Reservas
+        </a>
+        <a href="{% url 'logout' %}">
+            <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+            Logout
+        </a>
+    </div>
+
+    <div class="container cafeteria-profile">
+        <h1>{{ estabelecimento.nome }}</h1>
+        <p>{{ estabelecimento.descricao }}</p>
+        <p><strong>Endereço:</strong> {{ estabelecimento.endereco }}</p>
+        <p><strong>Telefone:</strong> {{ estabelecimento.telefone }}</p>
+        {% if rating_average %}
+            <p><strong>Nota média:</strong> {{ rating_average }}</p>
+        {% else %}
+            <p>Não há avaliações ainda.</p>
+        {% endif %}
+
+        <div class="cardapio">
             <h2>Cardápio</h2>
             {% for prato in cardapio %}
                 <div class="prato">
                     <h3>{{ prato.nome }}</h3>
                     <p>{{ prato.descricao }}</p>
-                    <p>Preço: {{ prato.preco }}</p>
-                    {% if prato.preco_promocional %}
-                        <p>Preço promocional: {{ prato.preco_promocional }}</p>
-                    {% endif %}
+                    {% if prato.preco_promocional and prato.preco_promocional != prato.preco %}
+    <p>
+        <strong>Preço: R$</strong> <del>{{ prato.preco }}</del>
+        {{ prato.preco_promocional }}
+    </p>
+{% else %}
+    <p><strong>Preço:</strong> {{ prato.preco_promocional }}</p>
+{% endif %}
                 </div>
             {% endfor %}
-            <!-- Fim da seção do cardápio -->
-            <form method="GET" action="{% url 'reserva_create' estabelecimento.id %}">
-                <button type="submit" class="btn">Criar Reserva</button>
-            </form>
-            {% if estabelecimento in request.user.cafeteria_favorita.all %}
-    <!-- Se o estabelecimento é favorito, mostra o botão "unfav" -->
-    <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn unfav_button">unfav</button>
-    </form>
-{% else %}
-    <!-- Se o estabelecimento não é favorito, mostra o botão "fav" -->
-    {% if estabelecimento.id %}
-        <form method="POST" action="{% url 'favoritarCafeteria' id=estabelecimento.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
-            <button type="submit" class="btn fav_button">fav</button>
-        </form>
-    {% else %}
-        <p>Erro: estabelecimento.id é nulo ou indefinido.</p>
-    {% endif %}
-	
-{% endif %}
         </div>
-		<a href="{% url 'feedback' estabelecimento.id %}" class="btn">Give Feedback</a>
-		<div class="back-button">
-			<a href="{% url 'homepage' %}">Voltar</a>
-		</div>
+        {% if estabelecimento in request.user.cafeteria_favorita.all %}
+            <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn unfav_button">Desfavoritar</button>
+            </form>
+        {% else %}
+            {% if estabelecimento.id %}
+                <form method="POST" action="{% url 'favoritarCafeteria' id=estabelecimento.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+                    <button type="submit" class="btn fav_button">Favoritar</button>
+                </form>
+            {% else %}
+                <p>Erro: estabelecimento.id é nulo ou indefinido.</p>
+            {% endif %}
+        {% endif %}
+        <form method="GET" action="{% url 'reserva_create' estabelecimento.id %}">
+            <button type="submit" class="btn">Criar Reserva</button>
+        </form>
+        
+
+        <a href="{% url 'feedback' estabelecimento.id %}" class="btn">Enviar Feedback</a>
         <form method="POST" action="{% url 'add_to_historico' estabelecimento.id %}">
             {% csrf_token %}
-            <button type="submit">AdicionarAoHistorico</button>
+            <button type="submit" class="btn">Adicionar ao Histórico</button>
         </form>
-    </body>
+        
+    </div>
+</body>
 </html>

@@ -26,12 +26,11 @@ def Homepage(request):
 
 @login_required(login_url='login')
 def HomepageCafe(request):
-    id_cafeteria = request.user.cafeteria.id if request.user.possui_estabelecimento else None
+    cafeteria = request.user.cafeteria if request.user.possui_estabelecimento else None
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
-        'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
-        'pratos': Prato.objects.filter(estabelecimento=request.user.cafeteria) if request.user.possui_estabelecimento else None,
-        'id_cafeteria': id_cafeteria,
+        'cafeteria': cafeteria,
+        'pratos': Prato.objects.filter(estabelecimento=cafeteria) if cafeteria else None,
     }
     return render(request, 'homepagecafe.html', context)
 
@@ -105,18 +104,18 @@ def CadastrarEstabelecimento(request):
     return render(request, 'cadastrarEstabelecimento.html')
 
 def CadastrarPrato(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method == 'POST':
         nome = request.POST.get('nome')
         descricao = request.POST.get('descricao')
         preco = request.POST.get('preco')
         preco_promocional = request.POST.get('preco_promocional')
         prato_principal = 'prato_principal' in request.POST
-        estabelecimento = request.user.cafeteria
-        prato = Prato.objects.create(nome=nome, descricao=descricao, preco=preco, preco_promocional=preco_promocional,prato_principal=prato_principal, estabelecimento=estabelecimento)
+        
+        prato = Prato.objects.create(nome=nome, descricao=descricao, preco=preco, preco_promocional=preco_promocional,prato_principal=prato_principal, estabelecimento=cafeteria)
         prato.save()
         return redirect('homepagecafe')
-    return render(request, 'cadastrarPrato.html')
-
+    return render(request, 'cadastrarPrato.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 
 
 def EditarEstabelecimento(request):
@@ -221,7 +220,7 @@ def feedback(request, id):
 def VerFeedbacks(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     feedbacks = Feedback.objects.filter(cafeteria=estabelecimento).order_by('-created_at')[:10]
-    return render(request, 'verFeedbacks.html', {'estabelecimento': estabelecimento, 'feedbacks': feedbacks})
+    return render(request, 'verFeedbacks.html', { 'feedbacks': feedbacks,'estabelecimento': estabelecimento,'possui_estabelecimento': request.user.possui_estabelecimento,})
 
 def add_to_historico(request, cafeteria_id):
     Historico.objects.create(user=request.user, cafeteria_id=cafeteria_id)
@@ -297,4 +296,4 @@ def AceitarReservaView(request, reserva_id):
 def listar_reservas(request):
     estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
     reservas = Reserva.objects.filter(status=Reserva.PENDENTE, cafe=estabelecimento)
-    return render(request, 'listarreservascafe.html', {'reservas': reservas})
+    return render(request, 'listarreservascafe.html', {'reservas': reservas,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})

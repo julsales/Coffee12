@@ -1,25 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <title>Formulário de Feedback</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffbe7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .back-button {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            color: #774910;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: left;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            background-color: #f2f2f2;
+        }
+
+        button {
+            width: 20%;
+            padding: 10px;
+            background: #000;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        button:hover {
+            border-color: #ffa500;
+        }
+
+        .submit-button-container {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Formulário de Feedback</h1>
-    <form method="post">
-        {% csrf_token %}
-        <p>
-            <label for="{{ form.rating.id_for_label }}">Classificação:</label>
-            {{ form.rating }}
-            <script>
-                document.getElementById("{{ form.rating.id_for_label }}").min = 1;
-                document.getElementById("{{ form.rating.id_for_label }}").max = 5;
-            </script>
-        </p>
-        <p>
-            <label for="{{ form.comment.id_for_label }}">Comentário:</label>
-            {{ form.comment }}
-        </p>
-        <button type="submit">Enviar Feedback</button>
-    </form>
+    <div class="container">
+        <div class="back-button">
+            <a href="{% url 'homepagecafe' %}">Voltar</a>
+        </div>
+        <h3>Formulário de Feedback</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <label for="{{ form.rating.id_for_label }}">Classificação:</label>
+                {{ form.rating }}
+            </div>
+            <div>
+                <label for="{{ form.comment.id_for_label }}">Comentário:</label>
+                {{ form.comment }}
+            </div>
+            <div class="submit-button-container">
+                <button type="submit">Enviar Feedback</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

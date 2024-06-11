@@ -1,162 +1,226 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     {% load static %}
     <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <style media="screen">
         *,
-  *:before,
-  *:after{
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-  }
-  body {
-    background-color: #fffbe7;
-    font-family: 'Poppins', sans-serif;
-}
+        *:before,
+        *:after{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            color: #343a40;
+        }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: calc(100% - 10px); /* Subtraia a margem superior e inferior */
-    width: 280px;
-    background-color: #561801c5;
-    padding: 50px 35px;
-    color: #ffffff;
-    border-radius: 15px;
-    margin: 5px;
-    margin-bottom: 5px; /* Adicione esta linha */
-}
+        .container{
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar h3 {
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-    margin-bottom: 20px;
-}
+        .cafeteria-profile h1{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-.sidebar .links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+        .cafeteria-profile p{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
-.sidebar .links .btn {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-}
+        .cardapio {
+            margin-top: 20px;
+        }
 
-.sidebar .logout_button {
-    background-color: #f44848;
-    color: #ffffff;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 10px;
-}
-.sidebar-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    right: 0; /* Posicione à direita */
-    height: calc(100% - 10px); /* Subtraia a margem superior e inferior */
-    width: 1180px;
-    background-color: #561801c5;
-    padding: 50px 35px;
-    color: #ffffff;
-    border-radius: 15px;
-    margin: 5px;
-    margin-bottom: 5px;
-}
-.sidebar-right h1{
-    text-align: center;
-    margin-bottom: 10px;
-}
-.sidebar-right ul {
-    list-style-type: none;
-    padding: 0;
-}
+        .cardapio h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
 
-.sidebar-right li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-}
+        .prato {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar-right h2 {
-    margin-top: 20px;
-    color: #561801;
-}
-.pratos-info {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0;  /* Remove a margem no topo */
-}
+        .prato h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
 
-.pratos-promocao h2, .pratos-principais h2 {
-    color: white;  /* Altera a cor do texto para branco */
-}
+        .prato p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
 
-.pratos-promocao h2, .pratos-principais h2 {
-    color: white;  /* Altera a cor do texto para branco */
-}
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #DF9041;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c5771e;
+        }
+
+        .fav_button {
+            background-color: #ffee00;
+            color: #ffffff;
+        }
+
+        .unfav_button {
+            background-color: #ff2600;
+            color: #ffffff;
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #343a40;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .back-button a:hover {
+            background-color: #23272b;
+        }
+
+        .top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;        
+        }
+
+        .top-bar a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
 
     </style>
+
     <title>Home Page</title>
-  </head>
-  <body>
-    <div class="sidebar">
-        <h3>Home Page Café</h3>
-        <div class="links">
-            {% if not possui_estabelecimento %}
-                <a href="{% url 'cadastrarEstabelecimento' %}" class="btn button">Cadastrar Estabelecimento</a>
-            {% else %}
-                <a href="{% url 'editarEstabelecimento' %}" class="btn button">Editar Estabelecimento</a>
-                <a href="{% url 'excluirEstabelecimento' %}" class="btn button">Excluir Estabelecimento</a>
-                <a href="{% url 'cadastrarPrato' %}" class="btn button">Cadastrar Prato</a>
-                <a href="{% url 'excluirPrato' %}" class="btn button">Excluir Prato</a>
-                <a href="{% url 'verFeedbacks' id_cafeteria %}" class="btn button">Ver FeedBacks</a>
-                <a href="{% url 'reserva_listar'%}" class="btn button">Ver Reservas</a>
-            {% endif %}
+</head>
+<body>
+    <div class="top-bar">
+        <div class="icon">
+            <img src="{% static 'logo.ico' %}" alt="Logo" style="width: 35px; height: 35px;">
         </div>
-        <a href="{% url 'logout' %}" class="btn logout_button">Logout</a>
+        {% if not possui_estabelecimento %}
+            
+            <a href="{% url 'cadastrarEstabelecimento' %}">
+                <img src="{% static 'shop.png' %}" alt="prato" style="width: 20px; height: 20px;">
+                Cadastrar Estabelecimento</a>
+        {% else %}
+            <a href="{% url 'cadastrarPrato' %}">
+                <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
+                Cadastrar Prato
+            </a>
+            <a href="{% url 'excluirPrato' %}">
+                <img src="{% static 'deletedish.png' %}" alt="deletarprato" style="width: 20px; height: 20px;">
+                Excluir Prato
+            </a>
+            <a href="{% url 'editarEstabelecimento' %}">
+                <img src="{% static 'edit.png' %}" alt="editar" style="width: 20px; height: 20px;">
+                Editar Estabelecimento
+            </a>
+            <a href="{% url 'excluirEstabelecimento' %}">
+                <img src="{% static 'delete.png' %}" alt="editar" style="width: 20px; height: 20px;">
+                Excluir Estabelecimento
+            </a>
+            <a href="{% url 'verFeedbacks' cafeteria.id %}">
+                <img src="{% static 'historico.png' %}" alt="feedback" style="width: 20px; height: 20px;">
+                Ver FeedBacks
+            </a>
+            <a href="{% url 'reserva_listar' %}">
+                <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+                Ver Reservas
+            </a>
+        {% endif %}
+        <a href="{% url 'logout' %}">
+            <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+            Logout
+        </a>
     </div>
-    <div class="sidebar-right">
-        <h1>Seu Cardápio</h1>
-        <ul>
-            {% for prato in pratos %}
-            <li>
-                
-                {{ prato.nome }}
-                {% if prato.preco_promocional == prato.preco %}
-                    <span style="float: right;">R$ {{ prato.preco }}</span>
-                {% else %}
-                    <span style="float: right; text-decoration: line-through;">R$ {{ prato.preco }}</span>
-                    <span style="float: right; margin-right: 5px;">R$ {{ prato.preco_promocional }}</span>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-        </ul>
-    </div>
-</body>
-</html>
+
+    <div class="container cafeteria-profile">
+        {% if cafeteria %}
+            <h1>{{ cafeteria.nome }}</h1>
+            <p>{{ cafeteria.descricao }}</p>
+            <p><strong>Endereço:</strong> {{ cafeteria.endereco }}</p>
+            <p><strong>Telefone:</strong> {{ cafeteria.telefone }}</p>
+            {% if rating_average %}
+                <p><strong>Nota média:</strong> {{ rating_average }}</p>
+            {% else %}
+                <p>Não há avaliações ainda.</p>
+            {% endif %}
+        
+    
+            <div class="cardapio">
+                <h2>Cardápio</h2>
+                {% for prato in pratos %}
+                    <div class="prato">
+                        <h3>{{ prato.nome }}</h3>
+                        <p>{{ prato.descricao }}</p>
+                        {% if prato.preco_promocional and prato.preco_promocional != prato.preco %}
+                            <p>
+                                <strong>Preço: R$</strong> <del>{{ prato.preco }}</del>
+                                {{ prato.preco_promocional }}
+                            </p>
+                        {% else %}
+                            <p><strong>Preço:</strong> {{ prato.preco_promocional }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h1>Você ainda não cadastrou seu estabelecimento</h1>
+        {% endif %}
+            
+        </div>
+    </body>
+    </html>

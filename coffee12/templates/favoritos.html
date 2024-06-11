@@ -12,185 +12,207 @@
       margin: 0;
       box-sizing: border-box;
   }
-  body{
-      background-color: #fffbe7;
+  body {
+    background-color: #160704;
+    font-family: 'Poppins', sans-serif;
   }
-  .fav_button {
-    background-color: #ffee00;
+
+.container{
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 100%;
+  }
+
+.cafe{
+  background-color: #fcf8f1;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid #000;
+  height: 240px;
+  display: flex; /* Adicione esta linha */
+  align-items: center; /* Adicione esta linha */
+  flex-direction: column; /* Adicione esta linha */
+}
+.cafe h2{
+  color: #000;
+  font-size: 42px;
+}
+
+.cafe h3{
+  color: #000;
+  font-size: 24px;
+}
+
+.cafe li{
+  font-size: 12px;
+  text-align: left;
+}
+
+.cafe a{
+  color: #000;
+  font-size: 14px;
+  margin-top: auto; /* Adicione esta linha */
+}
+
+
+
+.cafe fav{
+  color: #fffb00;
+  font-size: 14px;
+  
+
+}
+
+.prof_button {
+    max-height: 100 px;
+    background-color: #a68e06;
     color: #ffffff;
     padding: 15px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
+}
+
+.fav_button {
+    background-color: #ffee00;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    
 }
 
 .unfav_button {
     background-color: #ff2600;
     color: #ffffff;
-    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
 }
-  .background{
-      width: 430px;
-      height: 520px;
-      position: absolute;
-      transform: translate(-50%,-50%);
-      left: 50%;
-      top: 50%;
-  }
-  .background .shape{
-      height: 200px;
-      width: 200px;
-      position: absolute;
-      border-radius: 50%;
-  }
-  .shape:first-child{
-      background: linear-gradient(
-          #ec7107,
-          #e7a302
-      );
-      left: -80px;
-      top: -80px;
-  }
-  .shape:last-child{
-      background: linear-gradient(
-          to right,
-          #472100,
-          #774910
-      );
-      right: -80px;
-      bottom: -80px;
-  }
-  
-  label{
-      display: block;
-      margin-top: 16px;
-      font-size: 16px;
-      font-weight: 500;
-  }
-  input{
-      display: block;
-      height: 50px;
-      width: 100%;
-      background-color: rgba(255,255,255,0.07);
-      border-radius: 3px;
-      padding: 0 10px;
-      margin-top: 8px;
-      font-size: 14px;
-      font-weight: 300;
-  }
-  ::placeholder{
-      color: #e5e5e5;
-  }
-  button{
-      margin-top: 50px;
-      width: 100%;
-      background-color: #ffffff;
-      color: #080710;
-      padding: 15px 0;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-  .social{
-    margin-top: 30px;
+
+.pratos-info {
     display: flex;
-  }
-  .social div{
-    background: red;
-    width: 150px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgba(255,255,255,0.27);
-    color: #eaf0fb;
-    text-align: center;
-  }
-  .social div:hover{
-    background-color: rgba(255,255,255,0.47);
-  }
-  .social .fb{
-    margin-left: 25px;
-  }
-  .social i{
-    margin-right: 4px;
-  }
-  .create-account {
-      margin-top: 20px; /* Ajuste o valor conforme necessário */
-  }
-  .back-button {
-    font-family: Poppins, sans-serif;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: #561801ce;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 300;
-    
-    transition: background-color 0.3s ease;
+    justify-content: space-between;
+    margin-top: 0;
 }
 
-.back-button:hover {
-    background-color: rgba(193, 16, 16, 0.27);
+.pratos-promocao h2, .pratos-principais h2 {
+    color: white;  
 }
 
-.back-button a{
-    color: #ffffff;
-    text-decoration: none;
+.pratos-promocao h2, .pratos-principais h2 {
+    color: white;  
 }
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #fffbe7;
-    padding: 20px;
-}
+.top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;        
+        }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-}
+        /* Estilos para o link de login */
+        .top-bar a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
 
-.grid-item {
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: #74280dc5;
-	border-radius: 5px;
-}
-  
-  
-      </style>
-    
-      <title>Home Page</title>
+        .top-bar .button{
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon{
+          margin-right: auto;
+        }
+
     </style>
     <title>Tela de Criação de Estabelecimento</title>
 </head>
 <body>
-    <h1>Minhas Cafeterias Favoritas</h1>
-    <div class="grid-container">
+    <div class="top-bar">
+        <div class="icon">
+          <img src="{% static 'logo.ico' %}" alt="Favorito" style="width: 35px; height:35px;">
+        </div>
+        <a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+             Início
+        </a>
+        <a href="{% url 'historico' %}">
+          <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
+          Ver Histórico
+        </a>
+        <a href="{% url 'reserva_list' %}" >
+          <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+          Ver Reservas
+        </a>
+      
+      <a href="{% url 'logout' %}" class="btn logout_button">
+        <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+        Logout</a>
+    </div>
+
+    <div class="container">
         {% for estabelecimento in request.user.cafeteria_favorita.all %}
-    <div class="grid-item">
-        <h2>{{ estabelecimento.nome }}</h2>
-        <!-- Aqui você pode adicionar mais detalhes sobre cada cafeteria -->
-        <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
-            <button type="submit" class="btn unfav_button">unfav</button>
-        </form>
-        <!-- Button to cafeteria profile -->
-        <a href="{% url 'perfilCafeteria' estabelecimento.id %}" class="btn fav_button">Ver Perfil</a>
-    </div>
-{% empty %}
-    <p>Você ainda não tem cafeterias favoritas.</p>
-{% endfor %}
-    </div>
-    <div class="back-button">
-        <a href="{% url 'homepage' %}">Voltar</a>
+        <div class="cafe">
+            <h2>{{ estabelecimento.nome }}</h2>
+            {% if estabelecimento.rating_average %}
+                <p>{{ estabelecimento.rating_average }}
+                    <img src="{% static 'nota.png' %}" alt="nota" style="width: 20px; height: 20px;">
+                </p>
+            {% else %}
+                <p>Sem avaliações</p>
+            {% endif %}
+            <p>{{estabelecimento.endereco}}</p>
+            {% if estabelecimento in request.user.cafeteria_favorita.all %}
+                <form method="POST" action="{% url 'desfavoritarCafeteria' estabelecimento.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+                    <button type="submit" class="btn unfav_button">
+                        <img src="{% static 'fav.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
+                    </button>
+                </form>
+            {% else %}
+                <form method="POST" action="{% url 'favoritarCafeteria' estabelecimento.id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_cafeteria" value="{{ estabelecimento.id }}">
+                    <button type="submit" class="btn fav_button">
+                        <img src="{% static 'fav.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
+                    </button>
+                </form>
+            {% endif %}
+            <a href="{% url 'perfilCafeteria' estabelecimento.id %}">Ir para o perfil da cafeteria
+                <img src="{% static 'cafeperfil.png' %}" alt="cafe" style="width: 28px; height: 15px;">
+            </a>
+
+        </div>
+
+        {% empty %}
+            <p>Nenhum estabelecimento encontrado.</p>
+
+        {% endfor %}
+
     </div>
 </body>
 </html>
