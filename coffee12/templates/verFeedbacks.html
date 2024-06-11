@@ -102,6 +102,10 @@
                 Cadastrar Estabelecimento</a>
                 
         {% else %}
+        <a href="{% url 'solicitacoes' %}">
+            <img src="{% static 'item.png' %}" alt="item" style="width: 20px; height: 20px;">
+            itens
+        </a>
             <a href="{% url 'cadastrarPrato' %}">
                 <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
                 Cadastrar Prato
@@ -132,7 +136,7 @@
             Logout
         </a>
     </div>
-    <a href="{% url 'homepagecafe' %}" class="back-button">Voltar</a>
+    
     <div class="feedback-container">
         <h1>Feedbacks de {{ estabelecimento.nome }}</h1>
         {% for feedback in feedbacks %}

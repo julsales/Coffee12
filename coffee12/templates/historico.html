@@ -88,7 +88,8 @@
         h1{
             color: #fcf8f1;
         }
-        .remove-button {
+
+        .remove-button, .solicitar-button {
             background-color: #000000;
             color: #fff;
             border: none;
@@ -114,7 +115,6 @@
             padding: 10px;
             border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -122,6 +122,10 @@
         <div class="icon">
             <img src="{% static 'logo.ico' %}" alt="logo" style="width: 35px; height: 35px;">
         </div>
+        <a href="{% url 'listar_requisicoes_cliente' %}" >
+            <img src="{% static 'item.png' %}" alt="item" style="width: 20px; height: 20px;">
+            Minhas solicitações
+          </a>
         <a href="{% url 'homepage' %}">
             <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
             Início
@@ -150,6 +154,7 @@
                     {% csrf_token %}
                     <input type="submit" value="Remover visita" class="remove-button">
                 </form>
+                <a href="{% url 'solicitaritem' item.cafeteria.id %}" class="solicitar-button">Solicitar Item</a>
             </div>
         {% endfor %}
     </div>

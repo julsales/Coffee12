@@ -141,10 +141,11 @@
         <div class="icon">
             <img src="{% static 'logo.ico' %}" alt="logo" style="width: 35px; height: 35px;">
         </div>
-        <a href="{% url 'homepage' %}">
-            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
-            Início
-        </a>
+        <a href="{% url 'listar_requisicoes_cliente' %}" >
+            <img src="{% static 'item.png' %}" alt="item" style="width: 20px; height: 20px;">
+            Minhas solicitações
+          </a>
+        
         <a href="{% url 'favoritos' %}">
             <img src="{% static 'favorito.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
             Ver Favoritos
@@ -152,6 +153,10 @@
         <a href="{% url 'historico' %}">
             <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
             Ver Histórico
+        </a>
+        <a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
         </a>
         <a href="{% url 'logout' %}">
             <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">

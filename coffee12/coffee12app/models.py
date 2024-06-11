@@ -109,3 +109,22 @@ class Reserva(models.Model):
     data_hora = models.DateTimeField()
     numero_pessoas = models.IntegerField()
     status = models.CharField(max_length=2, choices=STATUS, default=PENDENTE)
+
+class ItemEsquecido(models.Model):
+    cliente = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    cafeteria = models.ForeignKey(Estabelecimento, on_delete=models.CASCADE)
+    descricao = models.CharField(max_length=200)
+    PENDENTE = 'PE'
+    ACHADO = 'AC'
+    NAO_ENCONTRADO = 'NE'
+
+    STATUS = [
+        (PENDENTE, 'Pendente'),
+        (ACHADO, 'Achado'),
+        (NAO_ENCONTRADO, 'Não Encontrado'),
+    ]
+
+    status = models.CharField(max_length=2, choices=STATUS, default=PENDENTE)
+
+    def __str__(self):
+        return self.descricao

@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from .models import Feedback
 from .models import Historico
 from .models import Reserva
+from .models import ItemEsquecido
 from .forms import FeedbackForm
 from .forms import ReservaForm
 
@@ -298,3 +299,45 @@ def listar_reservas(request):
     estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
     reservas = Reserva.objects.filter(status=Reserva.PENDENTE, cafe=estabelecimento)
     return render(request, 'listarreservascafe.html', {'reservas': reservas,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})
+
+def solicitar_item(request, id_cafeteria):  # add id_cafeteria as an argument
+    if request.method == 'POST':
+        descricao = request.POST.get('descricao')
+
+        cliente = request.user
+        if Estabelecimento.objects.filter(id=id_cafeteria).exists():
+            cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
+        lost_item = ItemEsquecido(cliente=cliente, cafeteria=cafeteria, descricao=descricao)
+        lost_item.save()
+
+        return redirect('historico')
+
+    return render(request, 'solicitaritem.html')
+
+def ver_solicitacoes(request):
+    estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
+    solicitacoes = ItemEsquecido.objects.filter(cafeteria=request.user.cafeteria)
+    return render(request, 'solicitacoes.html', {'solicitacoes': solicitacoes,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})
+def marcar_item_achado(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.status = 'achado'
+    item.save()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def marcar_item_nao_achado(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.status = 'nao_achado'
+    item.save()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def remover_requisicao(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.delete()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def listar_requisicoes_cliente(request):
+    requisicoes = ItemEsquecido.objects.filter(cliente=request.user)
+    return render(request, 'minhassolicitacoes.html', {'requisicoes': requisicoes})

@@ -2,17 +2,16 @@
 <html lang="pt-br">
 <head>
     {% load static %}
-    <title>Formulário de Feedback</title>
+    <title>Minhas Requisições</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
     <style>
-        
         body {
             font-family: 'Poppins', sans-serif;
             background: #fffbe7;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
 
@@ -25,17 +24,6 @@
             max-width: 900px;
         }
 
-        .back-button {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .back-button a {
-            color: #774910;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
         h3 {
             font-size: 24px;
             margin-bottom: 20px;
@@ -43,59 +31,33 @@
             text-align: left;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            color: #333;
-            text-align: left;
-            margin-bottom: 5px;
-        }
-
-        input {
+        table {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-            margin-bottom: 10px;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+        }
+
+        td {
             background-color: #f2f2f2;
         }
-
-        button {
-            width: 20%;
-            padding: 10px;
-            background: #000;
-            border: 2px solid #ffffff;
-            border-radius: 5px;
-            color: #ffffff;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            transition: border-color 0.3s;
-        }
-
-        button:hover {
-            border-color: #ffa500;
-        }
-
-        .submit-button-container {
-            margin-top: auto;
-            display: flex;
-            justify-content: center;
-        }
-        .top-bar {
+		.top-bar {
             background-color: #fcf8f1;
             padding: 8px;
             display: flex;
             justify-content: flex-end;
             position: fixed;
-            width: 99%;
+            width: 100%;
             top: 0;
             z-index: 999;
         }
@@ -128,22 +90,18 @@
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        
-        <a href="{% url 'inicio' %}" class="icon">
-            <img src="{% static 'logo.ico' %}" alt="Favorito" style="width: 35px; height:35px;">
+	<div class="top-bar">
+        <div class="icon">
+          <img src="{% static 'logo.ico' %}" alt="Favorito" style="width: 35px; height:35px;">
+        </div>
+		<a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
         </a>
-        <a href="{% url 'listar_requisicoes_cliente' %}" >
-            <img src="{% static 'item.png' %}" alt="item" style="width: 20px; height: 20px;">
-            Minhas solicitações
-          </a>
+        
         <a href="{% url 'favoritos' %}">
           <img src="{% static 'favorito.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
           Ver Favoritos
-        </a>
-        <a href="{% url 'homepage' %}">
-            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
-            Início
         </a>
         <a href="{% url 'historico' %}">
           <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
@@ -159,22 +117,29 @@
         Logout</a>
     </div>
     <div class="container">
-        
-        <h3>Formulário de Feedback</h3>
-        <form method="post">
-            {% csrf_token %}
-            <div>
-                <label for="{{ form.rating.id_for_label }}">Classificação:</label>
-                {{ form.rating }}
-            </div>
-            <div>
-                <label for="{{ form.comment.id_for_label }}">Comentário:</label>
-                {{ form.comment }}
-            </div>
-            <div class="submit-button-container">
-                <button type="submit">Enviar Feedback</button>
-            </div>
-        </form>
+        <h3>Minhas Requisições</h3>
+        {% if requisicoes %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for requisicao in requisicoes %}
+                        <tr>
+                            <td>{{ requisicao.descricao }}</td>
+                       
+                            <td>{{ requisicao.get_status_display }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhuma requisição encontrada.</p>
+        {% endif %}
     </div>
 </body>
 </html>

@@ -32,6 +32,12 @@ urlpatterns = [
 	path('reserva/<int:reserva_id>/recusar/', views.RecusarReservaView, name='reserva_recusar'),
     path('reserva/<int:reserva_id>/aceitar/', views.AceitarReservaView, name='reserva_aceitar'),
     path('reservas/listar/', views.listar_reservas, name='reserva_listar'),
+	path('solicitaritem/<int:id_cafeteria>/', views.solicitar_item, name='solicitaritem'),
+	path('solicitações/', views.ver_solicitacoes, name='solicitacoes'),
+	path('marcar_item_achado/<int:item_id>/', views.marcar_item_achado, name='marcar_item_achado'),
+    path('marcar_item_nao_achado/<int:item_id>/', views.marcar_item_nao_achado, name='marcar_item_nao_achado'),
+    path('remover_requisicao/<int:item_id>/', views.remover_requisicao, name='remover_requisicao'),
+    path('minhas_requisicoes/', views.listar_requisicoes_cliente, name='listar_requisicoes_cliente'),
     path('',views.Inicio,name='inicio'),
     
 ]

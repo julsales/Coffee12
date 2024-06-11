@@ -2,9 +2,8 @@
 <html lang="pt-br">
 <head>
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'Logo.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
-    <title>Excluir Prato</title>
+    <title>Solicitação de Item Perdido</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -79,23 +78,24 @@
             text-align: center;
             transition: border-color 0.3s;
         }
-        
+
         button:hover {
             border-color: #ffa500;
         }
-        
+
         .submit-button-container {
             margin-top: auto;
             display: flex;
             justify-content: center;
         }
+
         .top-bar {
             background-color: #fcf8f1;
             padding: 8px;
             display: flex;
             justify-content: flex-end;
             position: fixed;
-            width: 100%;
+            width: 99%;
             top: 0;
             z-index: 999;
         }
@@ -129,63 +129,40 @@
 </head>
 <body>
     <div class="top-bar">
-        <div class="icon">
-            <img src="{% static 'logo.ico' %}" alt="Logo" style="width: 35px; height: 35px;">
-        </div>
-        {% if not possui_estabelecimento %}
-            
-            <a href="{% url 'cadastrarEstabelecimento' %}">
-                <img src="{% static 'shop.png' %}" alt="prato" style="width: 20px; height: 20px;">
-                Cadastrar Estabelecimento</a>
-        {% else %}
-        <a href="{% url 'solicitacoes' %}">
-            <img src="{% static 'item.png' %}" alt="item" style="width: 20px; height: 20px;">
-            itens
+        <a href="{% url 'inicio' %}" class="icon">
+            <img src="{% static 'logo.ico' %}" alt="Favorito" style="width: 35px; height:35px;">
         </a>
-        <a href="{% url 'cadastrarPrato' %}">
-            <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
-            Cadastrar Prato
+        <a href="{% url 'favoritos' %}">
+          <img src="{% static 'favorito.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
+          Ver Favoritos
         </a>
-            <a href="{% url 'homepagecafe' %}">
-                <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
-                Início
-            </a>
-            
-            <a href="{% url 'editarEstabelecimento' %}">
-                <img src="{% static 'edit.png' %}" alt="editar" style="width: 20px; height: 20px;">
-                Editar Estabelecimento
-            </a>
-            <a href="{% url 'excluirEstabelecimento' %}">
-                <img src="{% static 'delete.png' %}" alt="editar" style="width: 20px; height: 20px;">
-                Excluir Estabelecimento
-            </a>
-            <a href="{% url 'verFeedbacks' estabelecimento.id %}">
-                <img src="{% static 'historico.png' %}" alt="feedback" style="width: 20px; height: 20px;">
-                Ver FeedBacks
-            </a>
-            <a href="{% url 'reserva_listar' %}">
-                <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
-                Ver Reservas
-            </a>
-        {% endif %}
+        <a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
+        </a>
+        <a href="{% url 'historico' %}">
+          <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
+          Ver Histórico
+        </a>
+        <a href="{% url 'reserva_list' %}">
+          <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+          Ver Reservas
+        </a>
         <a href="{% url 'logout' %}">
-            <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
-            Logout
+          <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+          Logout
         </a>
     </div>
     <div class="container">
-       
-        <h3>Excluir Prato</h3>
+        <h3>Solicitação de Item Perdido</h3>
         <form method="POST">
             {% csrf_token %}
-            
             <div>
-                <label for="nome">Nome do Prato</label>
-                <input type="text" placeholder="Nome do Prato" id="nome" name="nome" required>
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required>
             </div>
-            
             <div class="submit-button-container">
-                <button type="submit">Excluir</button>
+                <button type="submit">Enviar</button>
             </div>
         </form>
     </div>
