@@ -102,6 +102,20 @@ História 4: Evidenciar Pratos Principais e Promoções (Implementada)
 - Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
     - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
 
+Cenário 1: Exibir prato principal sem promoção no perfil da cafeteria<br>
+**Dado** que o dono da cafeteria está logado na plataforma<br>
+**E** o dono da cafeteria cadastrou um prato principal chamado "Frango Grelhado"<br>
+**E** o preço do "Frango Grelhado" é R$ 25,00 e não há promoção<br>
+**Quando** o dono da cafeteria visualiza o perfil da cafeteria<br>
+**Então** o sistema deve exibir o "Frango Grelhado" com o preço R$ 25,00 sem indicar promoção<br>
+
+Cenário 2: Exibir prato principal com promoção no perfil da cafeteria<br>
+**Dado que o dono da cafeteria está logado na plataforma<br>
+**E** o dono da cafeteria cadastrou um prato principal chamado "Milkshake de Morango"<br>
+**E** o preço do "Milkshake de Morango" é R$ 15,00 e há uma promoção de R$ 12,00<br>
+**Quando** o dono da cafeteria visualiza o perfil da cafeteria<br>
+**Então** o sistema deve exibir o "Milkshake de Morango" com o preço cortado de R$ 15,00 e o preço promocional de R$ 12,00 ao lado
+
 
 
 História 5: Cadastrar Perfil da Cafeteria (Implementada)
