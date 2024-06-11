@@ -46,10 +46,14 @@ def SignupPage(request):
         phone_number = request.POST.get('phone_number')
         if pass1 != pass2:
             return HttpResponse("Sua senha está diferente da confirmação")
-        my_user = CustomUser.objects.create_user(username=uname, email=email, password=pass1)
-        my_user.phone_number = phone_number
-        my_user.save()
-        return redirect('login')
+        try:
+            existing_user = CustomUser.objects.get(username=uname)
+            return HttpResponse("Nome de usuário já existe")
+        except CustomUser.DoesNotExist:
+            my_user = CustomUser.objects.create_user(username=uname, email=email, password=pass1)
+            my_user.phone_number = phone_number
+            my_user.save()
+            return redirect('login')
         
 
     return render(request, 'signup.html')
@@ -82,10 +86,14 @@ def SignupCafePage(request):
         phone_number = request.POST.get('phone_number')
         if pass1!=pass2:
             return HttpResponse("Sua senha está diferente da confirmação")
-        my_user=CustomUser.objects.create_user(username=uname, email=email, password=pass1,role='CM')
-        my_user.phone_number = phone_number
-        my_user.save()
-        return redirect('login')
+        try:
+            existing_user = CustomUser.objects.get(username=uname)
+            return HttpResponse("Nome de usuário já existe")
+        except CustomUser.DoesNotExist:
+            my_user=CustomUser.objects.create_user(username=uname, email=email, password=pass1,role='CM')
+            my_user.phone_number = phone_number
+            my_user.save()
+            return redirect('login')
         
 
     return render(request, 'signupCafe.html')
