@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <title>Solicitações de Itens Perdidos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffbe7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .back-button {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .back-button a {
+            color: #774910;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+
+        .top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            width: 99%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .top-bar a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions form {
+            display: inline;
+        }
+
+        .actions button {
+            padding: 6px 12px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        
+        <a href="{% url 'homepagecafe' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
+        </a>
+        <a href="{% url 'cadastrarPrato' %}">
+            <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
+            Cadastrar Prato
+        </a>
+        <a href="{% url 'excluirPrato' %}">
+            <img src="{% static 'deletedish.png' %}" alt="deletarprato" style="width: 20px; height: 20px;">
+            Excluir Prato
+        </a>
+        <a href="{% url 'editarEstabelecimento' %}">
+            <img src="{% static 'edit.png' %}" alt="editar" style="width: 20px; height: 20px;">
+            Editar Estabelecimento
+        </a>
+        <a href="{% url 'excluirEstabelecimento' %}">
+            <img src="{% static 'delete.png' %}" alt="editar" style="width: 20px; height: 20px;">
+            Excluir Estabelecimento
+        </a>
+        <a href="{% url 'verFeedbacks' cafeteria.id %}">
+            <img src="{% static 'historico.png' %}" alt="feedback" style="width: 20px; height: 20px;">
+            Ver FeedBacks
+        </a>
+        <a href="{% url 'reserva_listar' %}">
+            <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+            Ver Reservas
+        </a>
+    
+    <a href="{% url 'logout' %}">
+        <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+        Logout
+    </a>
+    </div>
+    <div class="container">
+        <h3>Solicitações de Itens Perdidos</h3>
+        {% if solicitacoes %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for solicitacao in solicitacoes %}
+                        <tr>
+                            <td>{{ solicitacao.descricao }}</td>
+                            <td class="actions">
+                                <form action="{% url 'marcar_item_achado' solicitacao.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Achado</button>
+                                </form>
+                                <form action="{% url 'marcar_item_nao_achado' solicitacao.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Não Achado</button>
+                                </form>
+                                <form action="{% url 'remover_requisicao' solicitacao.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Remover</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhuma solicitação encontrada.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

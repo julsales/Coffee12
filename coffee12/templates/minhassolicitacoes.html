@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <title>Minhas Requisições</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fffbe7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+		.top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .top-bar a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+	<div class="top-bar">
+        <div class="icon">
+          <img src="{% static 'logo.ico' %}" alt="Favorito" style="width: 35px; height:35px;">
+        </div>
+		<a href="{% url 'homepage' %}">
+            <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+            Início
+        </a>
+        
+        <a href="{% url 'favoritos' %}">
+          <img src="{% static 'favorito.png' %}" alt="Favorito" style="width: 20px; height: 20px;">
+          Ver Favoritos
+        </a>
+        <a href="{% url 'historico' %}">
+          <img src="{% static 'historico.png' %}" alt="Histórico" style="width: 20px; height: 20px;">
+          Ver Histórico
+        </a>
+        <a href="{% url 'reserva_list' %}" >
+          <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+          Ver Reservas
+        </a>
+      
+      <a href="{% url 'logout' %}">
+        <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+        Logout</a>
+    </div>
+    <div class="container">
+        <h3>Minhas Requisições</h3>
+        {% if requisicoes %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for requisicao in requisicoes %}
+                        <tr>
+                            <td>{{ requisicao.descricao }}</td>
+                       
+                            <td>{{ requisicao.get_status_display }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Nenhuma requisição encontrada.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

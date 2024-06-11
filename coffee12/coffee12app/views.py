@@ -5,7 +5,11 @@ from django.contrib.auth.decorators import login_required
 from .models import CustomUser, Estabelecimento, Prato
 from django.shortcuts import get_object_or_404
 from .models import Feedback
+from .models import Historico
+from .models import Reserva
+from .models import ItemEsquecido
 from .forms import FeedbackForm
+from .forms import ReservaForm
 
 
 
@@ -23,12 +27,13 @@ def Homepage(request):
 
 @login_required(login_url='login')
 def HomepageCafe(request):
-    id_cafeteria = request.user.cafeteria.id if request.user.possui_estabelecimento else None
+    cafeteria = request.user.cafeteria if request.user.possui_estabelecimento else None
+    rating_average = cafeteria.rating_average
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
-        'cafeteria_nome': request.user.cafeteria.nome if request.user.possui_estabelecimento else None,
-        'pratos': Prato.objects.filter(estabelecimento=request.user.cafeteria) if request.user.possui_estabelecimento else None,
-        'id_cafeteria': id_cafeteria,
+        'cafeteria': cafeteria,
+        'pratos': Prato.objects.filter(estabelecimento=cafeteria) if cafeteria else None,
+        'rating_average': rating_average 
     }
     return render(request, 'homepagecafe.html', context)
 
@@ -102,21 +107,22 @@ def CadastrarEstabelecimento(request):
     return render(request, 'cadastrarEstabelecimento.html')
 
 def CadastrarPrato(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method == 'POST':
         nome = request.POST.get('nome')
         descricao = request.POST.get('descricao')
         preco = request.POST.get('preco')
         preco_promocional = request.POST.get('preco_promocional')
         prato_principal = 'prato_principal' in request.POST
-        estabelecimento = request.user.cafeteria
-        prato = Prato.objects.create(nome=nome, descricao=descricao, preco=preco, preco_promocional=preco_promocional,prato_principal=prato_principal, estabelecimento=estabelecimento)
+        
+        prato = Prato.objects.create(nome=nome, descricao=descricao, preco=preco, preco_promocional=preco_promocional,prato_principal=prato_principal, estabelecimento=cafeteria)
         prato.save()
         return redirect('homepagecafe')
-    return render(request, 'cadastrarPrato.html')
-
+    return render(request, 'cadastrarPrato.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 
 
 def EditarEstabelecimento(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method =='POST':
         nome = request.POST.get('nome')
         endereco = request.POST.get('endereco')
@@ -128,7 +134,7 @@ def EditarEstabelecimento(request):
         estabelecimento.telefone = telefone
         estabelecimento.save()
         return redirect('homepagecafe')
-    return render(request, 'editarEstabelecimento.html')
+    return render(request, 'editarEstabelecimento.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 
 def ExcluirEstabelecimento(request):
     proprietario = request.user
@@ -142,14 +148,14 @@ def ExcluirEstabelecimento(request):
 
 
 def ExcluirPrato(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method == 'POST':
         nome = request.POST.get('nome')
         estabelecimento = request.user.cafeteria
         prato = Prato.objects.get(nome=nome, estabelecimento=estabelecimento)
         prato.delete()
         return redirect('homepagecafe')
-    return render(request, 'excluirPrato.html')
-
+    return render(request, 'excluirPrato.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 def Inicio(request):
     return render(request, 'inicio.html')
 
@@ -218,5 +224,125 @@ def feedback(request, id):
 def VerFeedbacks(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     feedbacks = Feedback.objects.filter(cafeteria=estabelecimento).order_by('-created_at')[:10]
-    return render(request, 'verFeedbacks.html', {'estabelecimento': estabelecimento, 'feedbacks': feedbacks})
+    return render(request, 'verFeedbacks.html', { 'feedbacks': feedbacks,'estabelecimento': estabelecimento,'possui_estabelecimento': request.user.possui_estabelecimento,})
+
+def add_to_historico(request, cafeteria_id):
+    Historico.objects.create(user=request.user, cafeteria_id=cafeteria_id)
+    return redirect('perfilCafeteria', id_cafeteria=cafeteria_id)
+
+def historico(request):
+    historico = Historico.objects.filter(user=request.user)
+    return render(request, 'historico.html', {'historico': historico})
+
+def remove_visit(request, visit_id):
+    if request.method == 'POST':
+        visit = Historico.objects.get(id=visit_id)
+        visit.delete()
+    return redirect('historico')
+
+@login_required(login_url='login')
+def ReservaCreateView(request, cafe_id):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            reserva = form.save(commit=False)
+            reserva.cafe = Estabelecimento.objects.get(id=cafe_id)
+            reserva.cliente = request.user
+            reserva.save()
+            return redirect('reserva_list')
+    else:
+        form = ReservaForm()
+    return render(request, 'reservaform.html', {'form': form})
+
+@login_required(login_url='login')
+def ReservaListView(request):
+    reservas = Reserva.objects.filter(cliente=request.user).exclude(status='CA')
+    return render(request, 'reservalist.html', {'reservas': reservas})
+
+@login_required(login_url='login')
+def ReservaUpdateView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
     
+    if request.method == 'POST':
+        form = ReservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            reserva.status = Reserva.PENDENTE
+            reserva.save()
+            form.save()
+            return redirect('reserva_list')
+    else:
+        form = ReservaForm(instance=reserva)
+    return render(request, 'reservaupdate.html', {'form': form})
+    
+@login_required(login_url='login')
+
+def ReservaCancelView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and (reserva.status == Reserva.PENDENTE or reserva.status == Reserva.ACEITO):
+        reserva.status = Reserva.CANCELADO
+        reserva.save()
+    return redirect('reserva_list')
+
+@login_required(login_url='login')
+def RecusarReservaView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and reserva.status == Reserva.PENDENTE:
+        reserva.status = Reserva.RECUSADO 
+        reserva.save()
+    return redirect('reserva_listar')
+
+@login_required(login_url='login')
+def AceitarReservaView(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    if reserva.cliente == request.user and reserva.status == Reserva.PENDENTE:
+        reserva.status = Reserva.ACEITO  
+        reserva.save()
+    return redirect('reserva_listar')
+
+@login_required(login_url='login')
+def listar_reservas(request):
+    estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
+    reservas = Reserva.objects.filter(status=Reserva.PENDENTE, cafe=estabelecimento)
+    return render(request, 'listarreservascafe.html', {'reservas': reservas,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})
+
+def solicitar_item(request, id_cafeteria):  # add id_cafeteria as an argument
+    if request.method == 'POST':
+        descricao = request.POST.get('descricao')
+
+        cliente = request.user
+        if Estabelecimento.objects.filter(id=id_cafeteria).exists():
+            cafeteria = Estabelecimento.objects.get(id=id_cafeteria)
+        lost_item = ItemEsquecido(cliente=cliente, cafeteria=cafeteria, descricao=descricao)
+        lost_item.save()
+
+        return redirect('historico')
+
+    return render(request, 'solicitaritem.html')
+
+def ver_solicitacoes(request):
+    estabelecimento = Estabelecimento.objects.get(proprietario=request.user)
+    solicitacoes = ItemEsquecido.objects.filter(cafeteria=request.user.cafeteria)
+    return render(request, 'solicitacoes.html', {'solicitacoes': solicitacoes,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})
+def marcar_item_achado(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.status = 'achado'
+    item.save()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def marcar_item_nao_achado(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.status = 'nao_achado'
+    item.save()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def remover_requisicao(request, item_id):
+    item = get_object_or_404(ItemEsquecido, id=item_id, cafeteria=request.user.cafeteria)
+    item.delete()
+    return redirect('solicitacoes')
+
+@login_required(login_url='login')
+def listar_requisicoes_cliente(request):
+    requisicoes = ItemEsquecido.objects.filter(cliente=request.user)
+    return render(request, 'minhassolicitacoes.html', {'requisicoes': requisicoes})
