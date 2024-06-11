@@ -28,10 +28,12 @@ def Homepage(request):
 @login_required(login_url='login')
 def HomepageCafe(request):
     cafeteria = request.user.cafeteria if request.user.possui_estabelecimento else None
+    rating_average = cafeteria.rating_average
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
         'cafeteria': cafeteria,
         'pratos': Prato.objects.filter(estabelecimento=cafeteria) if cafeteria else None,
+        'rating_average': rating_average 
     }
     return render(request, 'homepagecafe.html', context)
 
