@@ -54,6 +54,25 @@ História 1: Requisitar itens esquecidos na cafeteria ( Implementada )
 - Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
     - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
+Cenário: Usuário envia uma solicitação de item perdido
+    Dado que o usuário está na página de solicitação de itens perdidos
+    Quando o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"
+    E o usuário clica no botão de enviar
+    Então o sistema deve salvar a solicitação
+    E o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"
+
+  Cenário: Estabelecimento responde a uma solicitação de item perdido
+    Dado que o estabelecimento recebeu uma solicitação de item perdido
+    Quando o estabelecimento encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
+    E o estabelecimento atualiza o status da solicitação para "Encontrado"
+    Então o usuário deve ser notificado de que seu item foi encontrado
+
+  Cenário: Estabelecimento responde negativamente a uma solicitação de item perdido
+    Dado que o estabelecimento recebeu uma solicitação de item perdido
+    Quando o estabelecimento não encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
+    E o estabelecimento atualiza o status da solicitação para "Não Encontrado"
+    Então o usuário deve ser notificado de que seu item não foi encontrado
+
 História 2: Remoção de itens do cardápio ( Implementada )
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
     - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
