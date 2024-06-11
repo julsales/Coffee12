@@ -165,7 +165,7 @@
             {% csrf_token %}
             <div>
                 <label for="{{ form.rating.id_for_label }}">Classificação:</label>
-                {{ form.rating }}
+                <input type="number" name="{{ form.rating.html_name }}" id="{{ form.rating.id_for_label }}" min="0" max="5" value="{{ form.rating.value|default:'' }}">
             </div>
             <div>
                 <label for="{{ form.comment.id_for_label }}">Comentário:</label>
