@@ -179,105 +179,34 @@ Cenário 3: Dono do estabelecimento não encontra mesas disponíveis<br>
 História 8: Adicionae Cafeterias aos Favoritos (Implementada)
 - Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
     - Descrição: Os perfis das cafeterias poderão ser adicionadas aos favoritos e estarão disponíveis em uma aba dedicada às cafeterias favoritas na página principal.
+Cenário 1: Usuário adiciona cafeteria aos favoritos<br>
+**Dado** que o usuário está visualizando o perfil de uma cafeteria<br>
+**Quando** o usuário clica no botão "Adicionar aos Favoritos"<br>
+**Então** o sistema adiciona a cafeteria aos favoritos do usuário<br>
  
 História 9: Visualizar feedbacks (Implementada)
 - Eu como dono de cafeteria, gostaria de poder visualizar os feedbacks direcionados ao meu estabelecimento.
     - Descrição: o responsável pelo estabelecimento pode acessar e visualizar os feedbacks recebidos, possibilitando a análise de comentários, críticas e sugestões dos clientes para melhorar a qualidade do serviço e produtos    oferecidos. Exemplo: "Feedback de Junho: 'Excelente atendimento e ambiente acolhedor, porém a tapioca estava um pouco seca' - João Silva; 'Adorei o novo milkshake de café, voltarei mais vezes!' - Maria Oliveira".
+
+Cenário 1: Dono de cafeteria visualiza feedbacks recebidos<br>
+**Dado** que o dono de cafeteria está logado na plataforma<br>
+**Quando** o dono acessa a seção de feedbacks do seu estabelecimento<br>
+**Então** o sistema exibe uma lista dos feedbacks recebidos, incluindo comentários, notas e nomes dos clientes<br>
+**E** o dono pode visualizar detalhes de cada feedback para análise<br>
  
 História 10: Histórico de Visitas (Implementada)
 - Eu como usuário, gostaria de ver um histórico das cafeterias que visitei através da plataforma.
     - Descrição: O sistema manterá um registro das visitas anteriores dos usuários às cafeterias, permitindo que revisitem facilmente.
+
+Cenário 1: Usuário visualiza histórico de visitas<br>
+**Dado** que o usuário está logado na plataforma<br>
+**Quando** o usuário acessa a seção de histórico de visitas<br>
+**Então** o sistema exibe uma lista das cafeterias previamente visitadas pelo usuário, ordenadas por data da visita mais recente<br>
  
 
 
 
-## cenario de aceitação BDD (gherkin):
 
-Historia 1: 
--Funcionalidade: Recomendações de Cafeterias
--Como um usuário
-    Eu quero escolher características de cafés que me agradam
-    Para receber recomendações de cafeterias baseadas no meu perfil
-<b>
-  -Cenário: Receber recomendações com base nas preferências
-    Dado que estou na página de preferências
-    Quando eu seleciono "momento de trabalho" como finalidade
-    E escolho "vou pelo café" como tipo de cardápio
-    E informo que prefiro "ambientes tranquilos"
-    E escolho "Pinheiros" como região preferida
-    E submeto minhas preferências
-    Então eu recebo uma lista de cafeterias recomendadas em Pinheiros que são tranquilas e focadas em café
-<b>
-<b>
-Historia 2: 
--Funcionalidade: Seguir Perfis e Acompanhar Novidades
-  -Como um usuário
-      Eu quero seguir perfis e acompanhar novidades
-      Para estar atualizado com eventos e promoções das minhas cafeterias favoritas
-<b>
-  -Cenário: Seguir uma cafeteria e receber atualizações
-      Dado que estou na página de perfil da cafeteria "Café do Bairro" 
-      Quando eu clico em "Seguir"
-      E volto para a aba de novidades
-      Então eu vejo ofertas e eventos do "Café do Bairro" listados nas novidades
-<b>
-<b>
-
-Historia 3: 
--Funcionalidade: Dar Feedback sobre Cafeterias
-  -Como um usuário
-      Eu quero dar feedback sobre as cafeterias que visitei
-      Para informar outros usuários sobre minha experiência
-<b>
-  -Cenário: Avaliar uma cafeteria
-      Dado que visitei a cafeteria "Café do Bairro"
-      E estou na página de feedback
-      Quando eu dou uma nota de "4 estrelas"
-      E escrevo um comentário "Ótimo ambiente e café excelente"
-      E submeto meu feedback
-      Então meu comentário e nota são salvos no perfil da "Café do Bairro" 
-<b>
-<b>
-
-Historia 4: 
--Funcionalidade: Destacar Promoções no Perfil da Cafeteria
-  -Como dono de uma cafeteria
-      Eu quero evidenciar pratos principais e promoções
-      Para atrair mais clientes
-<b>
--Cenário: Adicionar uma promoção ao perfil
-      Dado que estou logado como o dono da "Café do Bairro"
-      E estou na página de edição do perfil
-      Quando eu adiciono a promoção "Milkshake de Café por R$ 15,00"
-      E submeto as alterações
-      Então a promoção "Milkshake de Café por R$ 15,00" é exibida no perfil da minha cafeteria
-<b>
-<b>
-
-Historia 5: 
--Funcionalidade: Cadastro de Perfil da Cafeteria
-  -Como dono de uma cafeteria
-      Eu quero cadastrar o perfil da minha cafeteria
-      Para que clientes possam encontrar informações sobre meu estabelecimento
-<b>
-  -Cenário: Cadastrar nova cafeteria
-      Dado que estou logado como dono de uma cafeteria
-      Quando eu preencho o formulário de cadastro com o nome "Café Novo", endereço "123 Rua das Flores, Pinheiros, SP" e horário "8h às 18h"
-      E submeto o cadastro
-      Então o perfil do "Café Novo" é criado e visível para os usuários
-<b>
-<b>
-Historia 6: 
--Funcionalidade: Editar Perfil da Cafeteria
-  -Como dono de uma cafeteria
-     Eu quero editar o perfil da minha cafeteria
-     Para atualizar informações e o cardápio
-     <b>
-   -Cenário: Editar informações do perfil
-     Dado que estou logado como o dono da "Café do Bairro"
-     E estou na página de edição do perfil
-<b>
-<b>
 ## Diagrama de Atividades do Sistema:
 
 
