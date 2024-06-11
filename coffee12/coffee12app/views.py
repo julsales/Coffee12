@@ -119,6 +119,7 @@ def CadastrarPrato(request):
 
 
 def EditarEstabelecimento(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method =='POST':
         nome = request.POST.get('nome')
         endereco = request.POST.get('endereco')
@@ -130,7 +131,7 @@ def EditarEstabelecimento(request):
         estabelecimento.telefone = telefone
         estabelecimento.save()
         return redirect('homepagecafe')
-    return render(request, 'editarEstabelecimento.html')
+    return render(request, 'editarEstabelecimento.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 
 def ExcluirEstabelecimento(request):
     proprietario = request.user
@@ -144,14 +145,14 @@ def ExcluirEstabelecimento(request):
 
 
 def ExcluirPrato(request):
+    cafeteria = Estabelecimento.objects.get(proprietario=request.user)
     if request.method == 'POST':
         nome = request.POST.get('nome')
         estabelecimento = request.user.cafeteria
         prato = Prato.objects.get(nome=nome, estabelecimento=estabelecimento)
         prato.delete()
         return redirect('homepagecafe')
-    return render(request, 'excluirPrato.html')
-
+    return render(request, 'excluirPrato.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
 def Inicio(request):
     return render(request, 'inicio.html')
 

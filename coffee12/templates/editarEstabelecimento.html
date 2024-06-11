@@ -89,13 +89,87 @@
             display: flex;
             justify-content: center;
         }
+        .top-bar {
+            background-color: #fcf8f1;
+            padding: 8px;
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        .top-bar a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .top-bar .button {
+            background-color: #DF9041;
+            color: #240C06;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16.1px;
+        }
+
+        .top-bar a:hover {
+            background-color: #e6dba8;
+        }
+
+        .top-bar .icon {
+            margin-right: auto;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="back-button">
-            <a href="{% url 'homepagecafe' %}">Voltar</a>
+    <div class="top-bar">
+        <div class="icon">
+            <img src="{% static 'logo.ico' %}" alt="Logo" style="width: 35px; height: 35px;">
         </div>
+        {% if not possui_estabelecimento %}
+            
+            <a href="{% url 'cadastrarEstabelecimento' %}">
+                <img src="{% static 'shop.png' %}" alt="prato" style="width: 20px; height: 20px;">
+                Cadastrar Estabelecimento</a>
+        {% else %}
+        <a href="{% url 'cadastrarPrato' %}">
+            <img src="{% static 'dish.png' %}" alt="prato" style="width: 20px; height: 20px;">
+            Cadastrar Prato
+        </a>
+            <a href="{% url 'excluirPrato' %}">
+                <img src="{% static 'deletedish.png' %}" alt="deletarprato" style="width: 20px; height: 20px;">
+                Excluir Prato
+            </a>
+            <a href="{% url 'homepagecafe' %}">
+                <img src="{% static 'inicio.png' %}" alt="Inicio" style="width: 22px; height: 20px;">
+                Início
+            </a>
+            <a href="{% url 'excluirEstabelecimento' %}">
+                <img src="{% static 'delete.png' %}" alt="editar" style="width: 20px; height: 20px;">
+                Excluir Estabelecimento
+            </a>
+            <a href="{% url 'verFeedbacks' estabelecimento.id %}">
+                <img src="{% static 'historico.png' %}" alt="feedback" style="width: 20px; height: 20px;">
+                Ver FeedBacks
+            </a>
+            <a href="{% url 'reserva_listar' %}">
+                <img src="{% static 'lista.png' %}" alt="Reservas" style="width: 20px; height: 20px;">
+                Ver Reservas
+            </a>
+        {% endif %}
+        <a href="{% url 'logout' %}">
+            <img src="{% static 'logout.png' %}" alt="Logout" style="width: 20px; height: 20px;">
+            Logout
+        </a>
+    </div>
+    <div class="container">
+       
         <h3>Editar Estabelecimento</h3>
         <form method="POST">
             {% csrf_token %}
