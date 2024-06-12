@@ -1,6 +1,0 @@
-describe('Seguir cafeterias', () => {
-    
-    it('', () => {
-        
-        })
-})
