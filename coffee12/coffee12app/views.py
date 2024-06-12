@@ -214,7 +214,7 @@ def PerfilCafeteria(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     cardapio = Prato.objects.filter(estabelecimento=estabelecimento)
     rating_average = estabelecimento.rating_average
-    return render(request, 'perfilCafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio, 'rating_average': rating_average})
+    return render(request, 'perfilcafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio, 'rating_average': rating_average})
 
 def feedback(request, id):
     if request.method == 'POST':
