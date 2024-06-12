@@ -231,8 +231,9 @@ https://cafedagente.azurewebsites.net
 -SR2-
 ![Diagrama de atividade (2)](https://github.com/julsales/Coffee12/assets/142419446/abfcae11-b130-42cb-a513-3932332c97f0)
 
-# BugTracker
-![image](https://github.com/julsales/Coffee12/assets/134211506/abe919d3-0ded-468b-a0a6-e37f24922257)
+# BugTracker atualizado
+
+![image](https://github.com/julsales/Coffee12/assets/142419446/4b7e10f2-798c-4f57-86aa-b697a844afd8)
 
 
 # Programação em Pares
@@ -254,8 +255,7 @@ No fim das contas, o Pair Programming se provou um método eficiente de trabalho
 
 ![Telas juntas](https://github.com/julsales/Coffee12/assets/133444972/0b58f532-cfb2-4aa4-b0ed-8207404af77f)
 
-
-  
+ 
 
 ## Todas as Etapas que Fizemos até Agora Para o SR1
 ![Captura de tela 2024-05-13 114153](https://github.com/julsales/Coffee12/assets/152215002/7eba2202-37d5-4255-b85a-ae35ee4f9383)
