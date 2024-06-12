@@ -1,6 +1,6 @@
 describe('Ver o histórico de cafeterias visitadas', () => {
-    it('Requisitar itens perdidos', () => {
-        cy.visit('/');
+    it('Historico de cafeterias', () => {
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')

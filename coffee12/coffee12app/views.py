@@ -28,7 +28,7 @@ def Homepage(request):
 @login_required(login_url='login')
 def HomepageCafe(request):
     cafeteria = request.user.cafeteria if request.user.possui_estabelecimento else None
-    rating_average = cafeteria.rating_average
+    rating_average = round(cafeteria.rating_average, 2) if cafeteria and cafeteria.rating_average is not None else None
     context = {
         'possui_estabelecimento': request.user.possui_estabelecimento,
         'cafeteria': cafeteria,
@@ -160,10 +160,13 @@ def ExcluirPrato(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         estabelecimento = request.user.cafeteria
-        prato = Prato.objects.get(nome=nome, estabelecimento=estabelecimento)
-        prato.delete()
+        pratos = Prato.objects.filter(nome=nome, estabelecimento=estabelecimento)
+        pratos.delete()
         return redirect('homepagecafe')
-    return render(request, 'excluirPrato.html',{'estabelecimento': cafeteria,'possui_estabelecimento': request.user.possui_estabelecimento,})
+    return render(request, 'excluirPrato.html', {
+        'estabelecimento': cafeteria,
+        'possui_estabelecimento': request.user.possui_estabelecimento,
+    })
 def Inicio(request):
     return render(request, 'inicio.html')
 
@@ -213,7 +216,7 @@ def Favoritos(request):
 def PerfilCafeteria(request, id_cafeteria):
     estabelecimento = Estabelecimento.objects.get(id=id_cafeteria)
     cardapio = Prato.objects.filter(estabelecimento=estabelecimento)
-    rating_average = estabelecimento.rating_average
+    rating_average = round(estabelecimento.rating_average, 2) if estabelecimento.rating_average is not None else None
     return render(request, 'perfilcafeteria.html', {'estabelecimento': estabelecimento, 'cardapio': cardapio, 'rating_average': rating_average})
 
 def feedback(request, id):
@@ -313,7 +316,7 @@ def listar_reservas(request):
     reservas = Reserva.objects.filter(status=Reserva.PENDENTE, cafe=estabelecimento)
     return render(request, 'listarreservascafe.html', {'reservas': reservas,'possui_estabelecimento': request.user.possui_estabelecimento,'cafeteria':estabelecimento})
 
-def solicitar_item(request, id_cafeteria):  # add id_cafeteria as an argument
+def solicitar_item(request, id_cafeteria):  
     if request.method == 'POST':
         descricao = request.POST.get('descricao')
 

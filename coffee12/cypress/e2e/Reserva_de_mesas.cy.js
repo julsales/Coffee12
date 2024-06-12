@@ -1,6 +1,6 @@
 describe('Reservar mesas', () => {
     it('Reservando mesas', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')
@@ -20,7 +20,7 @@ describe('Reservar mesas', () => {
         cy.get('.reserva-content > :nth-child(3)').should('contain',"Número de pessoas: 7")
         })
     it('Checagem da cafeteria', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('cafe3')
         cy.get('#password').type('cafe3')
@@ -31,7 +31,7 @@ describe('Reservar mesas', () => {
         cy.get('.update-button').click()
         })    
     it('Cancelando a reserva', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')

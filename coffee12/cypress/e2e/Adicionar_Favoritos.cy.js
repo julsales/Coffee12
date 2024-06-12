@@ -1,7 +1,7 @@
 describe('Adicionar cafeteria aos favoritos', () => {
     
     it('Adicionando aos favoritos', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')

@@ -1,6 +1,6 @@
 describe('Receber Feedbacks', () => {
     it('Dar feedback a uma cafeteria', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')
@@ -12,7 +12,7 @@ describe('Receber Feedbacks', () => {
         cy.get('button').click()
         })
     it('Receber feedback', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('cafe3')
         cy.get('#password').type('cafe3')

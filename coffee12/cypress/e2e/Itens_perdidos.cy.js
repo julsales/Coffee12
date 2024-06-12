@@ -1,7 +1,7 @@
 describe('Itens perdidos', () => {
     
     it('Requisitar itens perdidos', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')
@@ -17,7 +17,7 @@ describe('Itens perdidos', () => {
         cy.get('tbody > :nth-child(1)').should('contain', "Oculos de sol preto")
         })
     it('Checagem da cafeteria', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('cafe3')
         cy.get('#password').type('cafe3')
@@ -27,7 +27,7 @@ describe('Itens perdidos', () => {
         cy.get('[action^="/marcar_item_achado/"] > button').should('be.visible').click();
         })
     it('Checar se o item foi achado', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('123')
         cy.get('#password').type('123')
@@ -36,7 +36,7 @@ describe('Itens perdidos', () => {
         cy.get('tbody > tr > :nth-child(2)').should('contain', "achado")
         }) 
     it('Apagar item requisitado', () => {
-        cy.visit('/');
+        cy.visit('/')
         cy.get('.button').click()
         cy.get('#username').type('cafe3')
         cy.get('#password').type('cafe3')
