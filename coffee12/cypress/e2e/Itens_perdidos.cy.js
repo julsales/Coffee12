@@ -7,7 +7,7 @@ describe('Itens perdidos', () => {
         cy.get('#password').type('123')
         cy.get('button').click()
         cy.get('.cafe > a').click()
-        cy.get('[action="/add_to_historico/15/"] > .btn').click()
+        cy.get('[action^="/add_to_historico/"] > .btn').click()
         cy.get('[href="/historico/"]').click()
         cy.get('.solicitar-button').click()
         cy.get('#descricao').type('Oculos de sol preto')
