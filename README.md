@@ -138,7 +138,7 @@ História 6: Editar Perfil da Cafeteria e Adicionar Cardápio (Implementada)
     - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
 
 
-ChatGPT
+
 Cenário: Editar perfil da cafeteria na plataforma<br>
 **Dado** que o dono da cafeteria está logado na plataforma como usuário<br>
 **E** o dono da cafeteria possui um perfil cadastrado com o nome "Café da Esquina", endereço "Rua das Flores, 123" e telefone "(XX) XXXX-XXXX"<br>
