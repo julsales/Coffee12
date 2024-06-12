@@ -39,9 +39,11 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 ## ScreenCast's:
 
-[Screencast Mockup](https://youtu.be/ejQEUXkaveA)
+[Screencast Mockup de Baixa Fidelidade](https://youtu.be/ejQEUXkaveA)
 
 [Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
+
+[Screencast Implementação Para o SR2](https://youtu.be/SWBmWlas7Jo)
 
 
 ## Deployment na Azure
