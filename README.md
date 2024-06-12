@@ -41,9 +41,15 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 ## ScreenCast's:
 
+### SR1
+
 [Screencast Mockup de Baixa Fidelidade](https://youtu.be/ejQEUXkaveA)
 
 [Screencast Implementação Para o SR1](https://youtu.be/7aSX_eD-i7M)
+
+### SR2
+
+[Screencast Mockup de Media Fidelidade](https://youtu.be/-LEJ8bqCEFs)
 
 [Screencast Implementação Para o SR2](https://youtu.be/SWBmWlas7Jo)
 
