@@ -37,6 +37,8 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Protótipo De Baixa Fidelidade](https://lucid.app/lucidspark/826e0ab7-e4ec-4569-869a-10c4e6e42f82/edit?invitationId=inv_f55a1a31-7dd9-4893-a238-159cd9c78211&page=0_0#)
 
+[Protótipo De Média Fidelidade](https://www.figma.com/design/X0xbd8GQEqfYpGZKV1Qcbi/Protótipo-G12?node-id=601-5967)
+
 ## ScreenCast's:
 
 [Screencast Mockup de Baixa Fidelidade](https://youtu.be/ejQEUXkaveA)
@@ -213,10 +215,14 @@ Cenário 1: Usuário visualiza histórico de visitas<br>
 
 ## Diagrama de Atividades do Sistema:
 
-
+-SR1-
 ![diagrama-de-atividades](https://github.com/julsales/Coffee12/assets/143560144/fbee1388-6fe5-4414-8629-d1aa3cb31d91)
 
+<br>
 
+-SR2-
+
+![Diagrama de atividade (2)](https://github.com/julsales/Coffee12/assets/142419446/abfcae11-b130-42cb-a513-3932332c97f0)
 
 # BugTracker
 ![image](https://github.com/julsales/Coffee12/assets/134211506/abe919d3-0ded-468b-a0a6-e37f24922257)
@@ -234,6 +240,8 @@ A maior vantagem encontrada foi a redução na quantidade de bugs, como eram dua
 Nosso maior desafio foi manter a concentração era um pouco desafiador às vezes, afinal fazer código pode ser bem cansativo.
 
 No fim das contas, o Pair Programming se provou um método eficiente de trabalho, melhorando a qualidade do código e até fortalecendo laços na equipe. Uma boa experiência de aprendizado.
+
+[Docs do relato](https://docs.google.com/document/d/1kQpDnv8yoh_O1iIhTMe0Kr9lalcErUEXk4kpVVqKz8E/edit?usp=sharing)
 
 # Telas Protótipo lo-fi
 
