@@ -220,6 +220,7 @@ https://cafedagente.azurewebsites.net
   - **E** o dono da cafeteria clica no botão "Cadastrar Fornecedor"
   - **Então** o sistema deve registrar o fornecedor com as informações fornecidas
 </details>
+
 ## Diagrama de Atividades do Sistema:
 
 -SR1-
