@@ -7,7 +7,7 @@ describe('Itens perdidos', () => {
         cy.get('#password').type('123')
         cy.get('button').click()
         cy.get('.cafe > a').click()
-        cy.get('[action^="/add_to_historico/"] > .btn').click()
+        cy.get('[action^="/add_to_historico/"] > .btn').should('be.visible').click()
         cy.get('[href="/historico/"]').click()
         cy.get('.solicitar-button').click()
         cy.get('#descricao').type('Oculos de sol preto')
@@ -24,7 +24,7 @@ describe('Itens perdidos', () => {
         cy.get('button').click()
         cy.get('[href="/solicita%C3%A7%C3%B5es/"]').click()
         cy.get('tbody > tr > :nth-child(1)').should('contain', "Oculos de sol preto")
-        cy.get('[action^="/marcar_item_achado/"] > button').click();
+        cy.get('[action^="/marcar_item_achado/"] > button').should('be.visible').click();
         })
     it('Checar se o item foi achado', () => {
         cy.visit('/');
