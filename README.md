@@ -56,7 +56,7 @@ https://cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
 <details>
-  <summary>História 1: Requisitar itens esquecidos na cafeteria ( Implementada )</summary>
+  <summary>História 1: Requisitar itens esquecidos na cafeteria ( Implementada SR2 )</summary>
 
 - Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
   - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
@@ -82,7 +82,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 2: Remoção de itens do cardápio ( Implementada )</summary>
+  <summary>História 2: Remoção de itens do cardápio ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
   - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
@@ -96,7 +96,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 3: Dar Feedbacks sobre Cafeterias Visitadas (Implementada)</summary>
+  <summary>História 3: Dar Feedbacks sobre Cafeterias Visitadas ( Implementada SR2 )</summary>
 
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
   - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
@@ -112,7 +112,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 4: Evidenciar Pratos Principais e Promoções (Implementada)</summary>
+  <summary>História 4: Evidenciar Pratos Principais e Promoções ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
   - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
@@ -133,7 +133,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 5: Cadastrar Perfil da Cafeteria (Implementada)</summary>
+  <summary>História 5: Cadastrar Perfil da Cafeteria ( Implementada SR1 )</summary>
 
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
   - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
@@ -149,7 +149,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 6: Alterar o Cardápio da Cafeteria (Implementada)</summary>
+  <summary>História 6: Alterar o Cardápio da Cafeteria ( Implementada SR1 )</summary>
 
 - Eu como dono de cafeteria gostaria de poder alterar o cardápio da minha cafeteria.
   - Descrição: O dono da cafeteria pode adicionar ou remover itens de seu cardápio a qualquer momento.
@@ -164,7 +164,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 7: Cadastro de Pedidos na Cafeteria (Implementada)</summary>
+  <summary>História 7: Cadastro de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria gostaria de cadastrar um pedido na minha cafeteria.
   - Descrição: O dono da cafeteria pode cadastrar pedidos realizados pelos clientes no sistema para fins de gerenciamento e controle.
@@ -179,7 +179,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 8: Atualização de Pedidos na Cafeteria (Implementada)</summary>
+  <summary>História 8: Atualização de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria gostaria de atualizar um pedido na minha cafeteria.
   - Descrição: O dono da cafeteria pode atualizar o status dos pedidos realizados pelos clientes, indicando se estão em preparação, prontos para entrega, etc.
@@ -193,7 +193,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 9: Consulta de Pedidos na Cafeteria (Implementada)</summary>
+  <summary>História 9: Consulta de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria gostaria de consultar os pedidos realizados na minha cafeteria.
   - Descrição: O dono da cafeteria pode visualizar todos os pedidos realizados, juntamente com seus status e detalhes.
@@ -206,7 +206,7 @@ https://cafedagente.azurewebsites.net
 </details>
 
 <details>
-  <summary>História 10: Cadastro de Fornecedores da Cafeteria (Implementada)</summary>
+  <summary>História 10: Cadastro de Fornecedores da Cafeteria ( Implementada SR2 )</summary>
 
 - Eu como dono de cafeteria gostaria de cadastrar fornecedores para minha cafeteria.
   - Descrição: O dono da cafeteria pode registrar fornecedores de produtos e insumos utilizados no estabelecimento.
