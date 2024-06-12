@@ -41,9 +41,11 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Screencast Mockup de Baixa Fidelidade](https://youtu.be/ejQEUXkaveA)
 
-[Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
+[Screencast Implementação Para o SR1](https://youtu.be/7aSX_eD-i7M)
 
 [Screencast Implementação Para o SR2](https://youtu.be/SWBmWlas7Jo)
+
+[Screencast de Testes do Sistema E CI\CD com Build e Deployment automatizado](https://youtu.be/z6082N5aFTo)
 
 
 ## Deployment na Azure
