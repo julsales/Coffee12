@@ -25,7 +25,7 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 11.Ícaro Barros → isb2@cesar.school
 
 
-## Links Importantes SR1
+## Links Importantes
 
 [Notion](https://distinct-rhubarb-0a9.notion.site/Notion-do-G12-3bfe1143afc6404eacf3dee57135c0dd?pvs=4)
 
@@ -37,13 +37,23 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 
 [Protótipo De Baixa Fidelidade](https://lucid.app/lucidspark/826e0ab7-e4ec-4569-869a-10c4e6e42f82/edit?invitationId=inv_f55a1a31-7dd9-4893-a238-159cd9c78211&page=0_0#)
 
+[Protótipo De Média Fidelidade](https://www.figma.com/design/X0xbd8GQEqfYpGZKV1Qcbi/Protótipo-G12?node-id=601-5967)
+
 ## ScreenCast's:
+
+### SR1
 
 [Screencast Mockup de Baixa Fidelidade](https://youtu.be/ejQEUXkaveA)
 
-[Screencast Implementação](https://youtu.be/7aSX_eD-i7M)
+[Screencast Implementação Para o SR1](https://youtu.be/7aSX_eD-i7M)
+
+### SR2
+
+[Screencast Mockup de Media Fidelidade](https://youtu.be/-LEJ8bqCEFs)
 
 [Screencast Implementação Para o SR2](https://youtu.be/SWBmWlas7Jo)
+
+[Screencast de Testes do Sistema E CI\CD com Build e Deployment automatizado](https://youtu.be/z6082N5aFTo)
 
 
 ## Deployment na Azure
@@ -51,173 +61,185 @@ Repositório do grupo 12 da cadeira de Projetos 2 da Cesar School
 https://cafedagente.azurewebsites.net
 
 ## Histórias do Usuário:
+<details>
+  <summary>História 1: Requisitar itens esquecidos na cafeteria ( Implementada SR2 )</summary>
 
-História 1: Requisitar itens esquecidos na cafeteria ( Implementada )
 - Eu como usuário, gostaria de poder requisitar alguns itens que eu possa ter perdido no estabelecimento.
-    - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
+  - Descrição: O usuário envia uma requisição ao estabelecimento que pode responder se encontrou ou não o item do cliente.
 
-Cenário 1: Usuário envia uma solicitação de item perdido<br>
-    **Dado** que o usuário está na página de solicitação de itens perdidos<br>
-    **Quando** o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"<br>
-    **E** o usuário clica no botão de enviar<br>
-    **Então** o sistema deve salvar a solicitação<br>
-    **E** o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"<br>
+**Cenário 1: Usuário envia uma solicitação de item perdido**
+  - **Dado** que o usuário está na página de solicitação de itens perdidos
+  - **Quando** o usuário insere a descrição do item "Guarda-chuva preto com cabo de madeira"
+  - **E** o usuário clica no botão de enviar
+  - **Então** o sistema deve salvar a solicitação
+  - **E** o sistema deve exibir uma mensagem de confirmação "Sua solicitação foi enviada"
 
-  Cenário 2: Estabelecimento responde a uma solicitação de item perdido<br>
-    **Dado** que o estabelecimento recebeu uma solicitação de item perdido<br>
-    **Quando** o estabelecimento encontra o item descrito como "Guarda-chuva preto com cabo de madeira"<br>
-    **E** o estabelecimento atualiza o status da solicitação para "Encontrado"<br>
-    **Então** o usuário deve ser notificado de que seu item foi encontrado<br>
+**Cenário 2: Estabelecimento responde a uma solicitação de item perdido**
+  - **Dado** que o estabelecimento recebeu uma solicitação de item perdido
+  - **Quando** o estabelecimento encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
+  - **E** o estabelecimento atualiza o status da solicitação para "Encontrado"
+  - **Então** o usuário deve ser notificado de que seu item foi encontrado
 
-  Cenário 3: Estabelecimento responde negativamente a uma solicitação de item perdido<br>
-    **Dado** que o estabelecimento recebeu uma solicitação de item perdido<br>
-    **Quando** o estabelecimento não encontra o item descrito como "Guarda-chuva preto com cabo de madeira"<br>
-    **E** o estabelecimento atualiza o status da solicitação para "Não Encontrado"<br>
-    **Então** o usuário deve ser notificado de que seu item não foi encontrado<br>
+**Cenário 3: Estabelecimento responde negativamente a uma solicitação de item perdido**
+  - **Dado** que o estabelecimento recebeu uma solicitação de item perdido
+  - **Quando** o estabelecimento não encontra o item descrito como "Guarda-chuva preto com cabo de madeira"
+  - **E** o estabelecimento atualiza o status da solicitação para "Não Encontrado"
+  - **Então** o usuário deve ser notificado de que seu item não foi encontrado
+</details>
 
-História 2: Remoção de itens do cardápio ( Implementada )
+<details>
+  <summary>História 2: Remoção de itens do cardápio ( Implementada SR2 )</summary>
+
 - Eu como dono de cafeteria, gostaria de poder remover itens específicos do meu cardápio.
-    - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
-      
-Cenário 1: Dono de cafeteria remove um item do cardápio<br>
-**Dado** que o dono da cafeteria está logado na plataforma administrativa<br>
-**E** o dono acessa a página de gerenciamento do cardápio<br>
-**Quando** o dono digita o nome do item "Café Espresso" para remoção<br>
-**E** o dono confirma a remoção do item<br>
-**Então** o sistema deve remover o item "Café Espresso" do cardápio<br>
+  - Descrição: O dono da cafeteria, poderia remover itens do cardápio, seja para altera-los ou para simplesmente retira-los do menu do estabelecimento.
 
+**Cenário 1: Dono de cafeteria remove um item do cardápio**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono acessa a página de gerenciamento do cardápio
+  - **Quando** o dono digita o nome do item "Café Espresso" para remoção
+  - **E** o dono confirma a remoção do item
+  - **Então** o sistema deve remover o item "Café Espresso" do cardápio
+</details>
 
-História 3: Dar Feedbacks sobre Cafeterias Visitadas (Implementada)
+<details>
+  <summary>História 3: Dar Feedbacks sobre Cafeterias Visitadas ( Implementada SR2 )</summary>
+
 - Eu como usuário gostaria de poder dar feedbacks referentes à cafeterias que visitei
-    - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
+  - Descrição: o usuário pode avaliar com notas de 1 a 5, juntamente de comentários, cafeterias das quais ele já foi frequentou.
 
-Cenário 1: Usuário dá feedback sobre cafeteria visitada<br>
-**Dado** que o usuário está logado na plataforma<br>
-**E** o usuário está visualizando o perfil da cafeteria que visitou<br>
-**Quando** o usuário clica no botão "Dar Feedback" no perfil da cafeteria<br>
-**E** o usuário seleciona uma nota de avaliação de 0 a 5<br>
-**E** o usuário escreve um comentário sobre sua experiência<br>
-**E** o usuário confirma o envio do feedback<br>
-**Então** o sistema deve registrar o feedback com a nota e o comentário fornecidos pelo usuário<br>
+**Cenário 1: Usuário dá feedback sobre cafeteria visitada**
+  - **Dado** que o usuário está logado na plataforma
+  - **E** o usuário está visualizando o perfil da cafeteria que visitou
+  - **Quando** o usuário clica no botão "Dar Feedback" no perfil da cafeteria
+  - **E** o usuário seleciona uma nota de avaliação de 0 a 5
+  - **E** o usuário escreve um comentário sobre sua experiência
+  - **E** o usuário confirma o envio do feedback
+  - **Então** o sistema deve registrar o feedback com a nota e o comentário fornecidos pelo usuário
+</details>
 
-História 4: Evidenciar Pratos Principais e Promoções (Implementada)
+<details>
+  <summary>História 4: Evidenciar Pratos Principais e Promoções ( Implementada SR2 )</summary>
+
 - Eu como dono de cafeteria, gostaria de poder evidenciar os “pratos principais” e promoções do meu estabelecimento no perfil da minha cafeteria.
-    - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
+  - Descrição: o responsável pelo estabelecimento pode demonstrar os pratos principais e promoções de sua cafeteria em seu perfil. Exemplo:  “Promoção de Abril : MilkShake de Café R$ 18,00 por R$ 15,00 ; Tapioca de coco ralado R$ 15,50 por R$ 12,50 “
 
-Cenário 1: Exibir prato principal sem promoção no perfil da cafeteria<br>
-**Dado** que o dono da cafeteria está logado na plataforma<br>
-**E** o dono da cafeteria cadastrou um prato principal chamado "Frango Grelhado"<br>
-**E** o preço do "Frango Grelhado" é R$ 25,00 e não há promoção<br>
-**Quando** o dono da cafeteria visualiza o perfil da cafeteria<br>
-**Então** o sistema deve exibir o "Frango Grelhado" com o preço R$ 25,00 sem indicar promoção<br>
+**Cenário 1: Exibir prato principal sem promoção no perfil da cafeteria**
+  - **Dado** que o dono da cafeteria está logado na plataforma
+  - **E** o dono da cafeteria cadastrou um prato principal chamado "Frango Grelhado"
+  - **E** o preço do "Frango Grelhado" é R$ 25,00 e não há promoção
+  - **Quando** o dono da cafeteria visualiza o perfil da cafeteria
+  - **Então** o sistema deve exibir o "Frango Grelhado" com o preço R$ 25,00 sem indicar promoção
 
-Cenário 2: Exibir prato principal com promoção no perfil da cafeteria<br>
-**Dado que o dono da cafeteria está logado na plataforma<br>
-**E** o dono da cafeteria cadastrou um prato principal chamado "Milkshake de Morango"<br>
-**E** o preço do "Milkshake de Morango" é R$ 15,00 e há uma promoção de R$ 12,00<br>
-**Quando** o dono da cafeteria visualiza o perfil da cafeteria<br>
-**Então** o sistema deve exibir o "Milkshake de Morango" com o preço cortado de R$ 15,00 e o preço promocional de R$ 12,00 ao lado
+**Cenário 2: Exibir prato principal com promoção no perfil da cafeteria**
+  - **Dado que o dono da cafeteria está logado na plataforma
+  - **E** o dono da cafeteria cadastrou um prato principal chamado "Milkshake de Morango"
+  - **E** o preço do "Milkshake de Morango" é R$ 15,00 e há uma promoção de R$ 12,00
+  - **Quando** o dono da cafeteria visualiza o perfil da cafeteria
+  - **Então** o sistema deve exibir o "Milkshake de Morango" com o preço cortado de R$ 15,00 e o preço promocional de R$ 12,00 ao lado
+</details>
 
+<details>
+  <summary>História 5: Cadastrar Perfil da Cafeteria ( Implementada SR1 )</summary>
 
-
-História 5: Cadastrar Perfil da Cafeteria (Implementada)
 - Eu como dono de cafeteria, gostaria de cadastrar o perfil da minha cafeteria na plataforma, juntamente de seu nome, endereço e horários de funcionamento.
-    - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
+  - Descrição: O dono da cafeteria poderá ter um perfil da cafeteria para registrar  endereço do estabelecimento, nome do estabelecimento, telefone.
 
-Cenário: Cadastrar perfil da cafeteria na plataforma<br>
-**Dado** que o dono da cafeteria está logado na plataforma como usuário<br>
-**E** não possui uma cafeteria cadastrada no sistema<br>
-**Quando** o dono da cafeteria acessa a página de cadastro do perfil da cafeteria<br>
-**E** o dono da cafeteria preenche o campo "Nome do Estabelecimento" com "Café da Esquina"<br>
-**E** o dono da cafeteria preenche o campo "Endereço" com "Rua das Flores, 123"<br>
-**E** o dono da cafeteria preenche o campo "Telefone" com "(XX) XXXX-XXXX"<br>
-**E** o dono da cafeteria clica no botão de cadastrar perfil<br>
-**Então** o sistema deve registrar o perfil da cafeteria com o nome "Café da Esquina", endereço "Rua das Flores, 123" e telefone "(XX) XXXX-XXXX"
+**Cenário: Cadastrar perfil da cafeteria na plataforma**
+  - **Dado** que o dono da cafeteria está na página de cadastro de perfil da cafeteria
+  - **Quando** o dono da cafeteria preenche o campo "Nome da Cafeteria" com "Café da Esquina"
+  - **E** o dono da cafeteria preenche o campo "Endereço" com "Rua das Flores, 123"
+  - **E** o dono da cafeteria preenche o campo "Telefone" com "(11) 98765-4321"
+  - **E** o dono da cafeteria preenche o campo "Horário de Funcionamento" com "Seg a Sex: 08:00 - 18:00, Sáb: 09:00 - 14:00"
+  - **E** o dono da cafeteria clica no botão "Cadastrar"
+  - **Então** o sistema deve registrar o perfil da cafeteria com as informações fornecidas
+</details>
 
-  
-História 6: Editar Perfil da Cafeteria e Adicionar Cardápio (Implementada)
-- Eu como dono de cafeteria, gostaria de poder editar o perfil da minha cafeteria na plataforma e registrar os itens disponíveis no cardápio
-    - Descrição: O dono da cafeteria poderá editar o perfil da cafeteria para adicionar o cardápio e editar endereço do estabelecimento, nome, telefone.
+<details>
+  <summary>História 6: Alterar o Cardápio da Cafeteria ( Implementada SR1 )</summary>
 
+- Eu como dono de cafeteria gostaria de poder alterar o cardápio da minha cafeteria.
+  - Descrição: O dono da cafeteria pode adicionar ou remover itens de seu cardápio a qualquer momento.
 
+**Cenário: Dono de cafeteria altera o cardápio**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono da cafeteria acessa a página de gerenciamento do cardápio
+  - **Quando** o dono da cafeteria adiciona um novo item chamado "Bolo de Cenoura"
+  - **E** o dono da cafeteria remove um item chamado "Café Expresso"
+  - **Então** o sistema deve exibir o item "Bolo de Cenoura" no cardápio
+  - **E** o sistema deve remover o item "Café Expresso" do cardápio
+</details>
 
-Cenário: Editar perfil da cafeteria na plataforma<br>
-**Dado** que o dono da cafeteria está logado na plataforma como usuário<br>
-**E** o dono da cafeteria possui um perfil cadastrado com o nome "Café da Esquina", endereço "Rua das Flores, 123" e telefone "(XX) XXXX-XXXX"<br>
-**Quando**o dono da cafeteria acessa a página de edição do perfil da cafeteria<br>
-**E** o dono da cafeteria edita o campo "Nome do Estabelecimento" para "Café do Bairro"<br>
-**E** o dono da cafeteria edita o campo "Endereço" para "Avenida Principal, 456"<br>
-**E** o dono da cafeteria edita o campo "Telefone" para "(YY) YYYY-YYYY"<br>
-**E** o dono da cafeteria clica no botão de salvar alterações<br>
-**Então** o sistema deve atualizar o perfil da cafeteria com o nome "Café do Bairro", endereço "Avenida Principal, 456" e telefone "(YY) YYYY-YYYY"
+<details>
+  <summary>História 7: Cadastro de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
-História 7: Reserva de Mesas Online (Implementada)
-- Eu como usuário, gostaria de poder reservar mesas em cafeterias diretamente pela plataforma.
-    - Descrição: Os usuários poderão verificar a disponibilidade e fazer reservas de mesas em suas cafeterias favoritas através da plataforma, evitando filas e garantindo um lugar.
+- Eu como dono de cafeteria gostaria de cadastrar um pedido na minha cafeteria.
+  - Descrição: O dono da cafeteria pode cadastrar pedidos realizados pelos clientes no sistema para fins de gerenciamento e controle.
 
-Cenário 1: Usuário envia solicitação de reserva de mesa<br>
-**Dado** que o usuário está na página de reserva de mesa da cafeteria desejada<br>
-**Quando** o usuário seleciona a data, horário e quantidade de pessoas desejados para a reserva<br>
-**E** o usuário clica no botão "Enviar Reserva"<br>
-**Então** o sistema registra a solicitação de reserva do usuário<br>
+**Cenário: Dono de cafeteria cadastra um pedido**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono da cafeteria acessa a página de cadastro de pedidos
+  - **Quando** o dono da cafeteria insere o nome do cliente "João Silva"
+  - **E** o dono da cafeteria seleciona o item "Café com Leite" do cardápio
+  - **E** o dono da cafeteria clica no botão "Cadastrar Pedido"
+  - **Então** o sistema deve registrar o pedido com o nome do cliente e o item selecionado
+</details>
 
-Cenário 2: Dono do estabelecimento visualiza e confirma reserva de mesa<br>
-**Dado** que o dono da cafeteria está na página de gerenciamento de reservas<br>
-**Quando** o dono visualiza a lista de solicitações de reserva de mesas pendentes<br>
-**E** encontra uma solicitação para a data e horário desejados<br>
-**Então** o dono verifica a disponibilidade de mesas para a quantidade de pessoas informada na solicitação<br>
-**E** se houver mesas disponíveis para a quantidade de pessoas especificada na reserva<br>
-**Então** o dono confirma a reserva e exibe uma mensagem de confirmação ao usuário<br>
+<details>
+  <summary>História 8: Atualização de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
+- Eu como dono de cafeteria gostaria de atualizar um pedido na minha cafeteria.
+  - Descrição: O dono da cafeteria pode atualizar o status dos pedidos realizados pelos clientes, indicando se estão em preparação, prontos para entrega, etc.
 
-Cenário 3: Dono do estabelecimento não encontra mesas disponíveis<br>
-**Dado** que o dono da cafeteria está na página de gerenciamento de reservas<br>
-**Quando** o dono visualiza a lista de solicitações de reserva de mesas pendentes<br>
-**E** encontra uma solicitação para a data e horário desejados<br>
-**E** verifica que não há mesas disponíveis para a quantidade de pessoas informada na solicitação<br>
-**Então** o dono informa ao usuário que não há mesas disponíveis para a data e horário especificados<br>
+**Cenário: Dono de cafeteria atualiza um pedido**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono da cafeteria acessa a página de gerenciamento de pedidos
+  - **Quando** o dono da cafeteria seleciona um pedido realizado por "Maria Oliveira"
+  - **E** o dono da cafeteria altera o status do pedido para "Em Preparação"
+  - **Então** o sistema deve atualizar o status do pedido para "Em Preparação"
+</details>
 
- 
-História 8: Adicionae Cafeterias aos Favoritos (Implementada)
-- Eu como usuário, gostaria adicionar cafeterias aos favoritos para que elas estajam de mais fácil acesso ao visitar a página principal.
-    - Descrição: Os perfis das cafeterias poderão ser adicionadas aos favoritos e estarão disponíveis em uma aba dedicada às cafeterias favoritas na página principal.
-Cenário 1: Usuário adiciona cafeteria aos favoritos<br>
-**Dado** que o usuário está visualizando o perfil de uma cafeteria<br>
-**Quando** o usuário clica no botão "Adicionar aos Favoritos"<br>
-**Então** o sistema adiciona a cafeteria aos favoritos do usuário<br>
- 
-História 9: Visualizar feedbacks (Implementada)
-- Eu como dono de cafeteria, gostaria de poder visualizar os feedbacks direcionados ao meu estabelecimento.
-    - Descrição: o responsável pelo estabelecimento pode acessar e visualizar os feedbacks recebidos, possibilitando a análise de comentários, críticas e sugestões dos clientes para melhorar a qualidade do serviço e produtos    oferecidos. Exemplo: "Feedback de Junho: 'Excelente atendimento e ambiente acolhedor, porém a tapioca estava um pouco seca' - João Silva; 'Adorei o novo milkshake de café, voltarei mais vezes!' - Maria Oliveira".
+<details>
+  <summary>História 9: Consulta de Pedidos na Cafeteria ( Implementada SR2 )</summary>
 
-Cenário 1: Dono de cafeteria visualiza feedbacks recebidos<br>
-**Dado** que o dono de cafeteria está logado na plataforma<br>
-**Quando** o dono acessa a seção de feedbacks do seu estabelecimento<br>
-**Então** o sistema exibe uma lista dos feedbacks recebidos, incluindo comentários, notas e nomes dos clientes<br>
-**E** o dono pode visualizar detalhes de cada feedback para análise<br>
- 
-História 10: Histórico de Visitas (Implementada)
-- Eu como usuário, gostaria de ver um histórico das cafeterias que visitei através da plataforma.
-    - Descrição: O sistema manterá um registro das visitas anteriores dos usuários às cafeterias, permitindo que revisitem facilmente.
+- Eu como dono de cafeteria gostaria de consultar os pedidos realizados na minha cafeteria.
+  - Descrição: O dono da cafeteria pode visualizar todos os pedidos realizados, juntamente com seus status e detalhes.
 
-Cenário 1: Usuário visualiza histórico de visitas<br>
-**Dado** que o usuário está logado na plataforma<br>
-**Quando** o usuário acessa a seção de histórico de visitas<br>
-**Então** o sistema exibe uma lista das cafeterias previamente visitadas pelo usuário, ordenadas por data da visita mais recente<br>
- 
+**Cenário: Dono de cafeteria consulta pedidos realizados**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono da cafeteria acessa a página de consulta de pedidos
+  - **Quando** o dono da cafeteria visualiza a lista de pedidos realizados
+  - **Então** o sistema deve exibir todos os pedidos com seus respectivos status e detalhes
+</details>
 
+<details>
+  <summary>História 10: Cadastro de Fornecedores da Cafeteria ( Implementada SR2 )</summary>
 
+- Eu como dono de cafeteria gostaria de cadastrar fornecedores para minha cafeteria.
+  - Descrição: O dono da cafeteria pode registrar fornecedores de produtos e insumos utilizados no estabelecimento.
 
+**Cenário: Dono de cafeteria cadastra um fornecedor**
+  - **Dado** que o dono da cafeteria está logado na plataforma administrativa
+  - **E** o dono da cafeteria acessa a página de cadastro de fornecedores
+  - **Quando** o dono da cafeteria insere o nome do fornecedor "Distribuidora de Alimentos XYZ"
+  - **E** o dono da cafeteria insere o telefone do fornecedor "(11) 98765-4321"
+  - **E** o dono da cafeteria insere o e-mail do fornecedor "contato@xyzalimentos.com"
+  - **E** o dono da cafeteria clica no botão "Cadastrar Fornecedor"
+  - **Então** o sistema deve registrar o fornecedor com as informações fornecidas
+</details>
 
 ## Diagrama de Atividades do Sistema:
 
-
+-SR1-
 ![diagrama-de-atividades](https://github.com/julsales/Coffee12/assets/143560144/fbee1388-6fe5-4414-8629-d1aa3cb31d91)
 
+<br>
 
+-SR2-
+![Diagrama de atividade (2)](https://github.com/julsales/Coffee12/assets/142419446/abfcae11-b130-42cb-a513-3932332c97f0)
 
-# BugTracker
-![image](https://github.com/julsales/Coffee12/assets/134211506/abe919d3-0ded-468b-a0a6-e37f24922257)
+# BugTracker atualizado
+
+![image](https://github.com/julsales/Coffee12/assets/142419446/4b7e10f2-798c-4f57-86aa-b697a844afd8)
 
 
 # Programação em Pares
@@ -233,12 +255,13 @@ Nosso maior desafio foi manter a concentração era um pouco desafiador às veze
 
 No fim das contas, o Pair Programming se provou um método eficiente de trabalho, melhorando a qualidade do código e até fortalecendo laços na equipe. Uma boa experiência de aprendizado.
 
+[Docs do relato](https://docs.google.com/document/d/1kQpDnv8yoh_O1iIhTMe0Kr9lalcErUEXk4kpVVqKz8E/edit?usp=sharing)
+
 # Telas Protótipo lo-fi
 
 ![Telas juntas](https://github.com/julsales/Coffee12/assets/133444972/0b58f532-cfb2-4aa4-b0ed-8207404af77f)
 
-
-  
+ 
 
 ## Todas as Etapas que Fizemos até Agora Para o SR1
 ![Captura de tela 2024-05-13 114153](https://github.com/julsales/Coffee12/assets/152215002/7eba2202-37d5-4255-b85a-ae35ee4f9383)
